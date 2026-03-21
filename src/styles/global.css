@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/500.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
+@import '@fontsource/plus-jakarta-sans/400-italic.css';
+
+@theme {
+  --color-primary: #b70100;
+  --color-primary-container: #e60000;
+  --color-secondary: #465f88;
+  --color-secondary-container: #b6d0ff;
+  --color-tertiary: #366430;
+  --color-tertiary-fixed: #bcf0ae;
+  --color-surface: #fdf9f3;
+  --color-surface-container-low: #f7f3ed;
+  --color-surface-container-high: #ebe8e2;
+  --color-surface-container-highest: #e6e2dc;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #1c1c18;
+  --color-on-surface-variant: #5f3f3a;
+  --color-outline: #946e68;
+  --color-outline-variant: #e9bcb5;
+  --color-inverse-surface: #31302d;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --radius-hearth: 24px 8px 24px 8px;
+}
+
+:root {
+  --primary: #b70100;
+  --primary-container: #e60000;
+  --secondary: #465f88;
+  --tertiary: #366430;
+  --tertiary-fixed: #bcf0ae;
+  --surface: #fdf9f3;
+  --surface-container-low: #f7f3ed;
+  --surface-container-high: #ebe8e2;
+  --surface-container-highest: #e6e2dc;
+  --surface-container-lowest: #ffffff;
+  --on-surface: #1c1c18;
+  --on-surface-variant: #5f3f3a;
+  --outline: #946e68;
+  --outline-variant: #e9bcb5;
+  --secondary-container: #b6d0ff;
+  --inverse-surface: #31302d;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background-color: var(--surface);
+  color: var(--on-surface);
+}

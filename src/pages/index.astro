@@ -1,7 +1,213 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import HearthNote from '../components/ui/HearthNote.astro';
+import ERateBadge from '../components/ui/ERateBadge.astro';
+import CheckIcon from '../components/ui/CheckIcon.astro';
 ---
 
-<BaseLayout title="Umbrella Systems — Managed IT for Schools & Businesses">
-  <!-- Home page content will be implemented by Frontend Developer agent -->
+<BaseLayout
+  title="Managed IT for Minnesota Charter Schools | Umbrella Systems"
+  description="Umbrella Systems is outsourced IT for Minnesota charter schools. On-site support, network management, E-Rate optimization, and flat-rate pricing. No surprises."
+>
+  <!-- Hero Section -->
+  <section class="relative px-6 lg:px-8 py-20 lg:py-32 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7 z-10">
+      <span class="inline-block bg-secondary-container text-secondary px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
+        Outsourced IT for Minnesota Schools
+      </span>
+      <h1 class="font-extrabold text-5xl lg:text-7xl leading-[1.1] tracking-tight text-on-surface mb-8">
+        The IT department you'd build — <span class="text-primary italic">if you could.</span>
+      </h1>
+      <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
+        Umbrella Systems is your embedded IT team. We handle everything from Chromebooks to cybersecurity, on-site and remote, so your staff can focus on students — not troubleshooting.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <Button href="/contact">Schedule a Visit</Button>
+        <Button variant="secondary" href="/services/managed-it">See Our Services</Button>
+      </div>
+    </div>
+    <div class="lg:col-span-5 relative">
+      <div class="relative w-full aspect-square rounded-[2.5rem] overflow-hidden rotate-2 shadow-2xl bg-surface-container-high flex items-center justify-center">
+        <span class="text-on-surface-variant text-sm font-medium text-center px-8">Hero Image — IT staff helping a teacher in a classroom</span>
+      </div>
+      <HearthNote class="absolute -bottom-10 -left-10 max-w-[280px] shadow-lg">
+        <p class="text-on-surface font-medium italic text-sm">"We don't just fix Wi-Fi; we make sure every student stays connected to learning."</p>
+      </HearthNote>
+    </div>
+  </section>
+
+  <!-- Core Message Band -->
+  <section class="py-16 lg:py-20 px-6 lg:px-8 bg-surface-container-highest">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="font-extrabold text-3xl lg:text-5xl text-on-surface mb-4">
+        "If it plugs in, connects to Wi-Fi, or needs a login — we support it."
+      </h2>
+      <div class="w-24 h-1 bg-primary mx-auto rounded-full mt-6"></div>
+    </div>
+  </section>
+
+  <!-- Services Bento Grid -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="font-medium tracking-[0.2em] text-secondary uppercase mb-4 text-sm block">Our Services</span>
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-on-surface">Everything your school needs, covered.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
+      <!-- Managed IT -->
+      <div class="md:col-span-2 bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
+        <h3 class="text-2xl font-bold mb-4">Managed IT</h3>
+        <p class="text-on-surface-variant leading-relaxed">On-site support scaled to your school, unlimited remote helpdesk, full device lifecycle management, and identity & access administration. No hourly rates. No caps. No surprises.</p>
+        <a href="/services/managed-it" class="mt-6 text-secondary font-bold inline-flex items-center gap-2 group hover:text-primary transition-colors">
+          Learn More
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+
+      <!-- Network & Infrastructure -->
+      <div class="bg-surface-container-high p-8 rounded-xl border border-outline-variant/15">
+        <ERateBadge class="mb-4" />
+        <h3 class="text-xl font-bold mb-3">Network & Infrastructure</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">24/7 monitoring, firewall management, wireless optimization, and disaster recovery. We keep your network running at 99.9% uptime — and we handle the E-Rate paperwork to fund it.</p>
+        <a href="/services/network-infrastructure" class="mt-4 text-secondary font-bold inline-flex items-center gap-2 text-sm group hover:text-primary transition-colors">
+          Learn More
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+
+      <!-- IT Leadership -->
+      <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/15">
+        <h3 class="text-xl font-bold mb-3">IT Leadership</h3>
+        <p class="text-sm text-on-surface-variant leading-relaxed">Strategic technology planning, hardware procurement at vendor-direct pricing, compliance oversight, and long-term roadmapping. Think of it as a vCIO without the six-figure salary.</p>
+        <a href="/services/it-leadership" class="mt-4 text-secondary font-bold inline-flex items-center gap-2 text-sm group hover:text-primary transition-colors">
+          Learn More
+          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+
+      <!-- Security Systems -->
+      <div class="lg:col-span-2 bg-secondary-container p-8 lg:p-10 rounded-xl flex flex-col md:flex-row gap-8 items-center border border-outline-variant/15">
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold mb-3">Security Systems</h3>
+          <p class="text-on-surface-variant/80 leading-relaxed">Professional installation, live monitoring dashboards, and ongoing maintenance. We design systems that keep your building secure without compromising student privacy.</p>
+          <a href="/services/security-cameras" class="mt-4 text-secondary font-bold inline-flex items-center gap-2 group hover:text-primary transition-colors">
+            Learn More
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </a>
+        </div>
+        <div class="w-full md:w-48 aspect-video rounded-xl bg-surface-container-high flex items-center justify-center">
+          <span class="text-on-surface-variant text-xs text-center px-4">Security camera monitoring</span>
+        </div>
+      </div>
+
+      <!-- Custom CTA Box -->
+      <div class="md:col-span-1 lg:col-span-2 bg-surface-container-low p-8 lg:p-10 rounded-xl border-2 border-dashed border-outline/30 flex flex-col justify-center items-center text-center">
+        <h3 class="text-xl font-bold mb-4">Need something custom?</h3>
+        <p class="text-on-surface-variant mb-6">We build solutions tailored to your school's specific needs.</p>
+        <a href="/contact" class="hand-drawn-underline text-secondary font-bold text-lg">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section aria-labelledby="social-proof-heading" class="py-20 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <h2 id="social-proof-heading" class="text-3xl md:text-4xl font-extrabold text-on-surface mb-4">Trusted by schools across Minnesota.</h2>
+      <p class="text-lg text-on-surface-variant">Partnered with Twin Cities German Immersion School, Sejong Academy, and other charter schools statewide.</p>
+    </div>
+  </section>
+
+  <!-- E-Rate Section -->
+  <section class="py-20 lg:py-24 bg-surface-container-highest">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl rotate-[-1deg] bg-surface-container-high aspect-[4/3] flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm font-medium text-center px-8">School environment with technology</span>
+        </div>
+      </div>
+      <div class="order-1 lg:order-2">
+        <span class="text-primary font-bold mb-4 block uppercase tracking-wider text-sm">E-Rate Funding</span>
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-8 leading-tight">E-Rate funding? We handle the whole thing.</h2>
+        <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+          E-Rate can cover up to 90% of your network support costs. Most schools know it exists — few have the time or expertise to navigate the process. We do it for you, start to finish.
+        </p>
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-center gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
+            <span class="font-medium text-on-surface">Eligibility assessment and funding strategy</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
+            <span class="font-medium text-on-surface">Application preparation and submission</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
+            <span class="font-medium text-on-surface">Vendor coordination and compliance documentation</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
+            <span class="font-medium text-on-surface">Ongoing reporting and renewal management</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
+            <span class="font-medium text-on-surface">Cost optimization to maximize your reimbursement</span>
+          </li>
+        </ul>
+        <Button href="/schools" variant="primary">Learn About E-Rate</Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">From the Blog</h2>
+      <p class="text-on-surface-variant text-lg">Practical takes on school IT, E-Rate, and technology strategy.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Blog Card 1 -->
+      <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="group block">
+        <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm">Blog post image</span>
+        </div>
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">E-Rate</span>
+        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Navigating E-Rate Deadlines for the 2026-2027 Year</h3>
+        <p class="text-sm text-on-surface-variant mb-4">A practical guide to key dates and what your school should be preparing now...</p>
+        <span class="text-xs text-outline font-medium uppercase">Coming Soon</span>
+      </a>
+      <!-- Blog Card 2 -->
+      <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="group block">
+        <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm">Blog post image</span>
+        </div>
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">Infrastructure</span>
+        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Is Your Network Ready for 1:1 Chromebooks?</h3>
+        <p class="text-sm text-on-surface-variant mb-4">Adding 500 devices is easy. Ensuring they all work at 8 AM on Monday is the real challenge...</p>
+        <span class="text-xs text-outline font-medium uppercase">Coming Soon</span>
+      </a>
+      <!-- Blog Card 3 -->
+      <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="group block">
+        <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm">Blog post image</span>
+        </div>
+        <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">Security</span>
+        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">FERPA Compliance in the Age of Cloud Everything</h3>
+        <p class="text-sm text-on-surface-variant mb-4">Protecting student privacy is more complex than ever. Here's what your IT team should be watching...</p>
+        <span class="text-xs text-outline font-medium uppercase">Coming Soon</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact/CTA Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 hearth-gradient">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl lg:text-5xl font-extrabold text-on-primary mb-6">Let's talk about your school's IT.</h2>
+      <p class="text-on-primary/90 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+        No pitch deck, no pressure. We'll walk through your current setup, answer your questions, and figure out if we're a good fit.
+      </p>
+      <a href="/contact" class="inline-flex items-center bg-surface text-primary px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
+        Schedule a Visit
+      </a>
+    </div>
+  </section>
 </BaseLayout>

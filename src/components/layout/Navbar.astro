@@ -1,6 +1,246 @@
 ---
-// Glassmorphism navigation bar
-// Implementation by Frontend Developer agent
+// Glassmorphism navigation bar with services dropdown and mobile menu
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Who We Serve', href: '/schools' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const serviceLinks = [
+  { label: 'Managed IT', href: '/services/managed-it' },
+  { label: 'Network & Infrastructure', href: '/services/network-infrastructure' },
+  { label: 'IT Leadership', href: '/services/it-leadership' },
+  { label: 'Security Cameras', href: '/services/security-cameras' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
 ---
 
-<!-- Navbar component placeholder -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-[12px] shadow-xl shadow-black/5" aria-label="Main navigation">
+  <div class="flex justify-between items-center w-full px-6 lg:px-8 py-4 max-w-7xl mx-auto">
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-extrabold tracking-tight text-primary-container flex items-center gap-2" aria-label="Umbrella Systems home">
+      <img src="/images/umbrella-icon.png" alt="Umbrella Systems" class="h-8 w-8" width="32" height="32" />
+      Umbrella Systems
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex items-center gap-8 font-medium text-sm tracking-wide">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'transition-colors py-1',
+            isActive(link.href)
+              ? 'text-primary border-b-2 border-primary font-bold'
+              : 'text-on-surface-variant hover:text-primary'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <!-- Services Dropdown -->
+      <div class="relative group">
+        <button
+          id="services-dropdown-btn"
+          class:list={[
+            'transition-colors py-1 flex items-center gap-1',
+            currentPath.startsWith('/services')
+              ? 'text-primary border-b-2 border-primary font-bold'
+              : 'text-on-surface-variant hover:text-primary'
+          ]}
+          aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="services-dropdown"
+        >
+          Services
+          <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="services-dropdown" class="absolute top-full left-1/2 -translate-x-1/2 pt-4 dropdown-closed transition-all duration-200">
+          <div class="bg-surface-container-lowest rounded-xl shadow-xl shadow-black/10 border border-outline-variant/15 p-3 min-w-[220px]">
+            {serviceLinks.map((link) => (
+              <a
+                href={link.href}
+                class:list={[
+                  'block px-4 py-3 rounded-lg text-sm transition-colors',
+                  isActive(link.href)
+                    ? 'bg-surface-container-high text-primary font-bold'
+                    : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
+                ]}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support Portal Button (desktop) -->
+    <a
+      href="https://umbrellasystems.screenconnect.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden lg:inline-flex bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold text-sm hover:opacity-90 transition-all duration-300 active:scale-95 shadow-lg shadow-primary/20"
+    >
+      Support Portal
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden p-2 text-on-surface-variant hover:text-primary transition-colors"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-surface-container-lowest/95 backdrop-blur-[12px] border-t border-outline-variant/15">
+    <div class="px-6 py-6 space-y-1 max-w-7xl mx-auto">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'block px-4 py-3 rounded-lg text-base font-medium transition-colors',
+            isActive(link.href)
+              ? 'bg-surface-container-high text-primary font-bold'
+              : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <div class="pt-2 pb-1 px-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-outline">Services</span>
+      </div>
+      {serviceLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'block px-4 py-3 rounded-lg text-base font-medium transition-colors pl-8',
+            isActive(link.href)
+              ? 'bg-surface-container-high text-primary font-bold'
+              : 'text-on-surface-variant hover:bg-surface-container-low hover:text-primary'
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+
+      <div class="pt-4">
+        <a
+          href="https://umbrellasystems.screenconnect.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block text-center bg-primary text-on-primary px-6 py-3 rounded-lg font-bold text-base shadow-lg shadow-primary/20"
+        >
+          Support Portal
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .dropdown-closed {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .dropdown-open {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<script>
+  // Mobile menu
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    if (!isOpen) {
+      const firstLink = menu?.querySelector('a');
+      firstLink?.focus();
+    }
+  });
+
+  // Close mobile menu on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !menu?.classList.contains('hidden')) {
+      menu?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+      btn?.focus();
+    }
+  });
+
+  // Services dropdown
+  const servicesBtn = document.getElementById('services-dropdown-btn');
+  const servicesPanel = document.getElementById('services-dropdown');
+  const servicesGroup = servicesBtn?.closest('.group');
+
+  function openDropdown() {
+    servicesPanel?.classList.add('dropdown-open');
+    servicesPanel?.classList.remove('dropdown-closed');
+    servicesBtn?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDropdown() {
+    servicesPanel?.classList.remove('dropdown-open');
+    servicesPanel?.classList.add('dropdown-closed');
+    servicesBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  // Desktop hover behavior
+  servicesGroup?.addEventListener('mouseenter', openDropdown);
+  servicesGroup?.addEventListener('mouseleave', closeDropdown);
+
+  // Click toggle for touch/keyboard
+  servicesBtn?.addEventListener('click', () => {
+    const isOpen = servicesPanel?.classList.contains('dropdown-open');
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  });
+
+  servicesBtn?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown();
+    }
+  });
+
+  // Close services dropdown on Escape from within
+  servicesPanel?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeDropdown();
+      servicesBtn?.focus();
+    }
+  });
+
+  // Close services dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!servicesBtn?.contains(e.target as Node) && !servicesPanel?.contains(e.target as Node)) {
+      closeDropdown();
+    }
+  });
+</script>

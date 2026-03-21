@@ -1,7 +1,114 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import HearthNote from '../../components/ui/HearthNote.astro';
+import CheckIcon from '../../components/ui/CheckIcon.astro';
 ---
 
-<BaseLayout title="Security Cameras — Umbrella Systems">
-  <!-- Security Cameras service page content will be implemented by Frontend Developer agent -->
+<BaseLayout
+  title="School Security Camera Installation | Umbrella Systems"
+  description="Professional security camera installation, live dashboards, and ongoing maintenance for schools and businesses in Minnesota. E-Rate eligible."
+>
+  <!-- Hero Section -->
+  <section class="relative px-6 lg:px-8 py-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7">
+      <span class="inline-block px-4 py-1.5 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase mb-6">Physical Security</span>
+      <h1 class="font-extrabold text-4xl lg:text-6xl text-on-surface leading-[1.1] mb-6">See your building clearly. Keep it secure simply.</h1>
+      <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">Professional security camera installation, live monitoring dashboards, and ongoing maintenance — designed for schools and businesses that need reliable coverage without the complexity.</p>
+      <div class="flex flex-wrap gap-4">
+        <Button href="/contact">Request a Site Survey</Button>
+        <Button variant="secondary" href="/services/network-infrastructure">Network Services</Button>
+      </div>
+    </div>
+    <div class="lg:col-span-5">
+      <div class="rounded-xl shadow-2xl rotate-1 aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
+        <span class="text-on-surface-variant text-sm text-center px-8">Security camera system</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Installation -->
+        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
+          <h3 class="text-2xl font-bold mb-4">Installation</h3>
+          <p class="text-on-surface-variant leading-relaxed">We handle the full installation — site survey, camera placement, cabling, mounting, and configuration. Every system is designed around your building's specific layout and security needs. We work during off-hours and breaks to minimize disruption.</p>
+        </div>
+        <!-- Live Dashboards -->
+        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all md:-translate-y-4">
+          <h3 class="text-2xl font-bold mb-4">Live Dashboards</h3>
+          <p class="text-on-surface-variant leading-relaxed">Real-time camera feeds accessible from a centralized dashboard. View every camera in your facility from a single screen, review recorded footage, and manage access permissions. We set it up, train your team, and make sure it works reliably.</p>
+        </div>
+        <!-- Ongoing Maintenance -->
+        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
+          <h3 class="text-2xl font-bold mb-4">Ongoing Maintenance</h3>
+          <p class="text-on-surface-variant leading-relaxed">Cameras need upkeep. We handle firmware updates, lens cleaning schedules, storage management, and hardware replacements. If a camera goes down, our monitoring systems alert us — often before you notice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy Callout -->
+  <section class="px-6 lg:px-8 py-16 lg:py-20 max-w-5xl mx-auto">
+    <HearthNote class="relative overflow-hidden">
+      <h3 class="font-bold text-xl text-on-surface mb-4">Privacy-First Design</h3>
+      <p class="text-on-surface text-lg leading-relaxed italic">
+        We take student and staff privacy seriously. Every camera system we design follows applicable privacy regulations and school policies. Camera placement is deliberate — focused on entry points, hallways, parking areas, and common spaces. We work with your administration to define exactly what gets monitored and what doesn't.
+      </p>
+    </HearthNote>
+  </section>
+
+  <!-- Advantage Checklist -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="rounded-2xl shadow-xl -rotate-1 aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
+        <span class="text-on-surface-variant text-sm text-center px-8">Security monitoring dashboard</span>
+      </div>
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Why Umbrella for cameras:</h2>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
+            <span class="text-on-surface font-medium">E-Rate eligible when part of a broader network infrastructure project</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
+            <span class="text-on-surface font-medium">4K-capable systems for clear, usable footage</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
+            <span class="text-on-surface font-medium">Encrypted video storage and transmission</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
+            <span class="text-on-surface font-medium">Remote access for authorized administrators</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
+            <span class="text-on-surface font-medium">Integration with existing network infrastructure</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
+            <span class="text-on-surface font-medium">No third-party monitoring fees — your system, your data</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto hearth-gradient text-on-primary p-12 lg:p-16 rounded-[2.5rem] text-center relative overflow-hidden shadow-2xl">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+      <div class="relative z-10">
+        <h2 class="text-3xl lg:text-5xl font-extrabold mb-6">Let's design the right system for your building.</h2>
+        <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">We'll do a site walkthrough, recommend camera placement, and put together a proposal that fits your security needs and your budget.</p>
+        <a href="/contact" class="inline-flex items-center bg-surface text-primary px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
+          Request a Site Survey
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

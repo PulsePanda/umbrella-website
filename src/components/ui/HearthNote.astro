@@ -1,6 +1,14 @@
 ---
-// Green callout component
-// Implementation by Frontend Developer agent
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
 ---
 
-<!-- HearthNote component placeholder -->
+<div class:list={[
+  'bg-tertiary-fixed p-8 lg:p-10 shadow-sm',
+  className
+]} style="border-radius: 24px 8px 24px 8px;">
+  <slot />
+</div>

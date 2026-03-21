@@ -1,7 +1,167 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import HearthNote from '../../components/ui/HearthNote.astro';
+import CheckIcon from '../../components/ui/CheckIcon.astro';
 ---
 
-<BaseLayout title="Network Infrastructure — Umbrella Systems">
-  <!-- Network Infrastructure service page content will be implemented by Frontend Developer agent -->
+<BaseLayout
+  title="School Network Management & E-Rate Services | Umbrella Systems"
+  description="E-Rate eligible network services for schools. 24/7 monitoring, wireless optimization, firewall management, disaster recovery, and 99.9% uptime commitment."
+>
+  <!-- Hero Section -->
+  <section class="relative px-6 lg:px-8 py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 z-10">
+        <span class="inline-block px-4 py-1.5 mb-6 bg-tertiary-fixed text-on-surface rounded-full text-xs font-bold uppercase tracking-widest">99.9% Uptime Commitment</span>
+        <h1 class="font-extrabold text-4xl lg:text-[3.5rem] text-on-surface leading-[1.1] mb-6 tracking-tight">
+          A network your school can actually rely on.
+        </h1>
+        <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-10">
+          24/7 monitoring, proactive maintenance, and the infrastructure expertise to keep hundreds of devices connected — all day, every day.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <Button href="/contact">Request a Network Assessment</Button>
+          <Button variant="secondary" href="/schools">E-Rate Info</Button>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative">
+        <div class="bg-surface-container-highest rounded-xl p-4 rotate-2 shadow-2xl relative z-10">
+          <div class="rounded-lg h-80 lg:h-96 w-full bg-surface-container-high flex items-center justify-center">
+            <span class="text-on-surface-variant text-sm text-center px-8">Network infrastructure / server room</span>
+          </div>
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-5 rounded-xl shadow-xl z-20 border border-outline-variant/15 max-w-[240px]">
+          <div class="flex items-center gap-3 mb-2">
+            <CheckIcon class="w-5 h-5 text-tertiary" />
+            <span class="font-bold text-sm">99.9% Uptime</span>
+          </div>
+          <p class="text-xs text-on-surface-variant italic">Enterprise-grade reliability for education.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Rate Banner -->
+  <section class="hearth-gradient text-on-primary py-12 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+      <div class="flex items-center gap-6">
+        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-on-primary/10 rounded-full flex items-center justify-center border-4 border-on-primary/20 flex-shrink-0">
+          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <div>
+          <h2 class="text-2xl lg:text-3xl font-extrabold mb-1">E-Rate Certified Provider</h2>
+          <p class="text-on-primary/80 font-medium">Our network services are structured for maximum E-Rate reimbursement. We handle the applications, the compliance documentation, and the vendor coordination. Your school gets enterprise-grade infrastructure at a fraction of the cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Bento Grid -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <span class="font-medium text-secondary tracking-[0.2em] uppercase mb-4 text-sm block">Core Infrastructure</span>
+        <h2 class="text-3xl lg:text-4xl font-extrabold text-on-surface">What we monitor, manage, and protect.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Wireless -->
+        <div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 lg:p-10 hover:bg-surface-container transition-colors">
+          <h3 class="text-2xl font-bold mb-4">Wireless Optimization</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed">Reliable Wi-Fi across every classroom, gym, and common area. We design, deploy, and continuously tune your wireless network so that when 400 students open their Chromebooks at the same time, everything just works. Access point placement, channel optimization, and bandwidth management — all proactively managed.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-surface-container-highest rounded-full text-xs font-bold uppercase">Signal Heatmapping</span>
+            <span class="px-4 py-2 bg-surface-container-highest rounded-full text-xs font-bold uppercase">Wi-Fi 6E Ready</span>
+          </div>
+        </div>
+        <!-- Monitoring -->
+        <div class="bg-secondary text-on-secondary rounded-xl p-8 lg:p-10 flex flex-col">
+          <h3 class="text-2xl font-bold mb-4">24/7 Monitoring</h3>
+          <p class="text-on-secondary/80 leading-relaxed mb-8">We don't wait for someone to report a problem. Our monitoring systems track network health around the clock, automatically alerting us to performance issues, outages, or anomalies before they affect your classrooms.</p>
+          <div class="mt-auto pt-6 border-t border-on-secondary/10">
+            <div class="flex items-center gap-2 text-sm font-bold">
+              <span class="w-2 h-2 bg-tertiary-fixed rounded-full"></span>
+              Always Active
+            </div>
+          </div>
+        </div>
+        <!-- Firewall -->
+        <div class="bg-surface-container-highest rounded-xl p-8 lg:p-10">
+          <h3 class="text-2xl font-bold mb-4">Firewall & Cybersecurity</h3>
+          <p class="text-on-surface-variant leading-relaxed">Firewall configuration and management, intrusion detection, content filtering, and security policy enforcement. We keep threats out and student data protected. Every change follows a structured process — no cowboy configurations, no untracked modifications.</p>
+        </div>
+        <!-- Disaster Recovery -->
+        <div class="md:col-span-2 bg-surface-container rounded-xl p-8 lg:p-10">
+          <h3 class="text-2xl font-bold mb-4">Disaster Recovery & Backup</h3>
+          <p class="text-on-surface-variant leading-relaxed">Scheduled data backups, recovery planning, and redundancy strategies for Google Workspace, Microsoft 365, and on-premise systems. If something goes wrong, we have a plan to get you back up fast — and we test it regularly so it actually works when you need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+      <div class="lg:w-1/2">
+        <HearthNote>
+          <h2 class="text-2xl lg:text-3xl font-extrabold text-on-surface mb-6">Compliance built into every layer.</h2>
+          <p class="text-on-surface leading-relaxed mb-6">Schools face a growing list of data privacy and security requirements. We build compliance into our network management from the ground up — not as an afterthought.</p>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="font-black text-2xl opacity-30">01</div>
+              <div>
+                <span class="font-bold text-lg text-on-surface block">MN H.F. 2353</span>
+                <p class="text-on-surface-variant text-sm">Minnesota student data privacy requirements</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="font-black text-2xl opacity-30">02</div>
+              <div>
+                <span class="font-bold text-lg text-on-surface block">FERPA</span>
+                <p class="text-on-surface-variant text-sm">Federal student education records protection</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="font-black text-2xl opacity-30">03</div>
+              <div>
+                <span class="font-bold text-lg text-on-surface block">COPPA</span>
+                <p class="text-on-surface-variant text-sm">Children's online privacy protection</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="font-black text-2xl opacity-30">04</div>
+              <div>
+                <span class="font-bold text-lg text-on-surface block">CIPA</span>
+                <p class="text-on-surface-variant text-sm">Children's Internet Protection Act (required for E-Rate)</p>
+              </div>
+            </div>
+          </div>
+        </HearthNote>
+      </div>
+      <div class="lg:w-1/2">
+        <p class="text-xl text-on-surface-variant leading-relaxed mb-8">We handle security policy enforcement, content filtering, access controls, and audit documentation so your school stays compliant without adding work to your administrative staff.</p>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="p-6 bg-surface-container-lowest rounded-xl">
+            <div class="text-primary font-extrabold text-3xl mb-1">100%</div>
+            <div class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Audit Success Rate</div>
+          </div>
+          <div class="p-6 bg-surface-container-lowest rounded-xl">
+            <div class="text-primary font-extrabold text-3xl mb-1">CIPA</div>
+            <div class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Certified Filtering</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 text-center bg-surface">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Let's talk about your network.</h2>
+      <p class="text-lg text-on-surface-variant mb-12">We'll assess your current infrastructure, identify vulnerabilities, and show you how E-Rate can offset the cost of bringing it up to standard.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-6">
+        <Button href="/contact">Request a Network Assessment</Button>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

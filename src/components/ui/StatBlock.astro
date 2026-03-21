@@ -1,13 +1,14 @@
 ---
-// Bold number + label stat display
-// Implementation by Frontend Developer agent
-
 interface Props {
   value: string;
   label: string;
+  class?: string;
 }
 
-const { value, label } = Astro.props;
+const { value, label, class: className = '' } = Astro.props;
 ---
 
-<!-- StatBlock component placeholder -->
+<div class:list={['text-center', className]}>
+  <div class="text-primary font-extrabold text-3xl lg:text-4xl mb-1">{value}</div>
+  <div class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">{label}</div>
+</div>

@@ -1,7 +1,159 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import HearthNote from '../components/ui/HearthNote.astro';
+import StatBlock from '../components/ui/StatBlock.astro';
 ---
 
-<BaseLayout title="About Us — Umbrella Systems">
-  <!-- About Us page content will be implemented by Frontend Developer agent -->
+<BaseLayout
+  title="About Umbrella Systems | School IT Team in Apple Valley, MN"
+  description="Meet the four-person team behind Umbrella Systems. We specialize in IT for Minnesota charter schools — embedded, proactive, and focused on getting it right."
+>
+  <!-- Hero Section -->
+  <section class="px-6 lg:px-8 py-20 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row gap-16 items-center">
+      <div class="md:w-1/2">
+        <span class="inline-block py-1 px-4 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase mb-6">Our Story</span>
+        <h1 class="font-extrabold text-5xl lg:text-7xl tracking-tight leading-[1.1] text-on-surface mb-8">
+          We're the team behind the screens.
+        </h1>
+        <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+          Umbrella Systems started with a simple idea: schools deserve IT support that actually understands them.
+        </p>
+      </div>
+      <div class="md:w-1/2 relative">
+        <div class="absolute -top-4 -left-4 w-24 h-24 bg-tertiary-fixed rounded-full -z-10"></div>
+        <div class="rounded-xl shadow-2xl rotate-2 w-full aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
+          <span class="text-on-surface-variant text-sm font-medium text-center px-8">Team photo — Umbrella Systems</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Company Story Section -->
+  <section class="bg-surface-container-low py-20 lg:py-24 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
+        <div class="space-y-6">
+          <h2 class="font-extrabold text-3xl lg:text-4xl text-on-surface">Why schools?</h2>
+          <div class="text-on-surface-variant text-lg leading-relaxed space-y-4">
+            <p>Most IT companies serve anyone who'll sign a contract. Law firms, dental offices, logistics companies — whoever's next in line. Schools get lumped in with the rest, and the support reflects that: generic solutions, slow response times, and technicians who've never set foot in a classroom.</p>
+            <p>We built Umbrella Systems because we think that's backwards.</p>
+            <p>Schools have unique challenges. Hundreds of student devices that take a beating. State-mandated testing platforms that have to work on test day. Staff who need help now, not after a ticket bounces between three people. E-Rate funding that can save tens of thousands — if someone actually does the paperwork.</p>
+            <p>We focus on schools because that's what we're good at. We keep our client base small on purpose — not because we can't grow, but because we'd rather every school get real attention than spread ourselves thin chasing contracts. Our people aren't cycling through a rotation — they're in your building, they know your staff by name, and they're empowered to make decisions on the spot.</p>
+            <p>We're not a faceless MSP. We're four people based in Apple Valley, Minnesota, with eight years in the industry — and we care about getting this right. Our monitoring and helpdesk run 24/7 regardless of who's on-site, and our team is cross-trained so coverage never depends on a single person being available.</p>
+          </div>
+        </div>
+        <HearthNote>
+          <h3 class="font-bold text-2xl text-on-surface mb-4">Phase 0: The First Step</h3>
+          <p class="text-on-surface leading-relaxed">
+            Our onboarding doesn't start with hardware. It starts with <strong class="font-bold">Phase 0</strong> — a shadow period where we embed with your current IT setup at no cost. We learn your systems, your staff, and your pain points from the inside. By the time the partnership officially starts, we're already up to speed.
+          </p>
+        </HearthNote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="mb-16 text-center">
+      <h2 class="font-extrabold text-3xl lg:text-4xl text-on-surface">Meet the team.</h2>
+      <div class="h-1.5 w-24 bg-primary mx-auto mt-4 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Austin -->
+      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
+        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm text-center px-4">Team Photo — Austin VanAlstyne</span>
+        </div>
+        <h3 class="font-extrabold text-xl text-on-surface">Austin VanAlstyne</h3>
+        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Co-Founder & Technical Lead</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Austin runs the technical side of Umbrella — from network architecture and cybersecurity to the systems that keep everything monitored and running. He's the one building the dashboards, writing the automation, and making sure nothing falls through the cracks. When a school has a complex infrastructure problem, Austin's the person solving it.</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
+          "I got into this because I kept seeing schools get overcharged for mediocre IT. We can do better than that."
+        </p>
+      </div>
+      <!-- Jesse -->
+      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
+        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm text-center px-4">Team Photo — Jesse Schonfeld</span>
+        </div>
+        <h3 class="font-extrabold text-xl text-on-surface">Jesse Schonfeld</h3>
+        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Co-Founder & Operations Lead</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Jesse handles operations, client relationships, and business strategy. He's usually the first person a new school talks to and the one making sure the partnership stays strong long-term. Jesse manages contracts, coordinates E-Rate filings, and keeps the team aligned with each school's goals.</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
+          "The best compliment we get is when a school forgets they're outsourcing their IT. That means we're doing our job."
+        </p>
+      </div>
+      <!-- Vinny -->
+      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
+        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm text-center px-4">Team Photo — Vinny Simon</span>
+        </div>
+        <h3 class="font-extrabold text-xl text-on-surface">Vinny Simon</h3>
+        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Field Technician</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Vinny is the one pulling cable, racking switches, and getting infrastructure projects across the finish line. When we ran a full cabling overhaul at one of our partner schools, Vinny was on-site making it happen. He's also the person we send when a school needs extra hands fast — whether it's a mass device deployment, an emergency network issue, or a summer break project on a tight timeline.</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
+          "I like the big builds. There's something satisfying about walking out of a school knowing the infrastructure is solid for years."
+        </p>
+      </div>
+      <!-- Brendan -->
+      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
+        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm text-center px-4">Team Photo — Brendan VanAlstyne</span>
+        </div>
+        <h3 class="font-extrabold text-xl text-on-surface">Brendan VanAlstyne</h3>
+        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Field Technician</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Brendan works alongside Vinny on deployment projects and infrastructure builds — the physical, hands-on work that keeps schools running. Need 200 Chromebooks staged and deployed before the first day of school? A full network closet rewired over winter break? That's Brendan. He's detail-oriented, fast, and reliable when the timeline is tight.</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
+          "Give me a project list and a deadline. I'll make it happen."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach Section -->
+  <section class="bg-surface py-20 lg:py-24 px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="font-extrabold text-3xl lg:text-4xl text-on-surface text-center mb-16">How we work.</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="md:col-span-2 bg-secondary text-on-secondary p-10 lg:p-12 rounded-xl flex flex-col justify-center">
+          <h3 class="font-extrabold text-3xl lg:text-4xl mb-6">Built for community.</h3>
+          <p class="text-lg opacity-90 max-w-xl">
+            We don't hide behind portals or automated responses. Our model is built on physical presence. When a classroom screen flickers, you walk down the hall and talk to us.
+          </p>
+        </div>
+        <div class="bg-primary p-10 lg:p-12 rounded-xl text-on-primary flex flex-col justify-between">
+          <h3 class="font-extrabold text-3xl mb-4">E-Rate experts.</h3>
+          <p class="opacity-90">Certified and experienced in navigating school funding and digital equity.</p>
+        </div>
+        <div class="bg-surface-container-high p-8 rounded-xl md:col-span-3 flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+          <div class="md:w-1/3">
+            <h3 class="font-bold text-2xl text-on-surface">Always on call.</h3>
+            <p class="text-on-surface-variant mt-2">Because a school's technology never stops, even when the final bell rings.</p>
+          </div>
+          <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+            <StatBlock value="24/7" label="Network monitoring and emergency support" class="p-4 bg-surface rounded-lg shadow-sm" />
+            <StatBlock value="$0" label="Phase 0 onboarding — no cost" class="p-4 bg-surface rounded-lg shadow-sm" />
+            <StatBlock value="100%" label="Minnesota-based team" class="p-4 bg-surface rounded-lg shadow-sm" />
+            <StatBlock value="30 min" label="Critical issue response time" class="p-4 bg-surface rounded-lg shadow-sm" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto text-center hearth-gradient p-12 lg:p-16 rounded-3xl text-on-primary shadow-2xl relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent opacity-50"></div>
+      <div class="relative z-10">
+        <h2 class="font-extrabold text-3xl lg:text-5xl mb-8">See what Phase 0 looks like.</h2>
+        <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Before any contract starts, we spend time embedded with your current IT setup — learning your systems, your staff, and your pain points. No cost, no commitment. Just a chance for both sides to make sure it's the right fit.</p>
+        <a href="/contact" class="inline-flex items-center bg-surface text-primary px-10 py-4 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
+          Schedule a Phase 0 Tour
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

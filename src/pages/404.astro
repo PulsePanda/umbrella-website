@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found | Umbrella Systems"
+  description="The page you're looking for doesn't exist or has been moved."
+>
+  <section class="px-6 lg:px-8 py-32 lg:py-48 max-w-3xl mx-auto text-center">
+    <p class="text-primary font-extrabold text-8xl lg:text-9xl mb-6">404</p>
+    <h1 class="font-extrabold text-3xl lg:text-5xl text-on-surface mb-4">Page not found.</h1>
+    <p class="text-on-surface-variant text-lg lg:text-xl mb-12 max-w-xl mx-auto">
+      The page you're looking for doesn't exist or has been moved.
+    </p>
+    <a
+      href="/"
+      class="inline-flex items-center bg-primary text-on-primary px-8 py-4 rounded-lg font-bold text-lg shadow-lg shadow-primary/20 hover:scale-[1.02] hover:opacity-95 transition-all active:scale-[0.98]"
+    >
+      Back to Home
+    </a>
+  </section>
+</BaseLayout>

@@ -1,7 +1,184 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HearthNote from '../components/ui/HearthNote.astro';
 ---
 
-<BaseLayout title="Blog — Umbrella Systems">
-  <!-- Blog page content (RSS from Substack) will be implemented by Frontend Developer agent -->
+<BaseLayout
+  title="School IT & E-Rate Blog | Umbrella Systems"
+  description="Practical takes on school IT, E-Rate strategy, and technology management from the Umbrella Systems team."
+>
+  <!-- Editorial Header -->
+  <section class="px-6 lg:px-8 pt-8 pb-16 max-w-7xl mx-auto">
+    <header class="mb-20">
+      <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-secondary-container text-secondary font-bold text-xs uppercase tracking-widest">
+        Latest Insights
+      </span>
+      <h1 class="font-extrabold text-5xl lg:text-7xl leading-[1.1] tracking-tight text-on-surface mb-6 max-w-3xl">
+        The Umbrella Blog
+      </h1>
+      <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+        Practical thinking on school IT, E-Rate strategy, network security, and the day-to-day realities of keeping technology working in education. Written by the people who do the work.
+      </p>
+    </header>
+
+    <!-- Featured Bento Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+      <!-- Featured Post -->
+      <div class="lg:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all duration-500">
+        <div class="aspect-[16/9] overflow-hidden bg-surface-container-high flex items-center justify-center">
+          <span class="text-on-surface-variant text-sm">Featured blog post image</span>
+        </div>
+        <div class="p-8">
+          <div class="flex items-center gap-4 mb-4 text-sm font-medium text-secondary">
+            <span>Coming Soon</span>
+            <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+            <span>E-Rate</span>
+          </div>
+          <h2 class="text-2xl lg:text-3xl font-extrabold mb-4 group-hover:text-primary transition-colors">Navigating E-Rate Deadlines for the 2026-2027 Year</h2>
+          <p class="text-on-surface-variant mb-6 leading-relaxed">
+            A practical guide to key E-Rate dates and what your school should be preparing now to maximize reimbursement for the upcoming funding year...
+          </p>
+          <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+            Read on Substack
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="lg:col-span-4 space-y-6">
+        <HearthNote>
+          <h2 class="text-xl font-bold text-on-surface mb-4">Hearth Note</h2>
+          <p class="text-on-surface italic text-sm leading-relaxed mb-4">
+            "Technology should work like the school library: central, quiet when it needs to be, and always open for exploration."
+          </p>
+          <div class="flex items-center gap-2 text-on-surface font-bold text-xs">
+            Admin Tip
+          </div>
+        </HearthNote>
+        <div class="bg-surface-container-low p-8 rounded-xl">
+          <h2 class="text-sm font-bold uppercase tracking-widest text-outline mb-6">Trending Topics</h2>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-4 group">
+              <span class="text-primary font-extrabold text-xl">01</span>
+              <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="block">
+                <span class="font-bold group-hover:text-primary transition-colors block">E-Rate Certification Guide</span>
+                <span class="text-xs text-on-surface-variant mt-1 block">Coming Soon</span>
+              </a>
+            </li>
+            <li class="flex items-start gap-4 group">
+              <span class="text-primary font-extrabold text-xl">02</span>
+              <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="block">
+                <span class="font-bold group-hover:text-primary transition-colors block">1:1 Device Deployment Strategies</span>
+                <span class="text-xs text-on-surface-variant mt-1 block">Coming Soon</span>
+              </a>
+            </li>
+            <li class="flex items-start gap-4 group">
+              <span class="text-primary font-extrabold text-xl">03</span>
+              <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="block">
+                <span class="font-bold group-hover:text-primary transition-colors block">Cybersecurity for Charter Schools</span>
+                <span class="text-xs text-on-surface-variant mt-1 block">Coming Soon</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article List -->
+    <section class="space-y-12">
+      <h2 class="text-2xl font-extrabold border-l-4 border-primary pl-6 mb-12">Recent Posts</h2>
+      <div class="grid grid-cols-1 gap-12">
+        <!-- Article 1 -->
+        <article class="flex flex-col md:flex-row gap-8 lg:gap-12 items-start group">
+          <div class="w-full md:w-1/3 aspect-video rounded-xl overflow-hidden bg-surface-container-high flex items-center justify-center">
+            <span class="text-on-surface-variant text-sm">Blog post image</span>
+          </div>
+          <div class="w-full md:w-2/3">
+            <div class="flex items-center gap-3 text-sm font-medium text-secondary mb-3">
+              <span>Coming Soon</span>
+              <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+              <span>Infrastructure</span>
+            </div>
+            <h3 class="text-2xl font-extrabold mb-4 group-hover:text-primary transition-colors">Is Your Network Ready for 1:1 Chromebooks?</h3>
+            <p class="text-on-surface-variant mb-6 leading-relaxed">
+              Adding 500 devices is easy. Ensuring they all work at 8 AM on Monday is the real challenge. We break down what schools need to prepare...
+            </p>
+            <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+              Read on Substack
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <div class="h-px bg-surface-container-highest w-full"></div>
+
+        <!-- Article 2 -->
+        <article class="flex flex-col md:flex-row-reverse gap-8 lg:gap-12 items-start group">
+          <div class="w-full md:w-1/3 aspect-video rounded-xl overflow-hidden bg-surface-container-high flex items-center justify-center">
+            <span class="text-on-surface-variant text-sm">Blog post image</span>
+          </div>
+          <div class="w-full md:w-2/3">
+            <div class="flex items-center gap-3 text-sm font-medium text-secondary mb-3">
+              <span>Coming Soon</span>
+              <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+              <span>Security</span>
+            </div>
+            <h3 class="text-2xl font-extrabold mb-4 group-hover:text-primary transition-colors">FERPA Compliance in the Age of Cloud Everything</h3>
+            <p class="text-on-surface-variant mb-6 leading-relaxed">
+              Protecting student privacy is more complex than ever. Here's what your IT team should be watching and the policies that actually matter...
+            </p>
+            <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+              Read on Substack
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <div class="h-px bg-surface-container-highest w-full"></div>
+
+        <!-- Article 3 -->
+        <article class="flex flex-col md:flex-row gap-8 lg:gap-12 items-start group">
+          <div class="w-full md:w-1/3 aspect-video rounded-xl overflow-hidden bg-surface-container-high flex items-center justify-center">
+            <span class="text-on-surface-variant text-sm">Blog post image</span>
+          </div>
+          <div class="w-full md:w-2/3">
+            <div class="flex items-center gap-3 text-sm font-medium text-secondary mb-3">
+              <span>Coming Soon</span>
+              <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+              <span>E-Rate</span>
+            </div>
+            <h3 class="text-2xl font-extrabold mb-4 group-hover:text-primary transition-colors">Decoding the Latest E-Rate Changes</h3>
+            <p class="text-on-surface-variant mb-6 leading-relaxed">
+              New year, new rules. We've distilled the FCC updates into a 5-minute read for busy administrators and school principals...
+            </p>
+            <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+              Read on Substack
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </section>
+
+  <!-- Newsletter CTA -->
+  <section class="mx-6 lg:mx-8 mb-20 relative overflow-hidden hearth-gradient rounded-[2.5rem] p-10 lg:p-20 text-center">
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <h2 class="text-3xl lg:text-4xl font-extrabold text-on-primary mb-6">Stay in the loop.</h2>
+      <p class="text-on-primary/80 mb-10 text-lg">
+        We send occasional updates on E-Rate deadlines, school IT best practices, and things we think are worth your time. No spam, no sales pitches — just useful stuff.
+      </p>
+      <a
+        href="https://umbrellasystems.substack.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center bg-surface-container-lowest text-primary font-bold py-4 px-10 rounded-lg hover:bg-secondary-container transition-colors text-lg"
+      >
+        Subscribe on Substack
+      </a>
+    </div>
+    <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-container rounded-full opacity-30"></div>
+    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary-container rounded-full opacity-20"></div>
+  </section>
 </BaseLayout>

@@ -1,6 +1,14 @@
 ---
-// E-Rate pill badge
-// Implementation by Frontend Developer agent
+interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
 ---
 
-<!-- ERateBadge component placeholder -->
+<span class:list={[
+  'inline-block bg-tertiary text-on-tertiary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider',
+  className
+]}>
+  E-Rate Eligible
+</span>

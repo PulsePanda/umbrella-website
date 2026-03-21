@@ -1,7 +1,108 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import HearthNote from '../../components/ui/HearthNote.astro';
 ---
 
-<BaseLayout title="IT Leadership — Umbrella Systems">
-  <!-- IT Leadership service page content will be implemented by Frontend Developer agent -->
+<BaseLayout
+  title="vCIO & IT Leadership for Charter Schools | Umbrella Systems"
+  description="Strategic IT leadership for schools. vCIO services, E-Rate optimization, hardware procurement, compliance oversight, and long-term technology planning."
+>
+  <!-- Hero Section -->
+  <section class="relative px-6 lg:px-8 py-20 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-block px-4 py-1.5 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase mb-6">Strategic Planning</span>
+        <h1 class="font-extrabold text-4xl lg:text-6xl text-on-surface leading-[1.1] mb-6">Strategic IT leadership without the executive price tag.</h1>
+        <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">Technology planning, procurement strategy, E-Rate optimization, compliance oversight, and a roadmap that actually looks forward. The vCIO services your school needs — embedded in a team that already knows your environment.</p>
+        <div class="flex flex-wrap gap-4">
+          <Button href="/contact">Schedule a Strategy Session</Button>
+          <Button variant="secondary" href="/about">Meet Our Team</Button>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -top-4 -right-4 w-32 h-32 bg-tertiary-fixed rounded-2xl -z-10 rotate-12 opacity-50"></div>
+        <div class="rounded-xl shadow-2xl rotate-1 aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
+          <span class="text-on-surface-variant text-sm text-center px-8">IT leadership planning session</span>
+        </div>
+        <HearthNote class="absolute -bottom-8 -left-8 max-w-[260px] shadow-lg z-10">
+          <p class="text-on-surface text-sm italic">"Real conversations about real decisions — not jargon-filled reports."</p>
+        </HearthNote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Framework Bento -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-16">
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">What strategic IT leadership includes.</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <!-- vCIO -->
+        <div class="md:col-span-8 bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15">
+          <h3 class="text-2xl font-bold mb-3">vCIO Services</h3>
+          <p class="text-on-surface-variant leading-relaxed mb-6">Long-term technology planning aligned with your school's educational goals and budget realities. We sit down with your leadership team regularly to review what's working, what's coming, and what needs to change. No jargon-filled reports that sit in a drawer — real conversations about real decisions.</p>
+        </div>
+        <!-- Procurement -->
+        <div class="md:col-span-4 bg-secondary-container p-8 lg:p-10 rounded-xl">
+          <h3 class="text-xl font-bold mb-3">Hardware Procurement</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">We don't sell hardware and we don't mark up prices. Instead, we leverage relationships with vendors like Ubiquiti, HP, and Cisco to get competitive quotes on your behalf. You buy direct at the best price.</p>
+        </div>
+        <!-- E-Rate Optimization -->
+        <div class="md:col-span-4 bg-surface-container-lowest border-l-4 border-primary p-8 rounded-xl">
+          <h3 class="text-xl font-bold mb-3">E-Rate Optimization</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed">E-Rate can save your school tens of thousands of dollars annually on eligible network services. We manage the full E-Rate lifecycle: eligibility assessment, application preparation, vendor coordination, compliance documentation, and renewal management.</p>
+        </div>
+        <!-- App Security Review -->
+        <div class="md:col-span-4 bg-tertiary-fixed p-8 rounded-xl" style="border-radius: 24px 8px 24px 8px;">
+          <h3 class="text-xl font-bold mb-3 text-on-surface">App & Software Security Review</h3>
+          <p class="text-on-surface text-sm leading-relaxed">Before a new application touches your network or student data, we review it. We assess security posture, data handling practices, and compliance. Then we give you a clear recommendation: approve, restrict, or reject.</p>
+        </div>
+        <!-- Phase 0 -->
+        <div class="md:col-span-4 hearth-gradient p-8 rounded-xl text-on-primary">
+          <h3 class="text-xl font-bold mb-3">Phase 0 Onboarding</h3>
+          <p class="text-sm leading-relaxed opacity-90">Before any contract begins, we embed with your current IT setup for a shadow period at no cost. We learn your systems, your workflows, and your pain points from the inside. By the time the partnership officially starts, we're already up to speed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Break Projects Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-6">Big projects, built for breaks.</h2>
+        <p class="text-on-surface-variant text-lg mb-10">Some work is too disruptive for the school year. We plan and execute major projects during summer and winter breaks so your staff and students aren't affected.</p>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-bold mb-2">Infrastructure Audits</h3>
+            <p class="text-on-surface-variant leading-relaxed">Comprehensive evaluation of your hardware, software, network performance, and security posture. We document everything, identify gaps, and build a prioritized improvement plan with clear cost estimates.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Mass Device Deployment</h3>
+            <p class="text-on-surface-variant leading-relaxed">Fleet-wide Chromebook rollouts, laptop imaging, and device distribution — configured, enrolled, and ready for day one. We handle the logistics so your staff doesn't spend their break doing IT work.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">Long-Term Planning</h3>
+            <p class="text-on-surface-variant leading-relaxed">Multi-year technology roadmaps that account for enrollment growth, infrastructure aging, budget cycles, and E-Rate funding windows. We plan ahead so you're never caught off guard by a critical upgrade or an expired warranty.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-2xl shadow-xl rotate-1 aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
+        <span class="text-on-surface-variant text-sm text-center px-8">Summer break project work</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-24 px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto bg-inverse-surface text-inverse-on-surface p-12 lg:p-16 rounded-[2.5rem] text-center shadow-2xl">
+      <h2 class="text-3xl lg:text-5xl font-extrabold mb-6">Get a strategic partner, not just a vendor.</h2>
+      <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">We'll review your current technology landscape and show you where strategic planning can save money, reduce risk, and set your school up for the long term.</p>
+      <a href="/contact" class="inline-flex items-center bg-surface text-on-surface px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
+        Schedule a Strategy Session
+      </a>
+    </div>
+  </section>
 </BaseLayout>

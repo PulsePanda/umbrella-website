@@ -1,6 +1,62 @@
 ---
-// 4-column grid footer
-// Implementation by Frontend Developer agent
+// 4-column footer with rounded top corners
+const currentYear = new Date().getFullYear();
 ---
 
-<!-- Footer component placeholder -->
+<footer class="bg-surface w-full rounded-t-[2.5rem] mt-20" role="contentinfo">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 px-8 lg:px-12 py-20 max-w-7xl mx-auto">
+    <!-- Company Column -->
+    <div class="space-y-4">
+      <p class="font-bold text-on-surface text-lg">Company</p>
+      <ul class="space-y-3">
+        <li><a href="/about" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">About Us</a></li>
+        <li><a href="/blog" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Blog</a></li>
+        <li><a href="/contact" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Contact</a></li>
+        <li><a href="https://umbrellasystems.screenconnect.com/" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Support Portal</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Column -->
+    <div class="space-y-4">
+      <p class="font-bold text-on-surface text-lg">Services</p>
+      <ul class="space-y-3">
+        <li><a href="/services/managed-it" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Managed IT</a></li>
+        <li><a href="/services/network-infrastructure" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Network & Infrastructure</a></li>
+        <li><a href="/services/it-leadership" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">IT Leadership</a></li>
+        <li><a href="/services/security-cameras" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Security Cameras</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources Column -->
+    <div class="space-y-4">
+      <p class="font-bold text-on-surface text-lg">Resources</p>
+      <ul class="space-y-3">
+        <li><a href="/blog" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">E-Rate Guide</a></li>
+        <li><a href="https://umbrellasystems.screenconnect.com/" target="_blank" rel="noopener noreferrer" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Support Portal</a></li>
+        <li><a href="/blog" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Blog</a></li>
+        <li><a href="/schools" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Schools</a></li>
+        <li><a href="/business" class="text-on-surface-variant hover:text-primary underline decoration-2 underline-offset-4 transition-all">Businesses</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Column -->
+    <div class="space-y-4">
+      <p class="font-bold text-on-surface text-lg">Contact</p>
+      <address class="not-italic text-on-surface-variant space-y-2 leading-relaxed">
+        <p class="font-bold text-on-surface">Umbrella Systems LLC</p>
+        <p>15838 Harwell Ave<br />Apple Valley, MN 55124</p>
+        <p><a href="tel:6514094321" class="hover:text-primary transition-colors">(651) 409-4321</a></p>
+        <p><a href="mailto:info@umbrellasystems.net" class="hover:text-primary transition-colors">info@umbrellasystems.net</a></p>
+        <p class="pt-2">
+          <span class="font-bold text-primary">Emergency:</span>
+          <a href="tel:6513009536" class="hover:text-primary transition-colors">(651) 300-9536</a>
+        </p>
+      </address>
+    </div>
+  </div>
+
+  <!-- Copyright Bar -->
+  <div class="max-w-7xl mx-auto px-8 lg:px-12 py-8 border-t border-outline-variant/15 text-center text-sm text-secondary">
+    &copy; {currentYear} Umbrella Systems LLC. All rights reserved.
+  </div>
+</footer>

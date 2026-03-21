@@ -1,13 +1,30 @@
 ---
-// Primary + secondary button variants
-// Implementation by Frontend Developer agent
-
 interface Props {
   variant?: 'primary' | 'secondary';
   href?: string;
+  type?: 'button' | 'submit';
+  class?: string;
 }
 
-const { variant = 'primary', href } = Astro.props;
+const { variant = 'primary', href, type = 'button', class: className = '' } = Astro.props;
+
+const isPrimary = variant === 'primary';
+
+const baseClasses = 'inline-flex items-center justify-center font-bold text-lg transition-all duration-300';
+
+const primaryClasses = 'bg-primary text-on-primary px-8 py-4 rounded-lg shadow-lg shadow-primary/20 hover:scale-[1.02] hover:opacity-95 active:scale-[0.98]';
+
+const secondaryClasses = 'text-secondary px-4 py-4 hand-drawn-underline hover:text-primary';
+
+const classes = `${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses} ${className}`;
 ---
 
-<!-- Button component placeholder -->
+{href ? (
+  <a href={href} class={classes}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+  </button>
+)}

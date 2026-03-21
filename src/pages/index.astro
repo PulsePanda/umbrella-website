@@ -4,6 +4,9 @@ import Button from '../components/ui/Button.astro';
 import HearthNote from '../components/ui/HearthNote.astro';
 import ERateBadge from '../components/ui/ERateBadge.astro';
 import CheckIcon from '../components/ui/CheckIcon.astro';
+import { getSubstackPosts, formatDate } from '../lib/rss';
+
+const blogPosts = await getSubstackPosts(3);
 ---
 
 <BaseLayout
@@ -164,38 +167,34 @@ import CheckIcon from '../components/ui/CheckIcon.astro';
       <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">From the Blog</h2>
       <p class="text-on-surface-variant text-lg">Practical takes on school IT, E-Rate, and technology strategy.</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Blog Card 1 -->
-      <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="group block">
-        <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
-          <span class="text-on-surface-variant text-sm">Blog post image</span>
-        </div>
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">E-Rate</span>
-        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Navigating E-Rate Deadlines for the 2026-2027 Year</h3>
-        <p class="text-sm text-on-surface-variant mb-4">A practical guide to key dates and what your school should be preparing now...</p>
-        <span class="text-xs text-outline font-medium uppercase">Coming Soon</span>
-      </a>
-      <!-- Blog Card 2 -->
-      <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="group block">
-        <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
-          <span class="text-on-surface-variant text-sm">Blog post image</span>
-        </div>
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">Infrastructure</span>
-        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Is Your Network Ready for 1:1 Chromebooks?</h3>
-        <p class="text-sm text-on-surface-variant mb-4">Adding 500 devices is easy. Ensuring they all work at 8 AM on Monday is the real challenge...</p>
-        <span class="text-xs text-outline font-medium uppercase">Coming Soon</span>
-      </a>
-      <!-- Blog Card 3 -->
-      <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer" class="group block">
-        <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
-          <span class="text-on-surface-variant text-sm">Blog post image</span>
-        </div>
-        <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">Security</span>
-        <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">FERPA Compliance in the Age of Cloud Everything</h3>
-        <p class="text-sm text-on-surface-variant mb-4">Protecting student privacy is more complex than ever. Here's what your IT team should be watching...</p>
-        <span class="text-xs text-outline font-medium uppercase">Coming Soon</span>
-      </a>
-    </div>
+    {blogPosts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {blogPosts.map((post) => (
+          <a href={post.link} target="_blank" rel="noopener noreferrer" class="group block">
+            <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
+              <span class="text-on-surface-variant text-sm">Blog post image</span>
+            </div>
+            <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">{post.category}</span>
+            <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
+            <p class="text-sm text-on-surface-variant mb-4">{post.description}</p>
+            <span class="text-xs text-outline font-medium uppercase">{formatDate(post.pubDate)}</span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 bg-surface-container-lowest rounded-xl border border-outline-variant/15">
+        <p class="text-on-surface-variant text-lg mb-4">Posts coming soon.</p>
+        <a
+          href="https://umbrellasystems.substack.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary font-bold inline-flex items-center gap-2 hover:underline"
+        >
+          Subscribe on Substack to get notified
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        </a>
+      </div>
+    )}
   </section>
 
   <!-- Contact/CTA Section -->

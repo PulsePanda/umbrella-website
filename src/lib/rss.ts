@@ -1,5 +1,3 @@
-const SUBSTACK_FEED_URL = "https://umbrellasystems.substack.com/feed";
-
 export interface SubstackPost {
   title: string;
   link: string;
@@ -12,7 +10,6 @@ export interface SubstackPost {
  * Extract text content from an XML tag. Returns the first match or the fallback.
  */
 function getTagContent(xml: string, tag: string, fallback = ""): string {
-  // Handle CDATA sections and regular content
   const pattern = new RegExp(
     `<${tag}[^>]*>(?:<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>|([\\s\\S]*?))</${tag}>`,
     "i"
@@ -38,7 +35,6 @@ function stripHtml(html: string, maxLength = 150): string {
     .trim();
 
   if (text.length <= maxLength) return text;
-  // Cut at last space before maxLength to avoid mid-word truncation
   const truncated = text.slice(0, maxLength);
   const lastSpace = truncated.lastIndexOf(" ");
   return (lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated) + "...";
@@ -62,60 +58,40 @@ export function formatDate(dateStr: string): string {
 }
 
 /**
- * Fetch and parse the Substack RSS feed. Returns an array of posts.
- * Runs at build time in Astro frontmatter -- never client-side.
- *
- * @param limit - Max number of posts to return. 0 or undefined = all posts.
+ * Parse RSS XML string into SubstackPost array.
  */
-export async function getSubstackPosts(
-  limit?: number
-): Promise<SubstackPost[]> {
+export function parseSubstackFeed(xml: string, limit?: number): SubstackPost[] {
+  const items = xml.split(/<item>/i).slice(1);
+
+  const posts: SubstackPost[] = items.map((itemXml) => {
+    const title = getTagContent(itemXml, "title", "Untitled");
+    const link = getTagContent(itemXml, "link");
+    const pubDate = getTagContent(itemXml, "pubDate");
+    const contentEncoded = getTagContent(itemXml, "content:encoded");
+    const rawDescription = getTagContent(itemXml, "description");
+    const description = stripHtml(contentEncoded || rawDescription, 150);
+    const category = getTagContent(itemXml, "category", "Blog");
+
+    return { title, link, pubDate, description, category };
+  });
+
+  if (limit && limit > 0) {
+    return posts.slice(0, limit);
+  }
+
+  return posts;
+}
+
+/**
+ * Fetch Substack posts via the /api/feed proxy. Works client-side.
+ */
+export async function fetchSubstackPosts(limit?: number): Promise<SubstackPost[]> {
   try {
-    const response = await fetch(SUBSTACK_FEED_URL, {
-      headers: { "User-Agent": "UmbrellaSystemsAstroBuild/1.0" },
-    });
-
-    if (!response.ok) {
-      console.warn(
-        `[rss] Substack feed returned ${response.status}. Returning empty array.`
-      );
-      return [];
-    }
-
+    const response = await fetch("/api/feed");
+    if (!response.ok) return [];
     const xml = await response.text();
-
-    // Split on <item> boundaries -- first element is the channel header, skip it
-    const items = xml.split(/<item>/i).slice(1);
-
-    const posts: SubstackPost[] = items.map((itemXml) => {
-      const title = getTagContent(itemXml, "title", "Untitled");
-      const link = getTagContent(itemXml, "link");
-
-      const pubDate = getTagContent(itemXml, "pubDate");
-
-      // Substack puts full HTML in <content:encoded>, summary in <description>
-      const contentEncoded = getTagContent(itemXml, "content:encoded");
-      const rawDescription = getTagContent(itemXml, "description");
-      const description = stripHtml(
-        contentEncoded || rawDescription,
-        150
-      );
-
-      // Substack uses <category> tags for post categories
-      const category = getTagContent(itemXml, "category", "Blog");
-
-      return { title, link, pubDate, description, category };
-    });
-
-    if (limit && limit > 0) {
-      return posts.slice(0, limit);
-    }
-
-    return posts;
-  } catch (error) {
-    console.warn(
-      `[rss] Failed to fetch Substack feed: ${error instanceof Error ? error.message : String(error)}`
-    );
+    return parseSubstackFeed(xml, limit);
+  } catch {
     return [];
   }
 }

@@ -11,7 +11,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="halftone"></div>
     <div class="container-comic hero-grid">
       <div class="hero-content animate-in">
-        <span class="hero-icon">&#9889;</span>
         <h1 class="hero-title text-shadow-comic">
           YOUR FULL-SERVICE <span class="highlight">IT TEAM</span> — WITHOUT THE FULL-TIME OVERHEAD
         </h1>
@@ -25,7 +24,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
       <div class="hero-image-wrap animate-in" data-delay="200">
         <div class="comic-panel hero-panel">
-          <img src="/images/tv-mount-install.jpg" alt="Umbrella Systems technician installing AV equipment in a school" loading="eager" />
+          <img src="/images/network-closet-cabling.jpg" alt="Umbrella Systems technician cabling a school network closet" loading="eager" />
         </div>
       </div>
     </div>
@@ -54,7 +53,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="comic-card power-card power-card-wide animate-in">
           <span class="card-icon">&#127979;</span>
           <h3 class="card-title">ON-SITE SUPPORT</h3>
-          <p class="card-text">A dedicated technician in your building, 1-5 days per week. They're not just troubleshooters — they're decision-makers who know your staff, your systems, and your priorities.</p>
+          <p class="card-text">A dedicated technician in your building, guaranteed. They're not just troubleshooters — they're decision-makers who know your staff, your systems, and your priorities.</p>
         </div>
         <div class="comic-card power-card animate-in" data-delay="100">
           <span class="card-icon">&#128187;</span>
@@ -86,6 +85,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="halftone-light-bg"></div>
     <div class="container-comic">
       <h2 class="section-title section-title-light animate-in">HOW WE MANAGE YOUR DEVICES</h2>
+    </div>
+    <div class="lifecycle-wide">
       <div class="lifecycle-flow">
         <div class="lifecycle-step animate-in">
           <div class="step-number">1</div>
@@ -99,11 +100,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <p class="step-text">Imaged, enrolled, tagged</p>
         </div>
         <div class="lifecycle-arrow" aria-hidden="true">&raquo;</div>
-        <div class="lifecycle-step lifecycle-step-featured animate-in" data-delay="200">
+        <div class="lifecycle-step animate-in" data-delay="200">
           <div class="step-number">3</div>
-          <div class="step-image">
-            <img src="/images/summer-project.jpg" alt="Umbrella Systems team deploying devices at a school" loading="lazy" />
-          </div>
           <h3 class="step-title">DEPLOY</h3>
           <p class="step-text">Distributed with documentation</p>
         </div>
@@ -341,20 +339,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     background: var(--red);
     border-color: var(--white);
   }
+  .lifecycle-wide {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 2;
+  }
   .lifecycle-flow {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
-    gap: 16px;
+    gap: 12px;
     flex-wrap: wrap;
   }
   .lifecycle-step {
     background: rgba(255,255,255,0.08);
     border: var(--border-comic);
     border-color: rgba(255,255,255,0.25);
-    padding: 28px 24px;
+    padding: 36px 28px;
     text-align: center;
-    width: 180px;
+    width: 240px;
     flex-shrink: 0;
     transition: transform 0.2s, box-shadow 0.2s;
   }
@@ -362,42 +367,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 rgba(255,255,255,0.15);
   }
-  .lifecycle-step-featured {
-    width: 220px;
-    padding-top: 0;
-    overflow: hidden;
-  }
   .step-number {
     font-family: 'Bangers', cursive;
-    font-size: 2rem;
+    font-size: 2.6rem;
     color: var(--yellow);
-    margin-bottom: 8px;
+    line-height: 1;
+    margin-bottom: 12px;
   }
   .step-title {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
     letter-spacing: 0.06em;
   }
   .step-text {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    line-height: 1.5;
-  }
-  .step-image {
-    margin: 0 -24px 16px;
-    height: 120px;
-    overflow: hidden;
-  }
-  .step-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    font-size: 1.05rem;
+    opacity: 0.85;
+    line-height: 1.6;
   }
   .lifecycle-arrow {
     font-size: 2rem;
     color: var(--yellow);
     align-self: center;
-    margin-top: -20px;
     font-family: 'Bangers', cursive;
   }
 
@@ -441,15 +431,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .power-card-wide {
       grid-column: span 1;
     }
+    .lifecycle-wide {
+      padding: 0 16px;
+    }
     .lifecycle-flow {
-      gap: 12px;
+      gap: 8px;
     }
     .lifecycle-step {
-      width: 140px;
-      padding: 20px 16px;
-    }
-    .lifecycle-step-featured {
       width: 160px;
+      padding: 24px 16px;
+    }
+    .step-number {
+      font-size: 2rem;
+    }
+    .step-title {
+      font-size: 1.4rem;
+    }
+    .step-text {
+      font-size: 0.9rem;
+    }
+    .lifecycle-arrow {
+      font-size: 1.6rem;
     }
   }
   @media (max-width: 768px) {
@@ -482,8 +484,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       transform: rotate(90deg);
       margin-top: 0;
     }
-    .lifecycle-step,
-    .lifecycle-step-featured {
+    .lifecycle-step {
       width: 100%;
       max-width: 300px;
     }

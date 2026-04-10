@@ -11,7 +11,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="halftone"></div>
     <div class="container-comic hero-grid">
       <div class="hero-content animate-in">
-        <span class="hero-icon">&#129504;</span>
         <h1 class="hero-title text-shadow-comic">
           STRATEGIC IT <span class="highlight">LEADERSHIP</span> WITHOUT THE EXECUTIVE PRICE TAG
         </h1>
@@ -25,7 +24,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
       <div class="hero-image-wrap animate-in" data-delay="200">
         <div class="comic-panel hero-panel">
-          <img src="/images/it-office-monitoring.jpg" alt="IT leadership and monitoring station at Umbrella Systems" loading="eager" />
+          <img src="/images/school-tech.jpg" alt="Students and staff using technology in a classroom" loading="eager" />
+        </div>
+        <div class="comic-panel hero-panel-inset hero-panel-inset-austin">
+          <img src="/images/austin.jpg" alt="Austin VanAlstyne, Umbrella Systems" loading="eager" />
+        </div>
+        <div class="comic-panel hero-panel-inset hero-panel-inset-jesse">
+          <img src="/images/jesse.jpg" alt="Jesse Schonfeld, Umbrella Systems" loading="eager" />
         </div>
       </div>
     </div>
@@ -38,11 +43,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="container-comic">
       <h2 class="section-title animate-in">WHAT STRATEGIC IT LEADERSHIP INCLUDES</h2>
       <div class="framework-grid">
-        <div class="comic-card framework-card framework-card-featured animate-in">
+        <div class="comic-card framework-card animate-in">
           <span class="card-icon">&#128202;</span>
           <h3 class="card-title">vCIO SERVICES</h3>
           <p class="card-text">Long-term tech planning aligned with your school's goals and budget. Real conversations about real decisions — no jargon-filled reports.</p>
-          <div class="card-accent"></div>
         </div>
         <div class="comic-card framework-card animate-in" data-delay="100">
           <span class="card-icon">&#128722;</span>
@@ -52,9 +56,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="comic-card framework-card animate-in" data-delay="200">
           <span class="card-icon">&#128176;</span>
           <h3 class="card-title">E-RATE OPTIMIZATION</h3>
-          <p class="card-text">We manage the full E-Rate lifecycle. Schools we work with have collectively saved six figures — money that goes back into classrooms.</p>
+          <p class="card-text">We manage the full E-Rate lifecycle. Schools we work with have collectively saved over $400,000 — money that goes back into classrooms.</p>
           <div class="card-stat">
-            <span class="stat-highlight">6 Figures+</span>
+            <span class="stat-highlight">$400,000+</span>
             <span class="stat-caption">Saved Collectively</span>
           </div>
         </div>
@@ -68,6 +72,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <h3 class="card-title">PHASE 0 ONBOARDING</h3>
           <p class="card-text">Before any contract, we embed with your current IT setup at no cost. We learn your systems, your workflows, your pain points from the inside.</p>
           <div class="card-badge">No Cost to Start</div>
+        </div>
+        <div class="comic-card framework-card animate-in" data-delay="300">
+          <span class="card-icon">&#128737;</span>
+          <h3 class="card-title">COMPLIANCE OVERSIGHT</h3>
+          <p class="card-text">FERPA, COPPA, CIPA, Minnesota H.F. 2353. We keep your data-handling practices, vendor agreements, and access controls aligned with every framework you're accountable to.</p>
         </div>
       </div>
     </div>
@@ -85,15 +94,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <h3 class="panel-title">INFRASTRUCTURE AUDITS</h3>
           <p class="panel-text">Hardware, software, network, security evaluation. A full assessment of where you stand and what needs attention.</p>
         </div>
-        <div class="breaks-panel breaks-panel-image animate-in" data-delay="200">
-          <div class="panel-image">
-            <img src="/images/summer-project.jpg" alt="Umbrella Systems team working on a summer infrastructure project" loading="lazy" />
-          </div>
-          <div class="panel-content">
-            <div class="panel-number" aria-hidden="true">02</div>
-            <h3 class="panel-title">MASS DEVICE DEPLOYMENT</h3>
-            <p class="panel-text">Fleet-wide Chromebook rollouts, configured and enrolled. Hundreds of devices ready for day one.</p>
-          </div>
+        <div class="breaks-panel animate-in" data-delay="200">
+          <div class="panel-number" aria-hidden="true">02</div>
+          <h3 class="panel-title">MASS DEVICE DEPLOYMENT</h3>
+          <p class="panel-text">Fleet-wide Chromebook rollouts, configured and enrolled. Hundreds of devices ready for day one.</p>
         </div>
         <div class="breaks-panel animate-in" data-delay="300">
           <div class="panel-number" aria-hidden="true">03</div>
@@ -168,6 +172,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     overflow: hidden;
     background: var(--navy);
   }
+  .hero-image-wrap {
+    position: relative;
+  }
   .hero-panel {
     transform: rotate(-2deg);
     aspect-ratio: 4/3;
@@ -177,6 +184,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  .hero-panel-inset {
+    position: absolute;
+    width: 140px;
+    aspect-ratio: 1/1;
+    z-index: 3;
+    box-shadow: 5px 5px 0 rgba(255,255,255,0.2);
+  }
+  .hero-panel-inset img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-panel-inset-austin {
+    top: -28px;
+    right: -24px;
+    transform: rotate(4deg);
+  }
+  .hero-panel-inset-jesse {
+    bottom: -32px;
+    left: -28px;
+    transform: rotate(-4deg);
   }
   .clip-edge {
     position: absolute;
@@ -228,25 +258,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     padding: 36px;
     position: relative;
   }
-  .framework-card-featured {
-    grid-column: span 3;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 24px;
-    background: linear-gradient(135deg, var(--white) 0%, #fafafa 100%);
-  }
-  .framework-card-featured .card-accent {
-    width: 6px;
-    height: 80%;
-    background: var(--yellow);
-    border: 2px solid var(--navy);
-    align-self: center;
-  }
-  .framework-card:nth-child(2) { transform: rotate(-0.5deg); }
-  .framework-card:nth-child(3) { transform: rotate(0.5deg); }
-  .framework-card:nth-child(4) { transform: rotate(0.5deg); }
-  .framework-card:nth-child(5) { transform: rotate(-0.5deg); }
+  .framework-card:nth-child(odd) { transform: rotate(-0.5deg); }
+  .framework-card:nth-child(even) { transform: rotate(0.5deg); }
   .card-icon {
     font-size: 2.2rem;
     display: block;
@@ -339,23 +352,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     transform: translate(-2px, -2px);
     box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
   }
-  .breaks-panel-image {
-    padding: 0;
-    overflow: hidden;
-  }
-  .panel-image {
-    height: 160px;
-    overflow: hidden;
-  }
-  .panel-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .panel-content {
-    padding: 28px;
-  }
   .panel-number {
     font-family: 'Bangers', cursive;
     font-size: 2.4rem;
@@ -408,12 +404,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .hero-title {
       font-size: 2.4rem;
     }
-    .framework-card-featured {
-      grid-column: span 1;
-      display: block;
-    }
-    .framework-card-featured .card-accent {
-      display: none;
+    .hero-panel-inset {
+      width: 110px;
     }
     .framework-grid {
       grid-template-columns: repeat(2, 1fr);

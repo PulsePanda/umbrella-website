@@ -11,7 +11,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="halftone"></div>
     <div class="container-comic hero-grid">
       <div class="hero-content animate-in">
-        <span class="hero-icon">&#128065;</span>
         <h1 class="hero-title text-shadow-comic">
           SEE YOUR BUILDING CLEARLY. KEEP IT <span class="highlight">SECURE</span> SIMPLY.
         </h1>
@@ -48,20 +47,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
             <p class="card-text">Full installation — site survey, camera placement, cabling, mounting, configuration. Designed around your building. We work during off-hours to minimize disruption.</p>
           </div>
         </div>
-        <div class="comic-card service-card service-card-with-image animate-in" data-delay="100">
-          <div class="service-card-image">
-            <img src="/images/security-monitoring-wall.jpg" alt="Security monitoring wall displaying multiple camera feeds" loading="lazy" />
-          </div>
+        <div class="comic-card service-card animate-in" data-delay="100">
           <div class="service-card-body">
             <span class="card-icon">&#128250;</span>
             <h3 class="card-title">LIVE DASHBOARDS</h3>
             <p class="card-text">Real-time camera feeds from a centralized dashboard. View every camera, review footage, manage permissions. We set it up, train your team, make sure it works.</p>
           </div>
         </div>
-        <div class="comic-card service-card service-card-with-image animate-in" data-delay="200">
-          <div class="service-card-image">
-            <img src="/images/security-dashboard-alt.jpg" alt="Security dashboard interface showing camera management" loading="lazy" />
+        <div class="comic-card service-card animate-in" data-delay="200">
+          <div class="service-card-body">
+            <span class="card-icon">&#127970;</span>
+            <h3 class="card-title">LOCAL-FIRST STORAGE</h3>
+            <p class="card-text">Footage lives on a UniFi NVR on-site inside your building — not in a third-party cloud. You still get cloud access when you need to review clips from anywhere, but your data stays yours. No subscription fees, no outside vendor holding your recordings.</p>
           </div>
+        </div>
+        <div class="comic-card service-card animate-in" data-delay="300">
           <div class="service-card-body">
             <span class="card-icon">&#128260;</span>
             <h3 class="card-title">ONGOING MAINTENANCE</h3>
@@ -258,30 +258,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     padding: 0;
     overflow: hidden;
   }
-  .service-card:first-child {
-    grid-row: span 2;
-    transform: rotate(-0.5deg);
-  }
-  .service-card:first-child .service-card-body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .service-card:nth-child(2) { transform: rotate(0.5deg); }
-  .service-card:nth-child(3) { transform: rotate(-0.3deg); }
-  .service-card-image {
-    height: 180px;
-    overflow: hidden;
-  }
-  .service-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  .service-card:nth-child(odd) { transform: rotate(-0.5deg); }
+  .service-card:nth-child(even) { transform: rotate(0.5deg); }
   .service-card-body {
-    padding: 32px;
+    padding: 36px;
   }
   .card-icon {
     font-size: 2.2rem;
@@ -445,9 +425,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
     .services-grid {
       grid-template-columns: 1fr;
-    }
-    .service-card:first-child {
-      grid-row: span 1;
     }
     .section-title {
       font-size: 2rem;

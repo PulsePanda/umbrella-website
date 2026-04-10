@@ -11,7 +11,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <div class="halftone"></div>
     <div class="container-comic hero-grid">
       <div class="hero-content animate-in">
-        <span class="hero-icon">&#127984;</span>
         <h1 class="hero-title text-shadow-comic">
           A NETWORK YOUR SCHOOL CAN ACTUALLY <span class="highlight">RELY ON</span>
         </h1>
@@ -59,7 +58,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="services-grid">
         <div class="comic-card service-card animate-in">
           <div class="service-card-image">
-            <img src="/images/server-room.jpg" alt="Server room with active networking equipment" loading="lazy" />
+            <img src="/images/security-camera-2.jpg" alt="Ceiling-mounted networking hardware in a school" loading="lazy" />
           </div>
           <div class="service-card-body">
             <span class="card-icon">&#128225;</span>
@@ -69,7 +68,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
         <div class="comic-card service-card animate-in" data-delay="100">
           <div class="service-card-image">
-            <img src="/images/it-office-monitoring.jpg" alt="IT monitoring station showing network health dashboards" loading="lazy" />
+            <img src="/images/security-dashboard.png" alt="Network monitoring dashboard tracking health and alerts" loading="lazy" />
           </div>
           <div class="service-card-body">
             <span class="card-icon">&#128269;</span>
@@ -119,17 +118,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div class="compliance-card animate-in" data-delay="300">
           <h3 class="compliance-label">CIPA</h3>
           <p class="compliance-text">Children's Internet Protection Act — required for E-Rate funding. We implement and maintain certified content filtering and internet safety policies.</p>
-        </div>
-      </div>
-      <div class="compliance-stats animate-in" data-delay="200">
-        <div class="stat-block">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">Audit Success</span>
-        </div>
-        <div class="stat-divider" aria-hidden="true"></div>
-        <div class="stat-block">
-          <span class="stat-value">CIPA</span>
-          <span class="stat-label">Certified Filtering</span>
         </div>
       </div>
     </div>
@@ -246,15 +234,20 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .erate-banner {
     background: #366430;
     color: var(--white);
-    padding: 60px 0 80px;
+    padding: 80px 0 100px;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   }
   .erate-inner {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 40px;
     flex-wrap: wrap;
+    text-align: center;
+  }
+  .erate-text {
+    max-width: 720px;
   }
   .erate-shield {
     width: 80px;
@@ -280,7 +273,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     font-size: 1.05rem;
     line-height: 1.7;
     opacity: 0.95;
-    max-width: 700px;
   }
 
   /* ============================== */
@@ -388,7 +380,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    margin-bottom: 48px;
   }
   .compliance-card {
     background: rgba(255,255,255,0.06);
@@ -411,34 +402,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     line-height: 1.6;
     opacity: 0.85;
   }
-  .compliance-stats {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
-  }
-  .stat-block {
-    text-align: center;
-  }
-  .stat-value {
-    display: block;
-    font-family: 'Bangers', cursive;
-    font-size: 2.4rem;
-    color: var(--yellow);
-    letter-spacing: 0.04em;
-  }
-  .stat-label {
-    font-size: 0.9rem;
-    opacity: 0.8;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-  .stat-divider {
-    width: 3px;
-    height: 48px;
-    background: rgba(255,255,255,0.2);
-  }
-
   /* ============================== */
   /* CTA                            */
   /* ============================== */
@@ -505,9 +468,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
     .compliance-grid {
       grid-template-columns: 1fr;
-    }
-    .compliance-stats {
-      gap: 24px;
     }
     .cta-title {
       font-size: 2rem;

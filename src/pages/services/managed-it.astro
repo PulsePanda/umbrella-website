@@ -1,154 +1,494 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/ui/Button.astro';
-import HearthNote from '../../components/ui/HearthNote.astro';
 ---
 
 <BaseLayout
-  title="Managed IT for Schools | Umbrella Systems"
+  title="Managed IT for Schools | Lightning Response | Umbrella Systems"
   description="Full-service IT management for schools. On-site technicians, unlimited helpdesk, device fleet management, identity administration, and testing support. No hourly rates."
 >
   <!-- Hero Section -->
-  <section class="relative px-6 lg:px-8 py-20 max-w-7xl mx-auto overflow-hidden">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div class="z-10">
-        <span class="inline-block px-4 py-1.5 bg-tertiary-fixed text-on-surface font-bold text-xs tracking-widest uppercase rounded-full mb-6">Full-Service IT</span>
-        <h1 class="font-extrabold text-4xl lg:text-6xl text-on-surface leading-[1.1] mb-6">Your full-service IT team — without the full-time overhead.</h1>
-        <p class="text-xl text-on-surface-variant max-w-xl mb-10 leading-relaxed">On-site technicians, unlimited remote support, device management, identity administration, and testing coordination. Everything your school needs, covered.</p>
-        <div class="flex flex-wrap gap-4">
-          <Button href="/contact">Schedule a Visit</Button>
-          <Button variant="secondary" href="/schools">Schools We Serve</Button>
+  <section class="hero-section">
+    <div class="halftone"></div>
+    <div class="container-comic hero-grid">
+      <div class="hero-content animate-in">
+        <span class="hero-icon">&#9889;</span>
+        <h1 class="hero-title text-shadow-comic">
+          YOUR FULL-SERVICE <span class="highlight">IT TEAM</span> — WITHOUT THE FULL-TIME OVERHEAD
+        </h1>
+        <p class="hero-sub">
+          On-site technicians, unlimited remote support, device management, identity admin, testing coordination. Everything your school needs, covered.
+        </p>
+        <div class="hero-ctas">
+          <a href="/contact" class="btn-comic btn-comic-red">Schedule a Visit</a>
+          <a href="/schools" class="btn-comic btn-comic-yellow">Schools We Serve</a>
         </div>
       </div>
-      <div class="relative">
-        <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
-        <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-tertiary-fixed/30 rounded-full blur-3xl"></div>
-        <div class="relative z-10 rounded-2xl shadow-2xl rotate-1 aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
-          <span class="text-on-surface-variant text-sm text-center px-8">Photo needed — IT specialist helping with devices</span>
+      <div class="hero-image-wrap animate-in" data-delay="200">
+        <div class="comic-panel hero-panel">
+          <img src="/images/tv-mount-install.jpg" alt="Umbrella Systems technician installing AV equipment in a school" loading="eager" />
         </div>
       </div>
     </div>
+    <div class="clip-edge"></div>
   </section>
 
   <!-- Promise Banner -->
-  <section class="bg-surface-container-low py-12 lg:py-16 px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="bg-surface-container-lowest p-8 lg:p-12 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8 border-l-8 border-primary" style="border-radius: 24px 8px 24px 8px;">
-        <div class="max-w-2xl">
-          <h2 class="text-2xl lg:text-3xl font-bold text-on-surface mb-4">No hourly rates. No caps. No surprises.</h2>
-          <p class="text-lg text-on-surface-variant italic">One flat monthly rate covers every support request, every device, every user. Period.</p>
+  <section class="promise-banner">
+    <div class="container-comic promise-inner">
+      <div class="promise-text">
+        <h2 class="promise-headline">NO HOURLY RATES. NO CAPS. NO SURPRISES.</h2>
+        <p class="promise-sub">One flat monthly rate covers every support request, every device, every user. Period.</p>
+      </div>
+      <div class="promise-badge">
+        <div class="starburst">FLAT RATE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="included-section">
+    <div class="halftone-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title animate-in">WHAT'S INCLUDED</h2>
+      <div class="power-grid">
+        <div class="comic-card power-card power-card-wide animate-in">
+          <span class="card-icon">&#127979;</span>
+          <h3 class="card-title">ON-SITE SUPPORT</h3>
+          <p class="card-text">A dedicated technician in your building, 1-5 days per week. They're not just troubleshooters — they're decision-makers who know your staff, your systems, and your priorities.</p>
         </div>
-        <div class="text-center lg:text-right flex-shrink-0">
-          <div class="text-primary font-extrabold text-2xl lg:text-3xl">Flat Rate.</div>
-          <div class="text-secondary font-bold text-lg">Everything Included.</div>
+        <div class="comic-card power-card animate-in" data-delay="100">
+          <span class="card-icon">&#128187;</span>
+          <h3 class="card-title">REMOTE HELPDESK</h3>
+          <p class="card-text">Unlimited remote support for every staff member and student. No ticket limits, no wait-for-the-next-visit delays. Most issues resolved same-day.</p>
+          <div class="card-badge">Same-Day Resolution</div>
+        </div>
+        <div class="comic-card power-card animate-in" data-delay="200">
+          <span class="card-icon">&#128241;</span>
+          <h3 class="card-title">DEVICE FLEET MANAGEMENT</h3>
+          <p class="card-text">Full lifecycle of every device — procurement, configuration, deployment, maintenance, retirement. Chromebooks, laptops, desktops, tablets. No extra fees.</p>
+        </div>
+        <div class="comic-card power-card animate-in" data-delay="100">
+          <span class="card-icon">&#128273;</span>
+          <h3 class="card-title">IDENTITY & ACCESS MANAGEMENT</h3>
+          <p class="card-text">User accounts, permissions, security policies, SSO — managed across Google Admin, Apple MDM, Azure AD. We handle onboarding, offboarding, everything in between.</p>
+        </div>
+        <div class="comic-card power-card animate-in" data-delay="200">
+          <span class="card-icon">&#128221;</span>
+          <h3 class="card-title">TESTING SUPPORT</h3>
+          <p class="card-text">MCA, FastBridge, ACCESS — we coordinate before, during, and after testing windows. Devices configured, networks optimized, nothing technical gets in the way.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Bento Grid -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="mb-16">
-      <h2 class="font-extrabold text-3xl lg:text-4xl mb-4">What's included.</h2>
-      <p class="text-on-surface-variant max-w-2xl text-lg">From the hardware in a student's hands to the cloud security protecting their identity.</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <!-- On-Site Support -->
-      <div class="md:col-span-8 bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
-        <h3 class="text-2xl font-bold mb-3">On-Site Support</h3>
-        <p class="text-on-surface-variant mb-6 leading-relaxed">A dedicated technician in your building, scaled to your school's size — anywhere from one to five days per week. They're not just troubleshooters. They're decision-makers who know your staff, your systems, and your priorities. Problems get solved on the spot, not after a week of back-and-forth emails.</p>
-      </div>
-      <!-- Remote Helpdesk -->
-      <div class="md:col-span-4 bg-secondary text-on-secondary p-8 lg:p-10 rounded-xl flex flex-col justify-between">
-        <div>
-          <h3 class="text-2xl font-bold mb-3">Remote Helpdesk</h3>
-          <p class="opacity-90 leading-relaxed">Unlimited remote support for every staff member and student. No ticket limits, no wait-for-the-next-visit delays. We resolve most issues same-day through remote tools.</p>
+  <!-- Device Lifecycle -->
+  <section class="lifecycle-section">
+    <div class="halftone-light-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title section-title-light animate-in">HOW WE MANAGE YOUR DEVICES</h2>
+      <div class="lifecycle-flow">
+        <div class="lifecycle-step animate-in">
+          <div class="step-number">1</div>
+          <h3 class="step-title">PROCURE</h3>
+          <p class="step-text">Vendor coordination, best pricing</p>
         </div>
-        <div class="mt-8 pt-6 border-t border-on-secondary/20">
-          <span class="text-sm font-bold tracking-widest uppercase">Same-Day</span>
-          <div class="text-3xl font-extrabold">Resolution</div>
+        <div class="lifecycle-arrow" aria-hidden="true">&raquo;</div>
+        <div class="lifecycle-step animate-in" data-delay="100">
+          <div class="step-number">2</div>
+          <h3 class="step-title">CONFIGURE</h3>
+          <p class="step-text">Imaged, enrolled, tagged</p>
         </div>
-      </div>
-      <!-- Device Fleet -->
-      <div class="md:col-span-4 bg-surface-container-high p-8 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Device Fleet Management</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">We manage the full lifecycle of every device in your building — from procurement and configuration to deployment, maintenance, and eventual retirement. Chromebooks, laptops, desktops, tablets, and peripherals.</p>
-      </div>
-      <!-- Identity & Access -->
-      <div class="md:col-span-4 bg-surface-container-lowest border border-outline-variant/15 p-8 rounded-xl">
-        <h3 class="text-xl font-bold mb-2">Identity & Access Management</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">User accounts, permissions, security policies, and single sign-on — managed across Google Admin Console, Apple School Manager/MDM, Azure Active Directory, and any other platforms your school uses.</p>
-      </div>
-      <!-- Testing Support -->
-      <div class="md:col-span-4 bg-tertiary-fixed p-8 rounded-xl">
-        <h3 class="text-xl font-bold mb-2 text-on-surface">Testing Support</h3>
-        <p class="text-on-surface text-sm leading-relaxed">MCA, FastBridge, ACCESS, and other mandated assessments require reliable technology and someone who knows how to set it up. We coordinate with your staff before, during, and after testing windows.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Device Lifecycle Section -->
-  <section class="py-20 lg:py-24 bg-surface-container-low px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-      <div>
-        <div class="rounded-3xl shadow-xl -rotate-2 aspect-square bg-surface-container-high overflow-hidden">
-          <img src="/images/network-closet.jpg" alt="School network closet with organized cabling" class="w-full h-full object-cover" loading="lazy" />
+        <div class="lifecycle-arrow" aria-hidden="true">&raquo;</div>
+        <div class="lifecycle-step lifecycle-step-featured animate-in" data-delay="200">
+          <div class="step-number">3</div>
+          <div class="step-image">
+            <img src="/images/summer-project.jpg" alt="Umbrella Systems team deploying devices at a school" loading="lazy" />
+          </div>
+          <h3 class="step-title">DEPLOY</h3>
+          <p class="step-text">Distributed with documentation</p>
         </div>
-      </div>
-      <div>
-        <h2 class="font-extrabold text-3xl lg:text-4xl mb-8">How we manage your devices.</h2>
-        <div class="space-y-8">
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">1</div>
-            <div>
-              <h3 class="text-lg font-bold mb-2">Procure</h3>
-              <p class="text-on-surface-variant">We coordinate with vendors to get the best pricing on hardware. We don't sell devices or mark up costs — we leverage our relationships so you get competitive quotes directly.</p>
-            </div>
-          </div>
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">2</div>
-            <div>
-              <h3 class="text-lg font-bold mb-2">Configure</h3>
-              <p class="text-on-surface-variant">Every device gets imaged, enrolled in your management console, configured with the right apps and policies, and tagged in our asset tracking system before it reaches a single user.</p>
-            </div>
-          </div>
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">3</div>
-            <div>
-              <h3 class="text-lg font-bold mb-2">Deploy</h3>
-              <p class="text-on-surface-variant">Devices are distributed to staff or students with clear documentation. We handle the logistics of large-scale rollouts during breaks and smaller deployments throughout the year.</p>
-            </div>
-          </div>
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">4</div>
-            <div>
-              <h3 class="text-lg font-bold mb-2">Support</h3>
-              <p class="text-on-surface-variant">Ongoing troubleshooting, repairs, software updates, and user support for every device in the fleet. If something breaks, we fix it or replace it — no extra charge.</p>
-            </div>
-          </div>
-          <div class="flex gap-6">
-            <div class="flex-shrink-0 w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center font-bold text-primary">5</div>
-            <div>
-              <h3 class="text-lg font-bold mb-2">Retire</h3>
-              <p class="text-on-surface-variant">When devices reach end-of-life, we handle data wiping, de-enrollment, and responsible disposal or recycling.</p>
-            </div>
-          </div>
+        <div class="lifecycle-arrow" aria-hidden="true">&raquo;</div>
+        <div class="lifecycle-step animate-in" data-delay="300">
+          <div class="step-number">4</div>
+          <h3 class="step-title">SUPPORT</h3>
+          <p class="step-text">Troubleshooting, repairs, updates</p>
+        </div>
+        <div class="lifecycle-arrow" aria-hidden="true">&raquo;</div>
+        <div class="lifecycle-step animate-in" data-delay="400">
+          <div class="step-number">5</div>
+          <h3 class="step-title">RETIRE</h3>
+          <p class="step-text">Data wiping, de-enrollment, recycling</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto hearth-gradient text-on-primary p-12 lg:p-16 rounded-[2.5rem] text-center relative overflow-hidden shadow-2xl">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-      <div class="relative z-10">
-        <h2 class="text-3xl lg:text-5xl font-extrabold mb-6">See what fully managed IT looks like.</h2>
-        <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">We'll walk you through exactly how our support works day-to-day — including response times, on-site scheduling, and how we handle the things that keep you up at night.</p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact" class="bg-surface text-primary px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">Schedule a Visit</a>
-        </div>
-      </div>
+  <section class="cta-section">
+    <div class="container-comic cta-inner">
+      <h2 class="cta-title animate-in">SEE WHAT FULLY MANAGED IT LOOKS LIKE</h2>
+      <p class="cta-sub animate-in" data-delay="100">We'll walk you through exactly how our support works day-to-day — including response times, on-site scheduling, and how we handle the things that keep you up at night.</p>
+      <a href="/contact" class="btn-comic btn-comic-white animate-in" data-delay="200">Schedule a Visit</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ============================== */
+  /* Hero                           */
+  /* ============================== */
+  .hero-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 250px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section .halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 rgba(255,255,255,0.15);
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-panel {
+    transform: rotate(2deg);
+    aspect-ratio: 4/3;
+  }
+  .hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .clip-edge {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ============================== */
+  /* Promise Banner                 */
+  /* ============================== */
+  .promise-banner {
+    background: var(--red);
+    color: var(--white);
+    padding: 60px 0;
+    position: relative;
+    clip-path: polygon(0 0, 100% 8%, 100% 92%, 0 100%);
+  }
+  .promise-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .promise-headline {
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+  .promise-sub {
+    font-size: 1.15rem;
+    opacity: 0.95;
+    max-width: 600px;
+  }
+  .promise-badge .starburst {
+    font-size: 1.4rem;
+    padding: 16px 36px;
+  }
+
+  /* ============================== */
+  /* What's Included                */
+  /* ============================== */
+  .included-section {
+    padding: 100px 0;
+    position: relative;
+    background: var(--white);
+  }
+  .halftone-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--navy) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  .section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--yellow);
+    margin: 16px auto 0;
+    border: 2px solid var(--navy);
+  }
+  .power-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .power-card {
+    padding: 36px;
+    position: relative;
+  }
+  .power-card-wide {
+    grid-column: span 2;
+  }
+  .power-card:nth-child(odd) {
+    transform: rotate(-0.5deg);
+  }
+  .power-card:nth-child(even) {
+    transform: rotate(0.5deg);
+  }
+  .card-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+  }
+  .card-badge {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 16px;
+    background: var(--yellow);
+    border: 2px solid var(--navy);
+    font-family: 'Bangers', cursive;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ============================== */
+  /* Device Lifecycle               */
+  /* ============================== */
+  .lifecycle-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+    overflow: hidden;
+  }
+  .halftone-light-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .section-title-light {
+    color: var(--white);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  }
+  .section-title-light::after {
+    background: var(--red);
+    border-color: var(--white);
+  }
+  .lifecycle-flow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .lifecycle-step {
+    background: rgba(255,255,255,0.08);
+    border: var(--border-comic);
+    border-color: rgba(255,255,255,0.25);
+    padding: 28px 24px;
+    text-align: center;
+    width: 180px;
+    flex-shrink: 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .lifecycle-step:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(255,255,255,0.15);
+  }
+  .lifecycle-step-featured {
+    width: 220px;
+    padding-top: 0;
+    overflow: hidden;
+  }
+  .step-number {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    color: var(--yellow);
+    margin-bottom: 8px;
+  }
+  .step-title {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    letter-spacing: 0.06em;
+  }
+  .step-text {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+  .step-image {
+    margin: 0 -24px 16px;
+    height: 120px;
+    overflow: hidden;
+  }
+  .step-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .lifecycle-arrow {
+    font-size: 2rem;
+    color: var(--yellow);
+    align-self: center;
+    margin-top: -20px;
+    font-family: 'Bangers', cursive;
+  }
+
+  /* ============================== */
+  /* CTA                            */
+  /* ============================== */
+  .cta-section {
+    background: var(--red);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+  }
+  .cta-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+  .cta-sub {
+    font-size: 1.15rem;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    opacity: 0.95;
+    line-height: 1.7;
+  }
+
+  /* ============================== */
+  /* Responsive                     */
+  /* ============================== */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+    }
+    .hero-panel {
+      max-width: 500px;
+    }
+    .power-card-wide {
+      grid-column: span 1;
+    }
+    .lifecycle-flow {
+      gap: 12px;
+    }
+    .lifecycle-step {
+      width: 140px;
+      padding: 20px 16px;
+    }
+    .lifecycle-step-featured {
+      width: 160px;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 200px 0 80px;
+    }
+    .hero-title {
+      font-size: 2rem;
+    }
+    .promise-headline {
+      font-size: 1.6rem;
+    }
+    .promise-banner {
+      clip-path: polygon(0 0, 100% 3%, 100% 97%, 0 100%);
+    }
+    .power-grid {
+      grid-template-columns: 1fr;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+    .lifecycle-section {
+      clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+    }
+    .lifecycle-flow {
+      flex-direction: column;
+      align-items: center;
+    }
+    .lifecycle-arrow {
+      transform: rotate(90deg);
+      margin-top: 0;
+    }
+    .lifecycle-step,
+    .lifecycle-step-featured {
+      width: 100%;
+      max-width: 300px;
+    }
+    .cta-title {
+      font-size: 2rem;
+    }
+  }
+</style>

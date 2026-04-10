@@ -1,159 +1,611 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/ui/Button.astro';
-import HearthNote from '../components/ui/HearthNote.astro';
-import StatBlock from '../components/ui/StatBlock.astro';
 ---
 
 <BaseLayout
-  title="About Umbrella Systems | School IT Team in Apple Valley, MN"
+  title="About Umbrella Systems | The Team Behind the Screens"
   description="Meet the four-person team behind Umbrella Systems. We specialize in IT for Minnesota charter schools — embedded, proactive, and focused on getting it right."
 >
   <!-- Hero Section -->
-  <section class="px-6 lg:px-8 py-20 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row gap-16 items-center">
-      <div class="md:w-1/2">
-        <span class="inline-block py-1 px-4 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase mb-6">Our Story</span>
-        <h1 class="font-extrabold text-5xl lg:text-7xl tracking-tight leading-[1.1] text-on-surface mb-8">
-          We're the team behind the screens.
+  <section class="comic-hero">
+    <div class="comic-hero-halftone"></div>
+    <div class="comic-hero-inner">
+      <div class="comic-hero-text animate-in">
+        <h1 class="comic-h1">
+          WE'RE THE <span class="highlight">TEAM</span> BEHIND THE SCREENS
         </h1>
-        <p class="text-xl text-on-surface-variant leading-relaxed max-w-xl">
+        <p class="comic-sub">
           Umbrella Systems started with a simple idea: schools deserve IT support that actually understands them.
         </p>
       </div>
-      <div class="md:w-1/2 relative">
-        <div class="absolute -top-4 -left-4 w-24 h-24 bg-tertiary-fixed rounded-full -z-10"></div>
-        <div class="rounded-xl shadow-2xl rotate-2 w-full aspect-[4/3] bg-surface-container-high overflow-hidden">
-          <img src="/images/hero-classroom.jpg" alt="Jesse Schonfeld with students at a Minnesota charter school" class="w-full h-full object-cover" loading="eager" />
+      <div class="comic-hero-image animate-in" data-delay="1">
+        <div style="display:flex; gap:20px; align-items:start;">
+          <div class="comic-panel" style="transform:rotate(-2deg); flex:1;">
+            <img src="/images/jesse-2.JPG" alt="Jesse Schonfeld" loading="eager" style="height:auto;" />
+          </div>
+          <div class="comic-panel" style="transform:rotate(1.5deg); flex:1; margin-top:40px;">
+            <img src="/images/austin-headshot-1.jpg" alt="Austin VanAlstyne" loading="eager" style="height:auto;" />
+          </div>
         </div>
       </div>
     </div>
+    <div class="comic-hero-clip"></div>
   </section>
 
-  <!-- Company Story Section -->
-  <section class="bg-surface-container-low py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start">
-        <div class="space-y-6">
-          <h2 class="font-extrabold text-3xl lg:text-4xl text-on-surface">Why schools?</h2>
-          <div class="text-on-surface-variant text-lg leading-relaxed space-y-4">
-            <p>Most IT companies serve anyone who'll sign a contract. Schools get lumped in with law firms and dental offices, and the support reflects it — generic solutions, slow response times, techs who've never set foot in a classroom.</p>
-            <p>Schools have unique challenges. Hundreds of student devices that take a beating. Testing platforms that have to work on test day. E-Rate funding that can save tens of thousands — if someone actually does the paperwork. We focus on schools because that's what we're good at.</p>
-            <p>We keep our client base small on purpose so every school gets real attention. Our people aren't cycling through a rotation — they're in your building, they know your staff by name, and they're empowered to make decisions on the spot. Four people, based in Apple Valley, with eight years in the industry. Monitoring and helpdesk running 24/7.</p>
-          </div>
-        </div>
-        <div class="lg:sticky lg:top-24">
-          <HearthNote>
-            <h3 class="font-bold text-2xl text-on-surface mb-4">Phase 0: The First Step</h3>
-            <p class="text-on-surface leading-relaxed">
-              Our onboarding doesn't start with hardware. It starts with <strong class="font-bold">Phase 0</strong> — a shadow period where we embed with your current IT setup at no cost. We learn your systems, your staff, and your pain points from the inside. By the time the partnership officially starts, we're already up to speed.
-            </p>
-          </HearthNote>
-        </div>
+  <!-- Why Schools Section -->
+  <section class="why-schools halftone-bg-light">
+    <div class="section-inner">
+      <h2 class="comic-h2 animate-in">WHY SCHOOLS?</h2>
+      <div class="why-schools-body animate-in" data-delay="1">
+        <p>
+          Most IT companies serve anyone who'll sign a contract. Law firms, dental offices, logistics companies — whoever's next in line. Schools get lumped in with the rest, and the support reflects that: generic solutions, slow response times, and technicians who've never set foot in a classroom.
+        </p>
+        <p>
+          We built Umbrella Systems because we think that's backwards.
+        </p>
+        <p>
+          Schools have unique challenges. Hundreds of student devices that take a beating. State-mandated testing platforms that have to work on test day. Staff who need help now, not after a ticket bounces between three people. E-Rate funding that can save tens of thousands — if someone actually does the paperwork.
+        </p>
+        <p>
+          We focus on schools because that's what we're good at. We keep our client base small on purpose — not because we can't grow, but because we'd rather every school get real attention than spread ourselves thin chasing contracts.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Team Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="mb-16 text-center">
-      <h2 class="font-extrabold text-3xl lg:text-4xl text-on-surface">Meet the team.</h2>
-      <div class="h-1.5 w-24 bg-primary mx-auto mt-4 rounded-full"></div>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Austin -->
-      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
-        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square">
-          <img src="/images/austin.jpg" alt="Austin VanAlstyne" class="w-full h-full object-cover" style="object-position: center 25%;" loading="lazy" />
-        </div>
-        <h3 class="font-extrabold text-xl text-on-surface">Austin VanAlstyne</h3>
-        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Co-Founder & Technical Lead</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Austin runs the technical side of Umbrella — from network architecture and cybersecurity to the systems that keep everything monitored and running. He's the one building the dashboards, writing the automation, and making sure nothing falls through the cracks. When a school has a complex infrastructure problem, Austin's the person solving it.</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
-          "I got into this because I kept seeing schools get overcharged for mediocre IT. We can do better than that."
-        </p>
+  <section class="team-section">
+    <div class="section-inner">
+      <div class="team-header animate-in">
+        <h2 class="comic-h2">MEET THE HEROES</h2>
+        <p class="comic-sub-center">Four people based in the Twin Cities, with six years in the industry.</p>
       </div>
-      <!-- Jesse -->
-      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
-        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square">
-          <img src="/images/jesse.jpg" alt="Jesse Schonfeld" class="w-full h-full object-cover object-top" loading="lazy" />
+      <div class="team-grid">
+        <!-- Austin -->
+        <div class="team-card animate-in" data-delay="0">
+          <div class="team-card-photo">
+            <img src="/images/austin.jpg" alt="Austin VanAlstyne" loading="lazy" style="object-position: center 25%;" />
+          </div>
+          <div class="team-card-body">
+            <h3 class="team-name">Austin VanAlstyne</h3>
+            <p class="team-role">Co-Founder & Technical Lead</p>
+            <p class="team-bio">Austin runs the technical side — from network architecture and cybersecurity to the systems that keep everything monitored and running. He's the one building the dashboards, writing the automation, and making sure nothing falls through the cracks.</p>
+            <div class="speech-bubble-small">
+              <p>"I got into this because I kept seeing schools get overcharged for mediocre IT. We can do better than that."</p>
+            </div>
+          </div>
         </div>
-        <h3 class="font-extrabold text-xl text-on-surface">Jesse Schonfeld</h3>
-        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Co-Founder & Operations Lead</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Jesse handles operations, client relationships, and business strategy. He's usually the first person a new school talks to and the one making sure the partnership stays strong long-term. Jesse manages contracts, coordinates E-Rate filings, and keeps the team aligned with each school's goals.</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
-          "The best compliment we get is when a school forgets they're outsourcing their IT. That means we're doing our job."
-        </p>
-      </div>
-      <!-- Vinny -->
-      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
-        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square">
-          <img src="/images/vinny.jpg" alt="Vinny Simon" class="w-full h-full object-cover" style="object-position: center 20%;" loading="lazy" />
+        <!-- Jesse -->
+        <div class="team-card animate-in" data-delay="1">
+          <div class="team-card-photo">
+            <img src="/images/jesse-1.jpg" alt="Jesse Schonfeld" loading="lazy" style="object-position: center top;" />
+          </div>
+          <div class="team-card-body">
+            <h3 class="team-name">Jesse Schonfeld</h3>
+            <p class="team-role">Co-Founder & Operations Lead</p>
+            <p class="team-bio">Jesse handles operations, client relationships, and business strategy. He's usually the first person a new school talks to and the one making sure the partnership stays strong long-term.</p>
+            <div class="speech-bubble-small">
+              <p>"The best compliment we get is when a school forgets they're outsourcing their IT."</p>
+            </div>
+          </div>
         </div>
-        <h3 class="font-extrabold text-xl text-on-surface">Vinny Simon</h3>
-        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Field Technician</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Vinny is the one pulling cable, racking switches, and getting infrastructure projects across the finish line. When we ran a full cabling overhaul at one of our partner schools, Vinny was on-site making it happen. He's also the person we send when a school needs extra hands fast — whether it's a mass device deployment, an emergency network issue, or a summer break project on a tight timeline.</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
-          "I like the big builds. There's something satisfying about walking out of a school knowing the infrastructure is solid for years."
-        </p>
-      </div>
-      <!-- Brendan -->
-      <div class="group bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all duration-300">
-        <div class="mb-6 overflow-hidden rounded-xl bg-surface-container-high aspect-square">
-          <img src="/images/brendan.jpg" alt="Brendan VanAlstyne" class="w-full h-full object-cover" style="object-position: 30% 20%;" loading="lazy" />
+        <!-- Vinny -->
+        <div class="team-card animate-in" data-delay="2">
+          <div class="team-card-photo">
+            <img src="/images/vinny.jpg" alt="Vinny Simon" loading="lazy" style="object-position: center 20%;" />
+          </div>
+          <div class="team-card-body">
+            <h3 class="team-name">Vinny Simon</h3>
+            <p class="team-role">Field Technician</p>
+            <p class="team-bio">Vinny is the one pulling cable, racking switches, and getting infrastructure projects across the finish line. He's also the person we send when a school needs extra hands fast.</p>
+            <div class="speech-bubble-small">
+              <p>"I like the big builds. There's something satisfying about walking out of a school knowing the infrastructure is solid for years."</p>
+            </div>
+          </div>
         </div>
-        <h3 class="font-extrabold text-xl text-on-surface">Brendan VanAlstyne</h3>
-        <p class="text-primary font-bold text-sm tracking-wider mb-4 uppercase">Field Technician</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Brendan works alongside Vinny on deployment projects and infrastructure builds — the physical, hands-on work that keeps schools running. Need 200 Chromebooks staged and deployed before the first day of school? A full network closet rewired over winter break? That's Brendan. He's detail-oriented, fast, and reliable when the timeline is tight.</p>
-        <p class="text-on-surface-variant text-sm leading-relaxed italic mt-4">
-          "Give me a project list and a deadline. I'll make it happen."
-        </p>
+        <!-- Brendan -->
+        <div class="team-card animate-in" data-delay="3">
+          <div class="team-card-photo">
+            <img src="/images/brendan-2.png" alt="Brendan VanAlstyne" loading="lazy" style="object-position: 30% 20%;" />
+          </div>
+          <div class="team-card-body">
+            <h3 class="team-name">Brendan VanAlstyne</h3>
+            <p class="team-role">Field Technician</p>
+            <p class="team-bio">Brendan works alongside Vinny on deployment projects and infrastructure builds. Need 200 Chromebooks staged before the first day of school? That's Brendan.</p>
+            <div class="speech-bubble-small">
+              <p>"Give me a project list and a deadline. I'll make it happen."</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Approach Section -->
-  <section class="bg-surface py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="font-extrabold text-3xl lg:text-4xl text-on-surface text-center mb-16">How we work.</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="md:col-span-2 bg-secondary text-on-secondary p-10 lg:p-12 rounded-xl flex flex-col justify-center">
-          <h3 class="font-extrabold text-3xl lg:text-4xl mb-6">Built for community.</h3>
-          <p class="text-lg opacity-90 max-w-xl">
-            We don't hide behind portals or automated responses. Our model is built on physical presence. When a classroom screen flickers, you walk down the hall and talk to us.
-          </p>
-        </div>
-        <div class="bg-primary p-10 lg:p-12 rounded-xl text-on-primary flex flex-col justify-between">
-          <h3 class="font-extrabold text-3xl mb-4">E-Rate experts.</h3>
-          <p class="opacity-90">Certified and experienced in navigating school funding and digital equity.</p>
-        </div>
-        <div class="bg-surface-container-high p-8 rounded-xl md:col-span-3 flex flex-col md:flex-row items-center gap-8 lg:gap-12">
-          <div class="md:w-1/3">
-            <h3 class="font-bold text-2xl text-on-surface">Always on call.</h3>
-            <p class="text-on-surface-variant mt-2">Because a school's technology never stops, even when the final bell rings.</p>
+  <!-- How We Work Section -->
+  <section class="how-we-work">
+    <div class="how-we-work-halftone"></div>
+    <div class="how-we-work-clip-top"></div>
+    <div class="section-inner how-we-work-inner">
+      <h2 class="comic-h2 white animate-in">HOW WE WORK</h2>
+      <div class="stats-grid">
+        <div class="stat-card animate-in" data-delay="0">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-            <StatBlock value="24/7" label="Network monitoring and emergency support" class="p-4 bg-surface rounded-lg shadow-sm" />
-            <StatBlock value="$0" label="Phase 0 onboarding — no cost" class="p-4 bg-surface rounded-lg shadow-sm" />
-            <StatBlock value="100%" label="Minnesota-based team" class="p-4 bg-surface rounded-lg shadow-sm" />
-            <StatBlock value="30 min" label="Critical issue response time" class="p-4 bg-surface rounded-lg shadow-sm" />
-          </div>
+          <div class="stat-value">24/7</div>
+          <div class="stat-label">Network monitoring and emergency support</div>
         </div>
+        <div class="stat-card animate-in" data-delay="1">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="stat-value">$0</div>
+          <div class="stat-label">Phase 0 onboarding — we shadow first, no cost</div>
+        </div>
+        <div class="stat-card animate-in" data-delay="2">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="stat-value">100%</div>
+          <div class="stat-label">Minnesota-based team, every single person</div>
+        </div>
+        <div class="stat-card animate-in" data-delay="3">
+          <div class="stat-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="stat-value">30 min</div>
+          <div class="stat-label">Critical issue response time</div>
+        </div>
+      </div>
+    </div>
+    <div class="how-we-work-clip-bottom"></div>
+  </section>
+
+  <!-- Phase 0 Section -->
+  <section class="phase-zero-section">
+    <div class="section-inner">
+      <div class="phase-zero-bubble animate-in">
+        <div class="speech-bubble-tail" aria-hidden="true"></div>
+        <p class="phase-zero-text">
+          Before any contract starts, we spend time embedded with your current IT setup — learning your systems, your staff, and your pain points. No cost, no commitment. Just a chance for both sides to make sure it's the right fit.
+        </p>
+        <p class="phase-zero-label">This is <strong>Phase 0</strong> onboarding.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto text-center hearth-gradient p-12 lg:p-16 rounded-3xl text-on-primary shadow-2xl relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent opacity-50"></div>
-      <div class="relative z-10">
-        <h2 class="font-extrabold text-3xl lg:text-5xl mb-8">See what Phase 0 looks like.</h2>
-        <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Before any contract starts, we spend time embedded with your current IT setup — learning your systems, your staff, and your pain points. No cost, no commitment. Just a chance for both sides to make sure it's the right fit.</p>
-        <a href="/contact" class="inline-flex items-center bg-surface text-primary px-10 py-4 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
-          Schedule a Phase 0 Tour
-        </a>
-      </div>
+  <section class="comic-cta">
+    <div class="comic-cta-halftone"></div>
+    <div class="section-inner comic-cta-inner">
+      <h2 class="comic-h2 white animate-in">
+        SEE WHAT <span class="highlight">PHASE 0</span> LOOKS LIKE
+      </h2>
+      <a href="/contact" class="comic-btn animate-in" data-delay="1">Schedule a Phase 0 Tour</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --navy: #1a1a2e;
+    --red: #ff1744;
+    --red-dark: #d50000;
+    --yellow: #ffd600;
+    --white: #ffffff;
+    --gray: #9e9e9e;
+    --shadow-comic: 4px 4px 0px var(--navy);
+    --border-comic: 3px solid var(--navy);
+  }
+
+  /* ---- Animations ---- */
+  .animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-in[data-delay="1"] { transition-delay: 0.15s; }
+  .animate-in[data-delay="2"] { transition-delay: 0.3s; }
+  .animate-in[data-delay="3"] { transition-delay: 0.45s; }
+
+  /* ---- Typography ---- */
+  .comic-h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .comic-h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .comic-h2.white { color: var(--white); }
+  .highlight {
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 0 0.3em;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .comic-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    max-width: 540px;
+  }
+  .comic-sub-center {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.7;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 3rem;
+  }
+
+  /* ---- Layout helpers ---- */
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---- Comic Panel ---- */
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    overflow: hidden;
+    background: var(--white);
+  }
+  .comic-panel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---- HERO ---- */
+  .comic-hero {
+    position: relative;
+    background: var(--navy);
+    padding: 250px 0 9rem;
+    overflow: hidden;
+  }
+  .comic-hero-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+  }
+  .comic-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .comic-hero-inner {
+      flex-direction: row;
+      gap: 4rem;
+    }
+    .comic-hero-text { flex: 0 0 38%; }
+    .comic-hero-image { flex: 1; min-width: 0; }
+  }
+  .comic-panel-hero {
+    transform: rotate(2deg);
+  }
+  .comic-hero-clip {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+
+  /* ---- WHY SCHOOLS ---- */
+  .why-schools {
+    padding: 5rem 0;
+    background: var(--white);
+    position: relative;
+  }
+  .halftone-bg-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(26,26,46,0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+  .why-schools-body {
+    font-family: 'Poppins', sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+  }
+  .why-schools-body p {
+    margin-bottom: 1.25rem;
+  }
+
+  /* ---- TEAM ---- */
+  .team-section {
+    padding: 5rem 0;
+    background: #f7f7fb;
+  }
+  .team-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 640px) {
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .team-card {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  .team-card:nth-child(odd) { transform: rotate(-0.8deg); }
+  .team-card:nth-child(even) { transform: rotate(0.8deg); }
+  .team-card:hover { transform: rotate(0deg) translateY(-4px); }
+  .team-card-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-bottom: var(--border-comic);
+  }
+  .team-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .team-card-body {
+    padding: 1.5rem;
+  }
+  .team-name {
+    font-family: 'Bangers', cursive;
+    font-size: 1.6rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin: 0 0 0.25rem;
+  }
+  .team-role {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--red);
+    margin: 0 0 1rem;
+  }
+  .team-bio {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #444;
+    margin: 0 0 1rem;
+  }
+  .speech-bubble-small {
+    background: var(--yellow);
+    border: 2px solid var(--navy);
+    border-radius: 12px 12px 12px 0;
+    padding: 0.75rem 1rem;
+    position: relative;
+    margin-top: 0.75rem;
+  }
+  .speech-bubble-small p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* ---- HOW WE WORK ---- */
+  .how-we-work {
+    position: relative;
+    background: var(--red);
+    padding: 6rem 0;
+    overflow: hidden;
+  }
+  .how-we-work-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 10px 10px;
+    pointer-events: none;
+  }
+  .how-we-work-clip-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #f7f7fb;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .how-we-work-clip-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+  .how-we-work-inner { position: relative; z-index: 2; }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .stat-card {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+  }
+  .stat-icon {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto 0.75rem;
+    color: var(--red);
+  }
+  .stat-icon svg { width: 100%; height: 100%; }
+  .stat-value {
+    font-family: 'Bangers', cursive;
+    font-size: 2.25rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* ---- PHASE 0 ---- */
+  .phase-zero-section {
+    padding: 5rem 0;
+    background: var(--white);
+  }
+  .phase-zero-bubble {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 var(--navy);
+    border-radius: 24px;
+    padding: 2.5rem 3rem;
+    position: relative;
+  }
+  .speech-bubble-tail {
+    position: absolute;
+    bottom: -20px;
+    left: 60px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 22px solid var(--navy);
+  }
+  .speech-bubble-tail::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: -17px;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 19px solid var(--yellow);
+  }
+  .phase-zero-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--navy);
+    margin: 0 0 1rem;
+  }
+  .phase-zero-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  /* ---- CTA ---- */
+  .comic-cta {
+    position: relative;
+    background: var(--navy);
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .comic-cta-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+  .comic-cta-inner { position: relative; z-index: 2; }
+  .comic-btn {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.35rem;
+    letter-spacing: 1.5px;
+    color: var(--navy);
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .comic-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .comic-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--navy);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.animate-in').forEach((el) => observer.observe(el));
+</script>

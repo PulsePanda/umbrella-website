@@ -1,144 +1,717 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/ui/Button.astro';
-import HearthNote from '../components/ui/HearthNote.astro';
-import CheckIcon from '../components/ui/CheckIcon.astro';
 ---
 
 <BaseLayout
-  title="IT Support for Minnesota Charter Schools | Umbrella Systems"
+  title="IT for Minnesota Charter Schools | Umbrella Systems"
   description="IT support built for charter schools. E-Rate eligible network services, dedicated on-site technicians, unlimited remote support, and full device management across Minnesota."
 >
   <!-- Hero Section -->
-  <section class="relative px-6 lg:px-8 py-20 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="relative z-10">
-        <span class="inline-block px-4 py-1.5 bg-secondary-container text-secondary text-xs font-bold rounded-full mb-6 uppercase tracking-widest">Serving Minnesota Schools Statewide</span>
-        <h1 class="font-extrabold text-4xl lg:text-6xl leading-[1.1] text-on-surface mb-8">
-          IT built for the way charter schools actually work.
+  <section class="comic-hero">
+    <div class="comic-hero-halftone"></div>
+    <div class="comic-hero-inner">
+      <div class="comic-hero-text animate-in">
+        <h1 class="comic-h1">
+          IT BUILT FOR THE WAY <span class="highlight">CHARTER SCHOOLS</span> ACTUALLY WORK
         </h1>
-        <p class="text-lg text-on-surface-variant max-w-lg mb-10 leading-relaxed">
+        <p class="comic-sub">
           You don't need another vendor. You need a team that understands E-Rate deadlines, MCA testing requirements, and what happens when 400 students open Chromebooks at 8 AM.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <Button href="/contact">Schedule a Conversation</Button>
-          <Button variant="secondary" href="/about">Meet Our Team</Button>
+        <div class="hero-ctas">
+          <a href="/contact" class="comic-btn">Schedule a Conversation</a>
+          <a href="/about" class="comic-btn comic-btn-outline">Meet Our Team</a>
         </div>
       </div>
-      <div class="relative">
-        <div class="aspect-[4/5] bg-surface-container-high rounded-xl overflow-hidden shadow-2xl rotate-2 relative">
-          <img src="/images/staff-group.jpg" alt="School staff group photo with Umbrella Systems team member" class="w-full h-full object-cover" loading="eager" />
+      <div class="comic-hero-image animate-in" data-delay="1">
+        <div class="comic-panel comic-panel-hero">
+          <img src="/images/hero-classroom.jpg" alt="Charter school classroom with technology" loading="eager" />
         </div>
       </div>
     </div>
+    <div class="comic-hero-clip"></div>
   </section>
 
   <!-- E-Rate Stats Banner -->
-  <section class="bg-surface-container-low py-16 lg:py-24">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="bg-primary text-on-primary rounded-[2.5rem] p-10 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-          <div class="absolute top-0 right-0 w-64 h-64 bg-white rounded-full blur-3xl -mr-32 -mt-32"></div>
+  <section class="erate-banner">
+    <div class="erate-banner-halftone"></div>
+    <div class="erate-banner-clip-top"></div>
+    <div class="section-inner erate-banner-inner">
+      <div class="erate-stats-grid">
+        <div class="erate-stat animate-in" data-delay="0">
+          <span class="erate-stat-value">Up to 90%</span>
+          <span class="erate-stat-label">E-Rate reimbursement on network services</span>
         </div>
-        <div class="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full text-center">
-          <div>
-            <div class="text-5xl lg:text-6xl font-extrabold mb-2">Up to 90%</div>
-            <div class="text-lg font-medium opacity-90">E-Rate reimbursement on network services</div>
+        <div class="erate-stat animate-in" data-delay="1">
+          <span class="erate-stat-value">$0</span>
+          <span class="erate-stat-label">Phase 0 onboarding cost</span>
+        </div>
+        <div class="erate-stat animate-in" data-delay="2">
+          <span class="erate-stat-value">100%</span>
+          <span class="erate-stat-label">E-Rate paperwork handled by us</span>
+        </div>
+      </div>
+    </div>
+    <div class="erate-banner-clip-bottom"></div>
+  </section>
+
+  <!-- How the Funding Works -->
+  <section class="funding-section">
+    <div class="section-inner">
+      <div class="funding-header animate-in">
+        <h2 class="comic-h2">HOW THE FUNDING WORKS</h2>
+        <p class="comic-sub-center">Your Guide to E-Rate Savings</p>
+      </div>
+      <div class="funding-panels">
+        <!-- E-Rate Eligible Panel -->
+        <div class="funding-panel funding-panel-green animate-in" data-delay="0">
+          <div class="funding-panel-header">
+            <span class="funding-badge funding-badge-green">E-RATE ELIGIBLE</span>
+            <h3 class="funding-panel-title">NETWORK & INFRASTRUCTURE</h3>
           </div>
-          <div>
-            <div class="text-5xl lg:text-6xl font-extrabold mb-2">$0</div>
-            <div class="text-lg font-medium opacity-90">Phase 0 onboarding cost</div>
+          <p class="funding-panel-desc">
+            This is the piece E-Rate covers. Depending on your school's reimbursement rate (typically 50-90%), the federal program pays most of this cost directly.
+          </p>
+          <ul class="funding-list" role="list">
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              24/7 network monitoring
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Firewall/router/switch/AP management
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Security updates and patch management
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Wireless optimization
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Data backup and disaster recovery
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Google Admin Console network support
+            </li>
+          </ul>
+          <p class="funding-cost"><strong>Your cost after E-Rate: As low as 10%</strong></p>
+        </div>
+        <!-- School Funded Panel -->
+        <div class="funding-panel funding-panel-blue animate-in" data-delay="1">
+          <div class="funding-panel-header">
+            <span class="funding-badge funding-badge-blue">SCHOOL FUNDED</span>
+            <h3 class="funding-panel-title">ON-SITE & REMOTE SUPPORT</h3>
           </div>
-          <div>
-            <div class="text-5xl lg:text-6xl font-extrabold mb-2">100%</div>
-            <div class="text-lg font-medium opacity-90">E-Rate paperwork handled by us</div>
-          </div>
+          <p class="funding-panel-desc">
+            This covers the day-to-day, hands-on support. E-Rate doesn't cover it, but it's where most of the visible value lives.
+          </p>
+          <ul class="funding-list" role="list">
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Dedicated on-site technician (1-5 days/week)
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Unlimited remote helpdesk
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Device management (Chromebooks, laptops, tablets)
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Identity and access management
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Testing support (MCA, FastBridge, ACCESS)
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Security camera maintenance
+            </li>
+            <li>
+              <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              Hardware procurement coordination
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- E-Rate Split Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">How the funding works.</h2>
-        <p class="text-on-surface-variant text-lg max-w-3xl mx-auto">E-Rate is a federal program that reimburses schools for eligible network and infrastructure costs. The key word is "eligible" — not everything qualifies. Here's how we structure it so your school gets the maximum benefit.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Network Support - E-Rate Eligible -->
-        <div class="bg-surface-container rounded-xl p-8 lg:p-10 border-t-8 border-primary">
-          <span class="inline-block bg-tertiary text-on-tertiary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6">E-Rate Eligible</span>
-          <h3 class="text-2xl font-extrabold mb-4">Network & Infrastructure Support</h3>
-          <p class="text-on-surface-variant mb-6 leading-relaxed">This is the piece E-Rate covers. Depending on your school's reimbursement rate (typically 50-90%), the federal program pays most of this cost directly.</p>
-          <p class="font-bold text-sm uppercase tracking-wider text-secondary mb-3">Includes:</p>
-          <ul class="space-y-2 text-on-surface-variant text-sm">
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />24/7 network monitoring and proactive alert response</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />Firewall, router, switch, and access point management</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />Security updates and patch management</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />Wireless optimization and performance tuning</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />Data backup and disaster recovery planning</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />Google Admin Console network-level support</li>
-          </ul>
-          <p class="mt-6 text-primary font-bold">Your cost after E-Rate: As low as 10% of the monthly rate.</p>
+  <!-- Who We Work Best With -->
+  <section class="best-fit">
+    <div class="best-fit-halftone"></div>
+    <div class="best-fit-clip-top"></div>
+    <div class="section-inner best-fit-inner">
+      <h2 class="comic-h2 white animate-in">WHO WE WORK BEST WITH</h2>
+      <p class="best-fit-desc animate-in" data-delay="1">
+        We partner with Minnesota charter schools ranging from about 200 to 1,500 students. Our sweet spot is 300-600 students — large enough to need real IT infrastructure, small enough that we can know every teacher by name.
+      </p>
+      <div class="best-fit-grid">
+        <div class="best-fit-checks">
+          <div class="best-fit-item animate-in" data-delay="1">
+            <div class="powerup-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span>They've outgrown the "one tech-savvy teacher" approach</span>
+          </div>
+          <div class="best-fit-item animate-in" data-delay="2">
+            <div class="powerup-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span>They want proactive IT management, not just break-fix</span>
+          </div>
+          <div class="best-fit-item animate-in" data-delay="3">
+            <div class="powerup-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span>They care about E-Rate optimization and cost predictability</span>
+          </div>
+          <div class="best-fit-item animate-in" data-delay="3">
+            <div class="powerup-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <span>They want their IT team to feel like part of the school community</span>
+          </div>
         </div>
-
-        <!-- On-Site Support - School Funded -->
-        <div class="bg-surface-container rounded-xl p-8 lg:p-10 border-t-8 border-secondary">
-          <span class="inline-block bg-secondary text-on-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-6">School Funded</span>
-          <h3 class="text-2xl font-extrabold mb-4">On-Site & Remote Support</h3>
-          <p class="text-on-surface-variant mb-6 leading-relaxed">This covers the day-to-day, hands-on support that keeps your staff and students productive. E-Rate doesn't cover it, but it's where most of the visible value lives.</p>
-          <p class="font-bold text-sm uppercase tracking-wider text-secondary mb-3">Includes:</p>
-          <ul class="space-y-2 text-on-surface-variant text-sm">
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Dedicated on-site technician (1-5 days/week)</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Unlimited remote helpdesk — no ticket limits</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Device management: Chromebooks, laptops, tablets</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Identity and access management</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Testing support for MCA, FastBridge, ACCESS</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Security camera maintenance</li>
-            <li class="flex items-start gap-2"><CheckIcon class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />Hardware procurement coordination</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Target Profile Section -->
-  <section class="bg-surface-container-low py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
-        <div class="max-w-2xl">
-          <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">Who we work best with.</h2>
-          <p class="text-on-surface-variant text-lg leading-relaxed">We partner with Minnesota charter schools ranging from about 200 to 1,500 students. Our sweet spot is 300-600 students — large enough to need real IT infrastructure, small enough that we can know every teacher by name.</p>
-        </div>
-        <HearthNote class="max-w-xs">
-          <p class="italic text-sm text-on-surface">We find that schools with 200-1500 students get the most value from our embedded support model.</p>
-        </HearthNote>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-8 lg:p-10 border border-outline-variant/15">
-          <h3 class="text-2xl font-bold mb-4">What our partner schools have in common:</h3>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />They've outgrown the "one tech-savvy teacher" approach</li>
-            <li class="flex items-start gap-3"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />They want proactive IT management, not just break-fix</li>
-            <li class="flex items-start gap-3"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />They care about E-Rate optimization and cost predictability</li>
-            <li class="flex items-start gap-3"><CheckIcon class="w-5 h-5 text-tertiary flex-shrink-0 mt-0.5" />They want their IT team to feel like part of the school community</li>
-          </ul>
-        </div>
-        <div class="bg-secondary text-on-secondary rounded-xl p-10 flex flex-col justify-center text-center">
-          <span class="text-5xl font-extrabold mb-2">200-1,500</span>
-          <p class="text-xl opacity-90 font-bold">Student Population</p>
+        <div class="starburst animate-in" data-delay="2">
+          <div class="starburst-inner">
+            <span class="starburst-value">200-1,500</span>
+            <span class="starburst-label">Students</span>
+          </div>
         </div>
       </div>
     </div>
+    <div class="best-fit-clip-bottom"></div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 text-center">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl lg:text-5xl font-extrabold mb-8">Let's figure out if we're a fit.</h2>
-      <p class="text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto">We'll walk through your current setup, talk about what's working and what isn't, and show you exactly how we'd structure support for your school — including E-Rate projections.</p>
-      <Button href="/contact">Schedule a Conversation</Button>
+  <section class="comic-cta">
+    <div class="comic-cta-halftone"></div>
+    <div class="section-inner comic-cta-inner">
+      <h2 class="comic-h2 white animate-in">
+        LET'S FIGURE OUT IF WE'RE A <span class="highlight">FIT</span>
+      </h2>
+      <p class="cta-desc animate-in" data-delay="1">
+        We'll walk through your current setup, talk about what's working and what isn't, and show you exactly how we'd structure support — including E-Rate projections.
+      </p>
+      <a href="/contact" class="comic-btn animate-in" data-delay="2">Schedule a Conversation</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --navy: #1a1a2e;
+    --red: #ff1744;
+    --red-dark: #d50000;
+    --yellow: #ffd600;
+    --white: #ffffff;
+    --gray: #9e9e9e;
+    --shadow-comic: 4px 4px 0px var(--navy);
+    --border-comic: 3px solid var(--navy);
+  }
+
+  /* ---- Animations ---- */
+  .animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-in[data-delay="1"] { transition-delay: 0.15s; }
+  .animate-in[data-delay="2"] { transition-delay: 0.3s; }
+  .animate-in[data-delay="3"] { transition-delay: 0.45s; }
+
+  /* ---- Typography ---- */
+  .comic-h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .comic-h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .comic-h2.white { color: var(--white); }
+  .highlight {
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 0 0.3em;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .comic-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 2rem;
+  }
+  .comic-sub-center {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: var(--gray);
+    line-height: 1.7;
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 3rem;
+  }
+
+  /* ---- Layout helpers ---- */
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---- Comic Panel ---- */
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    overflow: hidden;
+    background: var(--white);
+  }
+  .comic-panel img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---- HERO ---- */
+  .comic-hero {
+    position: relative;
+    background: var(--navy);
+    padding: 250px 0 7rem;
+    overflow: hidden;
+  }
+  .comic-hero-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+  }
+  .comic-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .comic-hero-inner {
+      flex-direction: row;
+      gap: 4rem;
+    }
+    .comic-hero-text { flex: 0 0 50%; }
+    .comic-hero-image { flex: 1; }
+  }
+  .comic-panel-hero {
+    transform: rotate(2deg);
+    aspect-ratio: 4/3;
+  }
+  .comic-hero-clip {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  /* ---- Buttons ---- */
+  .comic-btn {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+    color: var(--navy);
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .comic-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .comic-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--navy);
+  }
+  .comic-btn-outline {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+    box-shadow: 4px 4px 0 rgba(255,255,255,0.3);
+  }
+  .comic-btn-outline:hover {
+    background: var(--white);
+    color: var(--navy);
+    box-shadow: 6px 6px 0 rgba(255,255,255,0.3);
+  }
+
+  /* ---- E-RATE BANNER ---- */
+  .erate-banner {
+    position: relative;
+    background: var(--red);
+    padding: 5rem 0;
+    overflow: hidden;
+  }
+  .erate-banner-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 10px 10px;
+    pointer-events: none;
+  }
+  .erate-banner-clip-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .erate-banner-clip-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+  .erate-banner-inner { position: relative; z-index: 2; }
+  .erate-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .erate-stats-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .erate-stat {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .erate-stat-value {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 2.75rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .erate-stat-label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* ---- FUNDING SECTION ---- */
+  .funding-section {
+    padding: 5rem 0;
+    background: var(--white);
+    position: relative;
+  }
+  .funding-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .funding-panels {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  @media (min-width: 768px) {
+    .funding-panels { grid-template-columns: repeat(2, 1fr); }
+  }
+  .funding-panel {
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 2rem;
+    position: relative;
+  }
+  .funding-panel-green { background: #e8f5e9; }
+  .funding-panel-blue { background: #e3f2fd; }
+  .funding-panel-header { margin-bottom: 1rem; }
+  .funding-badge {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    padding: 0.3rem 0.75rem;
+    border: 2px solid var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .funding-badge-green { background: #4caf50; color: var(--white); }
+  .funding-badge-blue { background: #2196f3; color: var(--white); }
+  .funding-panel-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin: 0;
+  }
+  .funding-panel-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 1.25rem;
+  }
+  .funding-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+  }
+  .funding-list li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+    line-height: 1.5;
+  }
+  .check-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .funding-panel-green .check-icon { color: #2e7d32; }
+  .funding-panel-blue .check-icon { color: #1565c0; }
+  .funding-cost {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #2e7d32;
+    margin: 0;
+    padding-top: 0.75rem;
+    border-top: 2px dashed var(--navy);
+  }
+
+  /* ---- BEST FIT ---- */
+  .best-fit {
+    position: relative;
+    background: var(--navy);
+    padding: 6rem 0;
+    overflow: hidden;
+  }
+  .best-fit-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+  .best-fit-clip-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+  .best-fit-clip-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+  .best-fit-inner { position: relative; z-index: 2; }
+  .best-fit-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.8;
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .best-fit-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .best-fit-grid {
+      flex-direction: row;
+      gap: 0;
+      align-items: center;
+      justify-content: center;
+    }
+    .best-fit-checks { flex: 0 1 auto; max-width: 520px; }
+  }
+  .best-fit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .best-fit-item span {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+  }
+  .powerup-icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: var(--yellow);
+    margin-top: 2px;
+  }
+  .powerup-icon svg { width: 100%; height: 100%; }
+
+  /* Starburst */
+  .starburst {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .starburst::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--yellow);
+    clip-path: polygon(
+      50% 0%, 61% 11%, 75% 3%, 79% 18%, 95% 19%, 90% 34%,
+      100% 44%, 92% 56%, 97% 69%, 84% 73%, 82% 88%, 69% 83%,
+      58% 95%, 50% 83%, 42% 95%, 31% 83%, 18% 88%, 16% 73%,
+      3% 69%, 8% 56%, 0% 44%, 10% 34%, 5% 19%, 21% 18%,
+      25% 3%, 39% 11%
+    );
+    border: var(--border-comic);
+    animation: starburst-spin 20s linear infinite;
+  }
+  @keyframes starburst-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .starburst-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .starburst-value {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.75rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    line-height: 1.1;
+  }
+  .starburst-label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ---- CTA ---- */
+  .comic-cta {
+    position: relative;
+    background: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .comic-cta-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(26,26,46,0.04) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+  .comic-cta-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  .cta-desc {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 1rem auto 2.5rem;
+    max-width: 600px;
+  }
+  .comic-cta .comic-h2.white {
+    color: var(--navy);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.animate-in').forEach((el) => observer.observe(el));
+</script>

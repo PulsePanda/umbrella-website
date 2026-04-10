@@ -1,141 +1,383 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import HearthNote from '../components/ui/HearthNote.astro';
 ---
 
 <BaseLayout
-  title="School IT & E-Rate Blog | Umbrella Systems"
-  description="Practical takes on school IT, E-Rate strategy, and technology management from the Umbrella Systems team."
+  title="The Dispatch | School IT & E-Rate Blog | Umbrella Systems"
+  description="Practical thinking on school IT, E-Rate strategy, network security, and the day-to-day realities of keeping technology working in education. Written by the people who do the work."
 >
-  <!-- Editorial Header -->
-  <section class="px-6 lg:px-8 pt-8 pb-16 max-w-7xl mx-auto">
-    <header class="mb-20">
-      <span class="inline-block px-4 py-1.5 mb-6 rounded-full bg-secondary-container text-secondary font-bold text-xs uppercase tracking-widest">
-        Latest Insights
-      </span>
-      <h1 class="font-extrabold text-5xl lg:text-7xl leading-[1.1] tracking-tight text-on-surface mb-6 max-w-3xl">
-        The Umbrella Blog
-      </h1>
-      <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
+  <!-- Hero -->
+  <section class="blog-hero clip-diagonal-bottom">
+    <div class="halftone-light" aria-hidden="true"></div>
+    <div class="blog-hero-content container-comic animate-in">
+      <h1 class="blog-hero-title text-shadow-comic">THE DISPATCH</h1>
+      <p class="blog-hero-sub">
         Practical thinking on school IT, E-Rate strategy, network security, and the day-to-day realities of keeping technology working in education. Written by the people who do the work.
       </p>
-    </header>
+    </div>
+  </section>
 
-    <!-- Blog content rendered client-side -->
-    <div id="blog-content">
-      <!-- Loading state -->
-      <div id="blog-loading" class="text-center py-20">
-        <p class="text-on-surface-variant text-lg">Loading posts...</p>
+  <!-- Blog Content Area -->
+  <section class="blog-content-area">
+    <div class="container-comic">
+      <div id="blog-content">
+        <div id="blog-loading" class="blog-loading">
+          <div class="blog-loading-panel comic-card">
+            <p>Loading dispatches...</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Newsletter CTA -->
-  <section class="mx-6 lg:mx-8 mb-20 relative overflow-hidden hearth-gradient rounded-[2.5rem] p-10 lg:p-20 text-center">
-    <div class="relative z-10 max-w-2xl mx-auto">
-      <h2 class="text-3xl lg:text-4xl font-extrabold text-on-primary mb-6">Stay in the loop.</h2>
-      <p class="text-on-primary/80 mb-10 text-lg">
+  <section class="blog-cta clip-diagonal-both animate-in">
+    <div class="halftone-light" aria-hidden="true"></div>
+    <div class="blog-cta-content container-comic">
+      <h2 class="blog-cta-title">STAY IN THE LOOP</h2>
+      <p class="blog-cta-text">
         We send occasional updates on E-Rate deadlines, school IT best practices, and things we think are worth your time. No spam, no sales pitches — just useful stuff.
       </p>
       <a
         href="https://umbrellasystems.substack.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center bg-surface-container-lowest text-primary font-bold py-4 px-10 rounded-lg hover:bg-secondary-container transition-colors text-lg"
+        class="btn-comic btn-comic-white"
       >
         Subscribe on Substack
       </a>
     </div>
-    <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-container rounded-full opacity-30"></div>
-    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-secondary-container rounded-full opacity-20"></div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ---- Hero ---- */
+  .blog-hero {
+    background: var(--navy);
+    color: var(--white);
+    padding: 250px 0 120px;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-hero .halftone-light {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--white) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.06;
+  }
+  .blog-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .blog-hero-title {
+    font-size: clamp(4rem, 12vw, 8rem);
+    line-height: 1;
+    margin: 0 0 24px;
+    color: var(--yellow);
+  }
+  .blog-hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  /* ---- Blog Content ---- */
+  .blog-content-area {
+    background: var(--white);
+    padding: 80px 0 60px;
+    position: relative;
+  }
+
+  .blog-loading {
+    text-align: center;
+    padding: 60px 0;
+  }
+  .blog-loading-panel {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- Newsletter CTA ---- */
+  .blog-cta {
+    background: var(--red);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-cta .halftone-light {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--white) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.06;
+  }
+  .blog-cta-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .blog-cta-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 0 0 20px;
+    color: var(--white);
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.3);
+  }
+  .blog-cta-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 32px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+</style>
+
+<!-- Blog card styles injected globally so client-side JS can use them -->
+<style is:global>
+  /* ---- Blog Cards ---- */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 60px;
+  }
+  @media (min-width: 768px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .blog-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .blog-card-featured {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    background: var(--white);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  @media (min-width: 768px) {
+    .blog-card-featured {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .blog-card-featured:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--navy);
+  }
+  .blog-card-featured-img {
+    background: var(--navy);
+    min-height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-card-featured-img::after {
+    content: 'FEATURED';
+    position: absolute;
+    top: 16px;
+    left: -32px;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Bangers', cursive;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    padding: 6px 40px;
+    transform: rotate(-35deg);
+    border: 2px solid var(--navy);
+  }
+  .blog-card-featured-body {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .blog-card-featured .blog-card-category {
+    background: var(--red);
+    color: var(--white);
+  }
+  .blog-card-featured .blog-card-title {
+    font-size: 2rem;
+  }
+
+  .blog-card {
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    background: var(--white);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--navy);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .blog-card:hover {
+    transform: translate(-3px, -3px) rotate(0deg) !important;
+    box-shadow: 7px 7px 0px var(--navy);
+  }
+  .blog-card:nth-child(3) {
+    transform: rotate(0.8deg);
+  }
+  .blog-card:nth-child(4) {
+    transform: rotate(-0.6deg);
+  }
+  .blog-card:nth-child(5) {
+    transform: rotate(0.4deg);
+  }
+
+  .blog-card-stripe {
+    height: 6px;
+    background: var(--red);
+  }
+  .blog-card-body {
+    padding: 24px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+  }
+  .blog-card-category {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--yellow);
+    font-family: 'Bangers', cursive;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border: 2px solid var(--navy);
+  }
+  .blog-card-date {
+    color: var(--gray);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .blog-card-title {
+    font-size: 1.4rem;
+    line-height: 1.2;
+    margin: 0 0 10px;
+    color: var(--navy);
+  }
+  .blog-card-excerpt {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #555;
+    flex: 1;
+    margin: 0;
+  }
+  .blog-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    color: var(--red);
+    text-decoration: none;
+  }
+  .blog-card-link:hover {
+    color: var(--red-dark);
+  }
+
+  /* ---- Empty State ---- */
+  .blog-empty {
+    text-align: center;
+    padding: 60px 32px;
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    background: var(--white);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .blog-empty-title {
+    font-size: 2rem;
+    margin: 0 0 12px;
+    color: var(--navy);
+  }
+  .blog-empty-text {
+    font-size: 1rem;
+    color: #555;
+    margin: 0 0 28px;
+    line-height: 1.6;
+  }
+</style>
 
 <script>
   import { fetchSubstackPosts, formatDate } from '../lib/rss';
 
-  const externalIcon = `<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>`;
+  const externalIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 
   function renderEmpty(): string {
     return `
-      <div class="text-center py-20 bg-surface-container-lowest rounded-xl border border-outline-variant/15 mb-20">
-        <h2 class="text-2xl font-extrabold text-on-surface mb-4">We're working on our first posts.</h2>
-        <p class="text-on-surface-variant text-lg mb-8 max-w-lg mx-auto">
-          Subscribe on Substack to be the first to know when we publish.
-        </p>
+      <div class="blog-empty">
+        <h2 class="blog-empty-title">WE'RE WORKING ON OUR FIRST DISPATCHES.</h2>
+        <p class="blog-empty-text">Check back soon — or subscribe so you don't miss a thing.</p>
         <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-primary text-on-primary font-bold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity text-lg">
-          Subscribe on Substack ${externalIcon}
+          class="btn-comic btn-comic-red">
+          Subscribe on Substack
         </a>
       </div>`;
   }
 
   function renderFeatured(post: { title: string; link: string; pubDate: string; description: string; category: string }): string {
     return `
-      <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="lg:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-lowest border border-outline-variant/15 hover:shadow-lg transition-all duration-500 block">
-        <div class="aspect-[16/9] overflow-hidden bg-surface-container-high flex items-center justify-center">
-          <span class="text-on-surface-variant text-sm">Featured blog post image</span>
+      <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="blog-card-featured" aria-label="Featured: ${post.title}">
+        <div class="blog-card-featured-img">
+          <span style="color: rgba(255,255,255,0.3); font-family: 'Bangers', cursive; font-size: 3rem; letter-spacing: 0.06em;">THE DISPATCH</span>
         </div>
-        <div class="p-8">
-          <div class="flex items-center gap-4 mb-4 text-sm font-medium text-secondary">
-            <span>${formatDate(post.pubDate)}</span>
-            <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
-            <span>${post.category}</span>
+        <div class="blog-card-featured-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-category">${post.category}</span>
+            <span class="blog-card-date">${formatDate(post.pubDate)}</span>
           </div>
-          <h2 class="text-2xl lg:text-3xl font-extrabold mb-4 group-hover:text-primary transition-colors">${post.title}</h2>
-          <p class="text-on-surface-variant mb-6 leading-relaxed">${post.description}</p>
-          <span class="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
+          <h2 class="blog-card-title">${post.title}</h2>
+          <p class="blog-card-excerpt">${post.description}</p>
+          <span class="blog-card-link">
             Read on Substack ${externalIcon}
           </span>
         </div>
       </a>`;
   }
 
-  function renderTrending(posts: Array<{ title: string; link: string; pubDate: string }>): string {
-    if (posts.length === 0) return '';
-    const items = posts.map((post, i) => `
-      <li class="flex items-start gap-4 group">
-        <span class="text-primary font-extrabold text-xl">${String(i + 1).padStart(2, "0")}</span>
-        <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="block">
-          <span class="font-bold group-hover:text-primary transition-colors block">${post.title}</span>
-          <span class="text-xs text-on-surface-variant mt-1 block">${formatDate(post.pubDate)}</span>
-        </a>
-      </li>`).join('');
-
+  function renderCard(post: { title: string; link: string; pubDate: string; description: string; category: string }): string {
     return `
-      <div class="bg-surface-container-low p-8 rounded-xl">
-        <h2 class="text-sm font-bold uppercase tracking-widest text-outline mb-6">Trending Topics</h2>
-        <ul class="space-y-4">${items}</ul>
-      </div>`;
-  }
-
-  function renderRecentPosts(posts: Array<{ title: string; link: string; pubDate: string; description: string; category: string }>): string {
-    if (posts.length === 0) return '';
-    const articles = posts.map((post, i) => `
-      <article class="flex flex-col ${i % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"} gap-8 lg:gap-12 items-start group">
-        <div class="w-full md:w-1/3 aspect-video rounded-xl overflow-hidden bg-surface-container-high flex items-center justify-center">
-          <span class="text-on-surface-variant text-sm">Blog post image</span>
-        </div>
-        <div class="w-full md:w-2/3">
-          <div class="flex items-center gap-3 text-sm font-medium text-secondary mb-3">
-            <span>${formatDate(post.pubDate)}</span>
-            <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
-            <span>${post.category}</span>
+      <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="blog-card" aria-label="${post.title}">
+        <div class="blog-card-stripe"></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-card-category">${post.category}</span>
+            <span class="blog-card-date">${formatDate(post.pubDate)}</span>
           </div>
-          <h3 class="text-2xl font-extrabold mb-4 group-hover:text-primary transition-colors">${post.title}</h3>
-          <p class="text-on-surface-variant mb-6 leading-relaxed">${post.description}</p>
-          <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-primary font-bold border-b-2 border-primary pb-1">
-            Read on Substack ${externalIcon}
-          </a>
+          <h3 class="blog-card-title">${post.title}</h3>
+          <p class="blog-card-excerpt">${post.description}</p>
+          <span class="blog-card-link">
+            Read ${externalIcon}
+          </span>
         </div>
-      </article>
-      ${i < posts.length - 1 ? '<div class="h-px bg-surface-container-highest w-full"></div>' : ''}`).join('');
-
-    return `
-      <section class="space-y-12">
-        <h2 class="text-2xl font-extrabold border-l-4 border-primary pl-6 mb-12">Recent Posts</h2>
-        <div class="grid grid-cols-1 gap-12">${articles}</div>
-      </section>`;
+      </a>`;
   }
 
   async function loadBlog() {
@@ -148,24 +390,13 @@ import HearthNote from '../components/ui/HearthNote.astro';
     }
 
     const featured = posts[0];
-    const trending = posts.slice(1, 4);
-    const recent = posts.slice(4);
+    const rest = posts.slice(1);
 
     container.innerHTML = `
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+      <div class="blog-grid">
         ${renderFeatured(featured)}
-        <div class="lg:col-span-4 space-y-6">
-          <div class="hearth-asymmetric bg-surface-container-low border-l-4 border-tertiary p-6 rounded-r-xl">
-            <h2 class="text-xl font-bold text-on-surface mb-4">Hearth Note</h2>
-            <p class="text-on-surface italic text-sm leading-relaxed mb-4">
-              "Technology should work like the school library: central, quiet when it needs to be, and always open for exploration."
-            </p>
-            <div class="flex items-center gap-2 text-on-surface font-bold text-xs">Admin Tip</div>
-          </div>
-          ${renderTrending(trending)}
-        </div>
-      </div>
-      ${renderRecentPosts(recent)}`;
+        ${rest.map(post => renderCard(post)).join('')}
+      </div>`;
   }
 
   loadBlog();

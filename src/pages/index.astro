@@ -1,224 +1,327 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/ui/Button.astro';
-import HearthNote from '../components/ui/HearthNote.astro';
-import ERateBadge from '../components/ui/ERateBadge.astro';
-import CheckIcon from '../components/ui/CheckIcon.astro';
 ---
 
 <BaseLayout
   title="Managed IT for Minnesota Charter Schools | Umbrella Systems"
   description="Umbrella Systems is outsourced IT for Minnesota charter schools. On-site support, network management, E-Rate optimization, and flat-rate pricing. No surprises."
 >
-  <!-- Hero Section -->
-  <section class="relative px-6 lg:px-8 py-20 lg:py-32 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-    <div class="lg:col-span-7 z-10">
-      <span class="inline-block bg-secondary-container text-secondary px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
-        Outsourced IT for Minnesota Schools
-      </span>
-      <h1 class="font-extrabold text-5xl lg:text-7xl leading-[1.1] tracking-tight text-on-surface mb-8">
-        The IT department you'd build — <span class="text-primary italic">if you could.</span>
-      </h1>
-      <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">
-        Umbrella Systems is your embedded IT team. We handle everything from Chromebooks to cybersecurity, on-site and remote, so your staff can focus on students — not troubleshooting.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <Button href="/contact">Schedule a Visit</Button>
-        <Button variant="secondary" href="/services/managed-it">See Our Services</Button>
-      </div>
+  <!-- =============================== -->
+  <!-- HERO with Image Slideshow       -->
+  <!-- =============================== -->
+  <section class="hero clip-diagonal-bottom" style="position:relative; overflow:hidden; padding-top:160px !important; padding-bottom:140px; background:var(--navy);">
+    <!-- Slideshow images (behind everything) -->
+    <div class="hero-slideshow" style="position:absolute; inset:0; z-index:1;" aria-hidden="true">
+      <img src="/images/staff-group.jpg" alt="" class="active" />
+      <img src="/images/school-tech.jpg" alt="" />
     </div>
-    <div class="lg:col-span-5 relative">
-      <div class="relative w-full aspect-square rounded-[2.5rem] overflow-hidden rotate-2 shadow-2xl bg-surface-container-high">
-        <img src="/images/school-tech.jpg" alt="Umbrella Systems embedded in a Minnesota charter school classroom" class="w-full h-full object-cover" style="object-position: 35% center;" loading="eager" />
-      </div>
-      <HearthNote class="absolute -bottom-10 -left-10 max-w-[280px] shadow-lg">
-        <p class="text-on-surface font-medium italic text-sm">"We don't just fix Wi-Fi; we make sure every student stays connected to learning."</p>
-      </HearthNote>
-    </div>
-  </section>
 
-  <!-- Core Message Band -->
-  <section class="py-16 lg:py-20 px-6 lg:px-8 bg-surface-container-highest">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="font-extrabold text-3xl lg:text-5xl text-on-surface mb-4">
-        "If it plugs in, connects to Wi-Fi, or needs a login — we support it."
-      </h2>
-      <div class="w-24 h-1 bg-primary mx-auto rounded-full mt-6"></div>
-    </div>
-  </section>
+    <!-- Dark overlay -->
+    <div style="position:absolute; inset:0; z-index:2; background:rgba(26,26,46,0.65);"></div>
 
-  <!-- Services Bento Grid -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="mb-16">
-      <span class="font-medium tracking-[0.2em] text-secondary uppercase mb-4 text-sm block">Our Services</span>
-      <h2 class="text-3xl lg:text-4xl font-extrabold text-on-surface">Everything your school needs, covered.</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-8">
-      <!-- Managed IT -->
-      <div class="md:col-span-2 bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
-        <h3 class="text-2xl font-bold mb-4">Managed IT</h3>
-        <p class="text-on-surface-variant leading-relaxed">On-site support scaled to your school, unlimited remote helpdesk, full device lifecycle management, and identity & access administration. No hourly rates. No caps. No surprises.</p>
-        <a href="/services/managed-it" class="mt-6 text-secondary font-bold inline-flex items-center gap-2 group hover:text-primary transition-colors">
-          Learn More
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </a>
-      </div>
+    <!-- Halftone dots -->
+    <div class="halftone-light" style="position:absolute; inset:0; z-index:3;"></div>
 
-      <!-- Network & Infrastructure -->
-      <div class="bg-surface-container-high p-8 rounded-xl border border-outline-variant/15">
-        <ERateBadge class="mb-4" />
-        <h3 class="text-xl font-bold mb-3">Network & Infrastructure</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed">24/7 monitoring, firewall management, wireless optimization, and disaster recovery. We keep your network running at 99.9% uptime — and we handle the E-Rate paperwork to fund it.</p>
-        <a href="/services/network-infrastructure" class="mt-4 text-secondary font-bold inline-flex items-center gap-2 text-sm group hover:text-primary transition-colors">
-          Learn More
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </a>
-      </div>
+    <!-- Diagonal stripes -->
+    <div style="position:absolute; inset:0; z-index:3; opacity:0.04; background:repeating-linear-gradient(45deg, transparent, transparent 10px, var(--white) 10px, var(--white) 12px);" aria-hidden="true"></div>
 
-      <!-- IT Leadership -->
-      <div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/15">
-        <h3 class="text-xl font-bold mb-3">IT Leadership</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed">Strategic technology planning, hardware procurement at vendor-direct pricing, compliance oversight, and long-term roadmapping. Think of it as a vCIO without the six-figure salary.</p>
-        <a href="/services/it-leadership" class="mt-4 text-secondary font-bold inline-flex items-center gap-2 text-sm group hover:text-primary transition-colors">
-          Learn More
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </a>
-      </div>
+    <!-- Geometric shapes -->
+    <div style="position:absolute; top:10%; right:8%; width:80px; height:80px; border:3px solid var(--yellow); opacity:0.2; transform:rotate(15deg); z-index:3;" aria-hidden="true"></div>
+    <div style="position:absolute; bottom:20%; left:5%; width:60px; height:60px; border:3px solid var(--red); border-radius:50%; opacity:0.15; z-index:3;" aria-hidden="true"></div>
+    <div style="position:absolute; top:30%; right:15%; width:0; height:0; border-left:30px solid transparent; border-right:30px solid transparent; border-bottom:50px solid var(--yellow); opacity:0.1; z-index:3;" aria-hidden="true"></div>
 
-      <!-- Security Systems -->
-      <div class="lg:col-span-2 bg-secondary-container p-8 lg:p-10 rounded-xl flex flex-col md:flex-row gap-8 items-center border border-outline-variant/15">
-        <div class="flex-1">
-          <h3 class="text-2xl font-bold mb-3">Security Systems</h3>
-          <p class="text-on-surface-variant/80 leading-relaxed">Professional installation, live monitoring dashboards, and ongoing maintenance. We design systems that keep your building secure without compromising student privacy.</p>
-          <a href="/services/security-cameras" class="mt-4 text-secondary font-bold inline-flex items-center gap-2 group hover:text-primary transition-colors">
-            Learn More
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-          </a>
+    <!-- Hero content -->
+    <div class="container-comic" style="position:relative; z-index:10; text-align:center;">
+      <div style="max-width:800px; margin:0 auto;">
+        <div class="starburst animate-in" style="margin-bottom:32px;">
+          OUTSOURCED IT FOR MINNESOTA SCHOOLS
         </div>
-        <div class="w-full md:w-48 aspect-video rounded-xl bg-surface-container-high overflow-hidden">
-          <img src="/images/security-monitoring.jpg" alt="Security camera monitoring grid" class="w-full h-full object-cover" loading="lazy" />
-        </div>
-      </div>
 
-      <!-- Custom CTA Box -->
-      <div class="md:col-span-1 lg:col-span-2 bg-surface-container-low p-8 lg:p-10 rounded-xl border-2 border-dashed border-outline/30 flex flex-col justify-center items-center text-center">
-        <h3 class="text-xl font-bold mb-4">Need something custom?</h3>
-        <p class="text-on-surface-variant mb-6">We build solutions tailored to your school's specific needs.</p>
-        <a href="/contact" class="hand-drawn-underline text-secondary font-bold text-lg">Talk to us</a>
-      </div>
-    </div>
-  </section>
+        <h1 class="animate-in text-shadow-comic" style="font-size:clamp(3rem, 8vw, 5.5rem); color:var(--white); line-height:1.05; margin-bottom:24px;">
+          EVERY SCHOOL<br />DESERVES A <span class="highlight">HERO</span>
+        </h1>
 
-  <!-- Social Proof Section -->
-  <section aria-labelledby="social-proof-heading" class="py-20 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <h2 id="social-proof-heading" class="text-3xl md:text-4xl font-extrabold text-on-surface mb-4">Trusted by schools across Minnesota.</h2>
-      <p class="text-lg text-on-surface-variant">Partnered with Twin Cities German Immersion School, Sejong Academy, and other charter schools statewide.</p>
-    </div>
-  </section>
-
-  <!-- E-Rate Section -->
-  <section class="py-20 lg:py-24 bg-surface-container-highest">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="order-2 lg:order-1">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl rotate-[-1deg] bg-surface-container-high aspect-[4/3]">
-          <img src="/images/network-rack.jpg" alt="School network infrastructure managed by Umbrella Systems" class="w-full h-full object-cover" loading="lazy" />
-        </div>
-      </div>
-      <div class="order-1 lg:order-2">
-        <span class="text-primary font-bold mb-4 block uppercase tracking-wider text-sm">E-Rate Funding</span>
-        <h2 class="text-3xl lg:text-4xl font-extrabold mb-8 leading-tight">E-Rate funding? We handle the whole thing.</h2>
-        <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
-          E-Rate can cover up to 90% of your network support costs. Most schools know it exists — few have the time or expertise to navigate the process. We do it for you, start to finish.
+        <p class="animate-in" style="font-size:1.15rem; color:rgba(255,255,255,0.9); max-width:620px; margin:0 auto 40px; line-height:1.7;">
+          Umbrella Systems is the IT team that drops everything when your school needs help. We handle everything from Chromebooks to cybersecurity &mdash; so your staff can focus on students, not troubleshooting.
         </p>
-        <ul class="space-y-4 mb-10">
-          <li class="flex items-center gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
-            <span class="font-medium text-on-surface">Eligibility assessment and funding strategy</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
-            <span class="font-medium text-on-surface">Application preparation and submission</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
-            <span class="font-medium text-on-surface">Vendor coordination and compliance documentation</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
-            <span class="font-medium text-on-surface">Ongoing reporting and renewal management</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0" />
-            <span class="font-medium text-on-surface">Cost optimization to maximize your reimbursement</span>
-          </li>
-        </ul>
-        <Button href="/schools" variant="primary">Learn About E-Rate</Button>
+
+        <div class="animate-in" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; align-items:center;">
+          <a href="/contact" class="btn-comic btn-comic-red">CALL IN THE TEAM</a>
+          <a href="#origin" style="color:var(--yellow); font-family:'Bangers',cursive; font-size:1.15rem; letter-spacing:0.04em; text-decoration:none; padding:14px 8px;">OUR ORIGIN STORY &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Blog Preview Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">From the Blog</h2>
-      <p class="text-on-surface-variant text-lg">Practical takes on school IT, E-Rate, and technology strategy.</p>
+  <!-- =============================== -->
+  <!-- CORE MESSAGE BAND               -->
+  <!-- =============================== -->
+  <section style="background:var(--navy); padding:60px 24px; text-align:center;">
+    <div class="container-comic">
+      <h2 class="animate-in" style="font-size:clamp(1.6rem, 4vw, 2.8rem); color:var(--white); line-height:1.3;">
+        &ldquo;If it plugs in, connects to <span class="highlight">Wi-Fi</span>, or needs a login &mdash; we support it.&rdquo;
+      </h2>
     </div>
-    <div id="home-blog-content">
-      <div class="text-center py-12 bg-surface-container-lowest rounded-xl border border-outline-variant/15">
-        <p class="text-on-surface-variant text-lg">Loading posts...</p>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SERVICES "OUR SUPERPOWERS"      -->
+  <!-- =============================== -->
+  <section style="padding:100px 24px; background:var(--gray-light); position:relative;">
+    <!-- Halftone bg -->
+    <div class="halftone" style="position:absolute; inset:0;"></div>
+
+    <div class="container-comic" style="position:relative; z-index:1;">
+      <div style="text-align:center; margin-bottom:64px;">
+        <h2 class="animate-in" style="font-size:clamp(2.2rem, 5vw, 3.5rem); color:var(--navy);">OUR <span class="highlight">SUPERPOWERS</span></h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:32px; max-width:1100px; margin:0 auto;">
+        <!-- Card 1: Lightning Response -->
+        <a href="/services/managed-it" class="comic-card animate-in" style="text-decoration:none; color:var(--navy); transform:rotate(-1deg);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;"><path d="M28 4L8 28h14l-4 16 20-24H24l4-16z" fill="var(--yellow)" stroke="var(--navy)" stroke-width="2" stroke-linejoin="round"/></svg>
+          <h3 style="font-size:1.6rem; margin-bottom:12px; color:var(--navy);">LIGHTNING RESPONSE</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.7; color:#444;">
+            On-site support scaled to your school, unlimited remote helpdesk, full device lifecycle management. No hourly rates. No caps. No surprises.
+          </p>
+        </a>
+
+        <!-- Card 2: Fortress Network -->
+        <a href="/services/network-infrastructure" class="comic-card animate-in" style="text-decoration:none; color:var(--navy); transform:rotate(0.8deg);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;"><path d="M24 4L6 14v12c0 10.5 7.7 20.3 18 22.8C34.3 46.3 42 36.5 42 26V14L24 4z" fill="var(--red)" stroke="var(--navy)" stroke-width="2" stroke-linejoin="round"/><path d="M18 24l4 4 8-8" stroke="var(--white)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 style="font-size:1.6rem; margin-bottom:12px; color:var(--navy);">FORTRESS NETWORK</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.7; color:#444;">
+            24/7 monitoring, firewall management, wireless optimization, and disaster recovery. 99.9% uptime &mdash; and we handle the E-Rate paperwork to fund it.
+          </p>
+        </a>
+
+        <!-- Card 3: Strategic Vision -->
+        <a href="/services/it-leadership" class="comic-card animate-in" style="text-decoration:none; color:var(--navy); transform:rotate(-0.5deg);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;"><circle cx="24" cy="20" r="14" fill="var(--navy)" stroke="var(--navy)" stroke-width="2"/><path d="M16 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="20" r="3" fill="var(--yellow)"/><path d="M18 38l2-10h8l2 10" stroke="var(--navy)" stroke-width="2" fill="var(--yellow)" stroke-linejoin="round"/></svg>
+          <h3 style="font-size:1.6rem; margin-bottom:12px; color:var(--navy);">STRATEGIC VISION</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.7; color:#444;">
+            Strategic technology planning, hardware procurement at vendor-direct pricing, compliance oversight, and long-term roadmapping. Think of it as a vCIO without the six-figure salary.
+          </p>
+        </a>
+
+        <!-- Card 4: Eagle Eye -->
+        <a href="/services/security-cameras" class="comic-card animate-in" style="text-decoration:none; color:var(--navy); transform:rotate(0.6deg);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;"><ellipse cx="24" cy="24" rx="18" ry="12" fill="none" stroke="var(--navy)" stroke-width="2"/><circle cx="24" cy="24" r="7" fill="var(--red)" stroke="var(--navy)" stroke-width="2"/><circle cx="24" cy="24" r="3" fill="var(--navy)"/><path d="M4 24S14 10 24 10s20 14 20 14S34 38 24 38 4 24 4 24z" fill="none" stroke="var(--navy)" stroke-width="2"/></svg>
+          <h3 style="font-size:1.6rem; margin-bottom:12px; color:var(--navy);">EAGLE EYE</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.7; color:#444;">
+            Professional installation, live monitoring dashboards, and ongoing maintenance. We design systems that keep your building secure without compromising student privacy.
+          </p>
+        </a>
+
+        <!-- Card 5: E-Rate Mastery -->
+        <a href="/schools" class="comic-card animate-in" style="text-decoration:none; color:var(--navy); transform:rotate(0.4deg);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;"><rect x="6" y="8" width="36" height="32" rx="2" fill="var(--yellow)" stroke="var(--navy)" stroke-width="2"/><path d="M14 18h20M14 24h16M14 30h12" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"/><circle cx="38" cy="36" r="8" fill="var(--red)" stroke="var(--navy)" stroke-width="2"/><path d="M35 36h6M38 33v6" stroke="var(--white)" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3 style="font-size:1.6rem; margin-bottom:12px; color:var(--navy);">E-RATE MASTERY</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.7; color:#444;">
+            We navigate the full E-Rate lifecycle so your school gets maximum reimbursement. Applications, compliance, vendor coordination &mdash; handled.
+          </p>
+        </a>
+
+        <!-- Card 6: Phase 0 Onboarding -->
+        <a href="/about" class="comic-card animate-in" style="text-decoration:none; color:var(--navy); transform:rotate(-0.7deg);">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style="margin-bottom:16px;"><path d="M24 4C13 4 4 13 4 24s9 20 20 20 20-9 20-20S35 4 24 4z" fill="none" stroke="var(--navy)" stroke-width="2"/><path d="M24 4C13 4 4 13 4 24s9 20 20 20" stroke="var(--red)" stroke-width="3" stroke-linecap="round"/><circle cx="24" cy="24" r="4" fill="var(--yellow)" stroke="var(--navy)" stroke-width="2"/><path d="M24 14v6M24 28v6" stroke="var(--navy)" stroke-width="2" stroke-linecap="round"/></svg>
+          <h3 style="font-size:1.6rem; margin-bottom:12px; color:var(--navy);">PHASE 0 ONBOARDING</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.7; color:#444;">
+            Before any contract starts, we embed with your current IT &mdash; learning your systems, your staff, your pain points. No cost, no commitment. Just making sure it's the right fit.
+          </p>
+        </a>
       </div>
     </div>
   </section>
 
-  <script>
-    import { fetchSubstackPosts, formatDate } from '../lib/rss';
+  <!-- =============================== -->
+  <!-- HERO STATS (Red Diagonal)       -->
+  <!-- =============================== -->
+  <section class="clip-diagonal-both" style="background:var(--red); padding:120px 24px; position:relative;">
+    <div class="halftone-light" style="position:absolute; inset:0;"></div>
 
-    async function loadHomeBlog() {
-      const container = document.getElementById('home-blog-content')!;
-      const posts = await fetchSubstackPosts(3);
+    <div class="container-comic" style="position:relative; z-index:1;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:40px; text-align:center; max-width:1000px; margin:0 auto;">
+        <div class="animate-in">
+          <div style="font-size:1.2rem; color:var(--yellow); font-family:'Bangers',cursive; letter-spacing:0.08em; margin-bottom:8px;">POWER</div>
+          <div style="font-size:clamp(3rem, 6vw, 4.5rem); font-family:'Bangers',cursive; color:var(--white); text-shadow:3px 3px 0px rgba(0,0,0,0.3); line-height:1;">99.9%</div>
+          <div style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.9); font-size:0.95rem; margin-top:8px;">Network Uptime</div>
+        </div>
+        <div class="animate-in">
+          <div style="font-size:1.2rem; color:var(--yellow); font-family:'Bangers',cursive; letter-spacing:0.08em; margin-bottom:8px;">SPEED</div>
+          <div style="font-size:clamp(3rem, 6vw, 4.5rem); font-family:'Bangers',cursive; color:var(--white); text-shadow:3px 3px 0px rgba(0,0,0,0.3); line-height:1;">30 Min</div>
+          <div style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.9); font-size:0.95rem; margin-top:8px;">Critical Response Time</div>
+        </div>
+        <div class="animate-in">
+          <div style="font-size:1.2rem; color:var(--yellow); font-family:'Bangers',cursive; letter-spacing:0.08em; margin-bottom:8px;">SHIELD</div>
+          <div style="font-size:clamp(3rem, 6vw, 4.5rem); font-family:'Bangers',cursive; color:var(--white); text-shadow:3px 3px 0px rgba(0,0,0,0.3); line-height:1;">24/7</div>
+          <div style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.9); font-size:0.95rem; margin-top:8px;">Network Monitoring</div>
+        </div>
+        <div class="animate-in">
+          <div style="font-size:1.2rem; color:var(--yellow); font-family:'Bangers',cursive; letter-spacing:0.08em; margin-bottom:8px;">XP</div>
+          <div style="font-size:clamp(3rem, 6vw, 4.5rem); font-family:'Bangers',cursive; color:var(--white); text-shadow:3px 3px 0px rgba(0,0,0,0.3); line-height:1;">6+</div>
+          <div style="font-family:'Poppins',sans-serif; color:rgba(255,255,255,0.9); font-size:0.95rem; margin-top:8px;">Years Protecting Schools</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      if (posts.length === 0) {
-        container.innerHTML = `
-          <div class="text-center py-12 bg-surface-container-lowest rounded-xl border border-outline-variant/15">
-            <p class="text-on-surface-variant text-lg mb-4">Posts coming soon.</p>
-            <a href="https://umbrellasystems.substack.com" target="_blank" rel="noopener noreferrer"
-              class="text-primary font-bold inline-flex items-center gap-2 hover:underline">
-              Subscribe on Substack to get notified
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-            </a>
-          </div>`;
-        return;
+  <!-- =============================== -->
+  <!-- E-RATE SECTION                  -->
+  <!-- =============================== -->
+  <section class="clip-diagonal-top" style="background:var(--navy); padding:140px 24px 100px; position:relative;">
+    <div class="halftone-light" style="position:absolute; inset:0;"></div>
+    <div style="position:absolute; inset:0; opacity:0.03; background:repeating-linear-gradient(45deg, transparent, transparent 10px, var(--white) 10px, var(--white) 12px);" aria-hidden="true"></div>
+
+    <div class="container-comic" style="position:relative; z-index:1;">
+      <div style="text-align:center; margin-bottom:48px;">
+        <h2 class="animate-in" style="font-size:clamp(2rem, 5vw, 3.2rem); color:var(--white);">
+          STOP LEAVING <span class="highlight">MONEY</span> ON THE TABLE
+        </h2>
+        <p class="animate-in" style="font-family:'Bangers',cursive; color:var(--yellow); font-size:1.3rem; letter-spacing:0.04em; margin-top:8px;">
+          Your Secret Weapon for Funding
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; max-width:1100px; margin:0 auto;">
+        <div>
+          <p class="animate-in" style="color:rgba(255,255,255,0.85); font-size:1.05rem; line-height:1.75; margin-bottom:32px;">
+            E-Rate can cover up to 90% of your network support costs. Most schools know it exists &mdash; we guide you through it.
+          </p>
+
+          <ul class="animate-in" style="list-style:none; padding:0; margin:0 0 40px;">
+            <li style="display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--white); font-size:0.95rem;">
+              <span style="color:var(--yellow); font-size:1.2rem; font-weight:bold;">&#10003;</span> Eligibility assessment
+            </li>
+            <li style="display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--white); font-size:0.95rem;">
+              <span style="color:var(--yellow); font-size:1.2rem; font-weight:bold;">&#10003;</span> Application preparation
+            </li>
+            <li style="display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--white); font-size:0.95rem;">
+              <span style="color:var(--yellow); font-size:1.2rem; font-weight:bold;">&#10003;</span> Vendor coordination
+            </li>
+            <li style="display:flex; align-items:center; gap:12px; margin-bottom:14px; color:var(--white); font-size:0.95rem;">
+              <span style="color:var(--yellow); font-size:1.2rem; font-weight:bold;">&#10003;</span> Compliance documentation
+            </li>
+            <li style="display:flex; align-items:center; gap:12px; color:var(--white); font-size:0.95rem;">
+              <span style="color:var(--yellow); font-size:1.2rem; font-weight:bold;">&#10003;</span> Cost optimization
+            </li>
+          </ul>
+
+          <a href="/contact" class="btn-comic btn-comic-yellow animate-in">START YOUR E-RATE AUDIT</a>
+        </div>
+
+        <div class="animate-in">
+          <div style="border:3px solid rgba(255,255,255,0.3); box-shadow:6px 6px 0px rgba(0,0,0,0.3); overflow:hidden; transform:rotate(1.5deg);">
+            <img src="/images/school-classroom-alt.jpg" alt="Students in a school classroom" style="width:100%; height:auto; display:block;" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Rate section responsive override -->
+  <style>
+    @media (max-width: 768px) {
+      .clip-diagonal-top .container-comic > div {
+        grid-template-columns: 1fr !important;
       }
-
-      container.innerHTML = `
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          ${posts.map(post => `
-            <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="group block">
-              <div class="aspect-video rounded-xl overflow-hidden mb-6 bg-surface-container-high flex items-center justify-center">
-                <span class="text-on-surface-variant text-sm">Blog post image</span>
-              </div>
-              <span class="text-secondary font-bold text-xs uppercase tracking-widest mb-2 block">${post.category}</span>
-              <h3 class="text-xl font-bold mb-3 group-hover:text-primary transition-colors">${post.title}</h3>
-              <p class="text-sm text-on-surface-variant mb-4">${post.description}</p>
-              <span class="text-xs text-outline font-medium uppercase">${formatDate(post.pubDate)}</span>
-            </a>`).join('')}
-        </div>`;
     }
+  </style>
 
-    loadHomeBlog();
-  </script>
+  <!-- =============================== -->
+  <!-- ORIGIN STORY                    -->
+  <!-- =============================== -->
+  <section id="origin" style="padding:100px 24px; background:var(--gray-light); position:relative;">
+    <div class="halftone" style="position:absolute; inset:0;"></div>
 
-  <!-- Contact/CTA Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 hearth-gradient">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl lg:text-5xl font-extrabold text-on-primary mb-6">Let's talk about your school's IT.</h2>
-      <p class="text-on-primary/90 text-lg lg:text-xl mb-10 max-w-2xl mx-auto">
+    <div class="container-comic" style="position:relative; z-index:1;">
+      <div style="text-align:center; margin-bottom:64px;">
+        <h2 class="animate-in" style="font-size:clamp(2.2rem, 5vw, 3.5rem); color:var(--navy);">OUR <span class="highlight">ORIGIN</span> STORY</h2>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:32px; max-width:1100px; margin:0 auto;">
+        <!-- Panel 1 -->
+        <div class="comic-card animate-in" style="transform:rotate(-0.8deg); position:relative;">
+          <div style="position:absolute; top:-14px; left:24px; background:var(--red); color:var(--white); font-family:'Bangers',cursive; padding:6px 16px; border:2px solid var(--navy); font-size:0.9rem; letter-spacing:0.06em;">PANEL 1</div>
+          <h3 style="font-size:1.5rem; color:var(--red); margin-bottom:16px; margin-top:16px;">THE PROBLEM</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.75; color:#444;">
+            Most IT companies serve anyone who'll sign a contract. Law firms, dental offices, whoever's next in line. Schools get lumped in with the rest &mdash; generic solutions, slow response, technicians who've never set foot in a classroom.
+          </p>
+        </div>
+
+        <!-- Panel 2 -->
+        <div class="comic-card animate-in" style="transform:rotate(0.5deg); position:relative;">
+          <div style="position:absolute; top:-14px; left:24px; background:var(--yellow); color:var(--navy); font-family:'Bangers',cursive; padding:6px 16px; border:2px solid var(--navy); font-size:0.9rem; letter-spacing:0.06em;">PANEL 2</div>
+          <h3 style="font-size:1.5rem; color:var(--navy); margin-bottom:16px; margin-top:16px;">THE CALL</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.75; color:#444;">
+            We built Umbrella Systems because we think that's backwards. Schools have unique challenges &mdash; hundreds of student devices, state-mandated testing, E-Rate funding that saves tens of thousands if someone does the paperwork.
+          </p>
+        </div>
+
+        <!-- Panel 3 -->
+        <div class="comic-card animate-in" style="transform:rotate(-0.3deg); position:relative;">
+          <div style="position:absolute; top:-14px; left:24px; background:var(--navy); color:var(--white); font-family:'Bangers',cursive; padding:6px 16px; border:2px solid var(--navy); font-size:0.9rem; letter-spacing:0.06em;">PANEL 3</div>
+          <h3 style="font-size:1.5rem; color:var(--navy); margin-bottom:16px; margin-top:16px;">THE RESULT</h3>
+          <p style="font-family:'Poppins',sans-serif; font-size:0.95rem; line-height:1.75; color:#444;">
+            Schools that focus on students, not troubleshooting. A consistent team in your building who knows your staff by name. Technology that quietly enables the work instead of creating friction.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- TESTIMONIAL                     -->
+  <!-- =============================== -->
+  <section style="padding:100px 24px; background:var(--white);">
+    <div class="container-comic">
+      <div class="animate-in">
+        <div class="speech-bubble">
+          <p style="font-size:clamp(1.1rem, 2.5vw, 1.4rem); line-height:1.7; font-style:italic; color:var(--navy); margin:0;">
+            &ldquo;The best compliment we get is when a school forgets they're outsourcing their IT. That means we're doing our job.&rdquo;
+          </p>
+        </div>
+        <div style="margin-top:40px; text-align:center;">
+          <p style="font-family:'Bangers',cursive; font-size:1.2rem; color:var(--navy); letter-spacing:0.04em;">
+            &mdash; Jesse Schonfeld, Co-Founder, Umbrella Systems
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- FINAL CTA                       -->
+  <!-- =============================== -->
+  <section class="clip-diagonal-top" style="background:var(--navy); padding:140px 24px 100px; position:relative; text-align:center;">
+    <div class="halftone-light" style="position:absolute; inset:0;"></div>
+    <div style="position:absolute; inset:0; opacity:0.04; background:repeating-linear-gradient(-45deg, transparent, transparent 10px, var(--white) 10px, var(--white) 12px);" aria-hidden="true"></div>
+
+    <!-- Geometric shapes -->
+    <div style="position:absolute; top:15%; left:8%; width:60px; height:60px; border:3px solid var(--yellow); opacity:0.15; transform:rotate(20deg); z-index:1;" aria-hidden="true"></div>
+    <div style="position:absolute; bottom:25%; right:10%; width:50px; height:50px; border:3px solid var(--red); border-radius:50%; opacity:0.12; z-index:1;" aria-hidden="true"></div>
+
+    <div class="container-comic" style="position:relative; z-index:2; max-width:750px;">
+      <h2 class="animate-in text-shadow-comic" style="font-size:clamp(2rem, 5vw, 3.5rem); color:var(--white); margin-bottom:24px; line-height:1.15;">
+        YOUR SCHOOL'S NEXT <span class="highlight">CHAPTER</span> STARTS HERE
+      </h2>
+      <p class="animate-in" style="color:rgba(255,255,255,0.85); font-size:1.1rem; line-height:1.75; margin-bottom:40px; max-width:600px; margin-left:auto; margin-right:auto;">
         No pitch deck, no pressure. We'll walk through your current setup, answer your questions, and figure out if we're a good fit.
       </p>
-      <a href="/contact" class="inline-flex items-center bg-surface text-primary px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
-        Schedule a Visit
-      </a>
+      <a href="/contact" class="btn-comic btn-comic-red animate-in">SCHEDULE A VISIT</a>
     </div>
   </section>
+
+  <!-- Hero Slideshow Script -->
+  <script>
+    const slides = document.querySelectorAll('.hero-slideshow img');
+    let current = 0;
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      }, 5000);
+    }
+  </script>
 </BaseLayout>

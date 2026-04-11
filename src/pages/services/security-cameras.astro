@@ -1,114 +1,445 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/ui/Button.astro';
-import HearthNote from '../../components/ui/HearthNote.astro';
-import CheckIcon from '../../components/ui/CheckIcon.astro';
 ---
 
 <BaseLayout
-  title="School Security Camera Installation | Umbrella Systems"
-  description="Professional security camera installation, live dashboards, and ongoing maintenance for schools and businesses in Minnesota. E-Rate eligible."
+  title="School Security Cameras | Eagle Eye | Umbrella Systems"
+  description="Professional security camera installation, live dashboards, and ongoing maintenance for schools. E-Rate eligible. Privacy-first design."
 >
   <!-- Hero Section -->
-  <section class="relative px-6 lg:px-8 py-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-    <div class="lg:col-span-7">
-      <span class="inline-block px-4 py-1.5 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase mb-6">Physical Security</span>
-      <h1 class="font-extrabold text-4xl lg:text-6xl text-on-surface leading-[1.1] mb-6">See your building clearly. Keep it secure simply.</h1>
-      <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">Professional security camera installation, live monitoring dashboards, and ongoing maintenance — designed for schools and businesses that need reliable coverage without the complexity.</p>
-      <div class="flex flex-wrap gap-4">
-        <Button href="/contact">Request a Site Survey</Button>
-        <Button variant="secondary" href="/services/network-infrastructure">Network Services</Button>
+  <section class="hero-section">
+    <div class="halftone"></div>
+    <div class="container-comic hero-grid">
+      <div class="hero-content animate-in">
+        <h1 class="hero-title text-shadow-comic">
+          SEE YOUR BUILDING CLEARLY. KEEP IT <span class="highlight">SECURE</span> SIMPLY.
+        </h1>
+        <p class="hero-sub">
+          Professional security camera installation, live monitoring dashboards, and ongoing maintenance — designed for schools that need reliable coverage without the complexity.
+        </p>
+        <div class="hero-ctas">
+          <a href="/contact" class="btn-comic btn-comic-red">Request a Site Survey</a>
+          <a href="/services/network-infrastructure" class="btn-comic btn-comic-yellow">Network Services</a>
+        </div>
+      </div>
+      <div class="hero-image-wrap animate-in" data-delay="200">
+        <div class="comic-panel hero-panel">
+          <img src="/images/security-camera-1.jpg" alt="Professional security camera installation at a school" width="739" height="1600" loading="eager" fetchpriority="high" decoding="async" />
+        </div>
+        <div class="comic-panel hero-panel-small">
+          <img src="/images/security-cam-ceiling-display.jpg" alt="Ceiling-mounted security camera with monitoring display" width="1620" height="911" loading="eager" decoding="async" />
+        </div>
       </div>
     </div>
-    <div class="lg:col-span-5">
-      <div class="rounded-xl shadow-2xl rotate-1 aspect-[4/3] bg-surface-container-high overflow-hidden">
-        <img src="/images/security-camera.jpg" alt="PTZ security camera overlooking a school athletic field" class="w-full h-full object-cover" loading="eager" />
-      </div>
-    </div>
+    <div class="clip-edge"></div>
   </section>
 
   <!-- Services Grid -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Installation -->
-        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
-          <h3 class="text-2xl font-bold mb-4">Installation</h3>
-          <p class="text-on-surface-variant leading-relaxed">We handle the full installation — site survey, camera placement, cabling, mounting, and configuration. Every system is designed around your building's specific layout and security needs. We work during off-hours and breaks to minimize disruption.</p>
+  <section class="services-section">
+    <div class="halftone-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title animate-in">FULL COVERAGE, ZERO COMPLEXITY</h2>
+      <div class="services-grid">
+        <div class="comic-card service-card animate-in">
+          <div class="service-card-body">
+            <span class="card-icon">&#128295;</span>
+            <h3 class="card-title">INSTALLATION</h3>
+            <p class="card-text">Full installation — site survey, camera placement, cabling, mounting, configuration. Designed around your building. We work during off-hours to minimize disruption.</p>
+          </div>
         </div>
-        <!-- Live Dashboards -->
-        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all md:-translate-y-4">
-          <h3 class="text-2xl font-bold mb-4">Live Dashboards</h3>
-          <p class="text-on-surface-variant leading-relaxed">Real-time camera feeds accessible from a centralized dashboard. View every camera in your facility from a single screen, review recorded footage, and manage access permissions. We set it up, train your team, and make sure it works reliably.</p>
+        <div class="comic-card service-card animate-in" data-delay="100">
+          <div class="service-card-body">
+            <span class="card-icon">&#128250;</span>
+            <h3 class="card-title">LIVE DASHBOARDS</h3>
+            <p class="card-text">Real-time camera feeds from a centralized dashboard. View every camera, review footage, manage permissions. We set it up, train your team, make sure it works.</p>
+          </div>
         </div>
-        <!-- Ongoing Maintenance -->
-        <div class="bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15 hover:shadow-lg transition-all">
-          <h3 class="text-2xl font-bold mb-4">Ongoing Maintenance</h3>
-          <p class="text-on-surface-variant leading-relaxed">Cameras need upkeep. We handle firmware updates, lens cleaning schedules, storage management, and hardware replacements. If a camera goes down, our monitoring systems alert us — often before you notice.</p>
+        <div class="comic-card service-card animate-in" data-delay="200">
+          <div class="service-card-body">
+            <span class="card-icon">&#127970;</span>
+            <h3 class="card-title">LOCAL-FIRST STORAGE</h3>
+            <p class="card-text">Footage lives on a UniFi NVR on-site inside your building — not in a third-party cloud. You still get cloud access when you need to review clips from anywhere, but your data stays yours. No subscription fees, no outside vendor holding your recordings.</p>
+          </div>
+        </div>
+        <div class="comic-card service-card animate-in" data-delay="300">
+          <div class="service-card-body">
+            <span class="card-icon">&#128260;</span>
+            <h3 class="card-title">ONGOING MAINTENANCE</h3>
+            <p class="card-text">Firmware updates, lens cleaning, storage management, hardware replacement. If a camera goes down, our monitoring alerts us — often before you notice.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Privacy Callout -->
-  <section class="px-6 lg:px-8 py-16 lg:py-20 max-w-5xl mx-auto">
-    <HearthNote class="relative overflow-hidden">
-      <h3 class="font-bold text-xl text-on-surface mb-4">Privacy-First Design</h3>
-      <p class="text-on-surface text-lg leading-relaxed italic">
-        We take student and staff privacy seriously. Every camera system we design follows applicable privacy regulations and school policies. Camera placement is deliberate — focused on entry points, hallways, parking areas, and common spaces. We work with your administration to define exactly what gets monitored and what doesn't.
-      </p>
-    </HearthNote>
+  <section class="privacy-section">
+    <div class="container-comic">
+      <div class="speech-bubble privacy-bubble animate-in">
+        <div class="privacy-label">Privacy-First Design</div>
+        <p class="privacy-text">We take student and staff privacy seriously. Camera placement is deliberate — entry points, hallways, parking areas, common spaces. We work with your administration to define exactly what gets monitored and what doesn't.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- Advantage Checklist -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div class="rounded-2xl shadow-xl -rotate-1 aspect-[4/3] bg-surface-container-high overflow-hidden">
-        <img src="/images/security-dashboard.png" alt="UniFi Protect security camera dashboard with live feeds" class="w-full h-full object-cover" loading="lazy" />
-      </div>
-      <div>
-        <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Why Umbrella for cameras:</h2>
-        <ul class="space-y-4">
-          <li class="flex items-start gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
-            <span class="text-on-surface font-medium">E-Rate eligible when part of a broader network infrastructure project</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
-            <span class="text-on-surface font-medium">4K-capable systems for clear, usable footage</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
-            <span class="text-on-surface font-medium">Encrypted video storage and transmission</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
-            <span class="text-on-surface font-medium">Remote access for authorized administrators</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
-            <span class="text-on-surface font-medium">Integration with existing network infrastructure</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <CheckIcon class="w-6 h-6 text-tertiary flex-shrink-0 mt-0.5" />
-            <span class="text-on-surface font-medium">No third-party monitoring fees — your system, your data</span>
-          </li>
-        </ul>
+  <!-- Why Umbrella -->
+  <section class="why-section">
+    <div class="halftone-light-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title section-title-light animate-in">WHY UMBRELLA FOR CAMERAS</h2>
+      <div class="why-grid">
+        <div class="why-card animate-in">
+          <div class="why-check" aria-hidden="true">&#10003;</div>
+          <p class="why-text">E-Rate eligible with broader network projects</p>
+        </div>
+        <div class="why-card animate-in" data-delay="50">
+          <div class="why-check" aria-hidden="true">&#10003;</div>
+          <p class="why-text">4K-capable for clear, usable footage</p>
+        </div>
+        <div class="why-card animate-in" data-delay="100">
+          <div class="why-check" aria-hidden="true">&#10003;</div>
+          <p class="why-text">Encrypted video storage and transmission</p>
+        </div>
+        <div class="why-card animate-in" data-delay="150">
+          <div class="why-check" aria-hidden="true">&#10003;</div>
+          <p class="why-text">Remote access for authorized administrators</p>
+        </div>
+        <div class="why-card animate-in" data-delay="200">
+          <div class="why-check" aria-hidden="true">&#10003;</div>
+          <p class="why-text">Integration with existing network infrastructure</p>
+        </div>
+        <div class="why-card animate-in" data-delay="250">
+          <div class="why-check" aria-hidden="true">&#10003;</div>
+          <p class="why-text">No third-party monitoring fees — your system, your data</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto hearth-gradient text-on-primary p-12 lg:p-16 rounded-[2.5rem] text-center relative overflow-hidden shadow-2xl">
-      <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-      <div class="relative z-10">
-        <h2 class="text-3xl lg:text-5xl font-extrabold mb-6">Let's design the right system for your building.</h2>
-        <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">We'll do a site walkthrough, recommend camera placement, and put together a proposal that fits your security needs and your budget.</p>
-        <a href="/contact" class="inline-flex items-center bg-surface text-primary px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
-          Request a Site Survey
-        </a>
-      </div>
+  <section class="cta-section">
+    <div class="container-comic cta-inner">
+      <h2 class="cta-title animate-in">LET'S DESIGN THE RIGHT SYSTEM FOR YOUR BUILDING</h2>
+      <p class="cta-sub animate-in" data-delay="100">We'll walk through your building, map out coverage zones, and design a camera system that fits your layout, your budget, and your security goals.</p>
+      <a href="/contact" class="btn-comic btn-comic-white animate-in" data-delay="200">Request a Site Survey</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ============================== */
+  /* Hero                           */
+  /* ============================== */
+  .hero-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 250px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section .halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 rgba(255,255,255,0.15);
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-panel {
+    transform: rotate(2deg);
+    aspect-ratio: 4/3;
+  }
+  .hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-image-wrap {
+    position: relative;
+  }
+  .hero-panel-small {
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    width: 200px;
+    aspect-ratio: 4/3;
+    transform: rotate(-4deg);
+    z-index: 2;
+  }
+  .hero-panel-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .clip-edge {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ============================== */
+  /* Services Grid                  */
+  /* ============================== */
+  .services-section {
+    padding: 100px 0;
+    position: relative;
+    background: var(--white);
+  }
+  .halftone-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--navy) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  .section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--yellow);
+    margin: 16px auto 0;
+    border: 2px solid var(--navy);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .service-card {
+    padding: 0;
+    overflow: hidden;
+  }
+  .service-card:nth-child(odd) { transform: rotate(-0.5deg); }
+  .service-card:nth-child(even) { transform: rotate(0.5deg); }
+  .service-card-body {
+    padding: 36px;
+  }
+  .card-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+  }
+
+  /* ============================== */
+  /* Privacy Callout                */
+  /* ============================== */
+  .privacy-section {
+    padding: 80px 0;
+    background: var(--yellow);
+    position: relative;
+  }
+  .privacy-bubble {
+    background: var(--white);
+    max-width: 800px;
+    padding: 48px;
+  }
+  .privacy-label {
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    display: inline-block;
+    background: var(--yellow);
+    padding: 4px 16px;
+    border: 2px solid var(--navy);
+  }
+  .privacy-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+  }
+
+  /* ============================== */
+  /* Why Umbrella                   */
+  /* ============================== */
+  .why-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+    overflow: hidden;
+  }
+  .halftone-light-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .section-title-light {
+    color: var(--white);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  }
+  .section-title-light::after {
+    background: var(--red);
+    border-color: var(--white);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .why-card {
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.15);
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .why-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(255,255,255,0.1);
+  }
+  .why-check {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--yellow);
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid var(--navy);
+  }
+  .why-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.95;
+  }
+
+  /* ============================== */
+  /* CTA                            */
+  /* ============================== */
+  .cta-section {
+    background: var(--red);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+  }
+  .cta-title {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+  .cta-sub {
+    font-size: 1.15rem;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    opacity: 0.95;
+    line-height: 1.7;
+  }
+
+  /* ============================== */
+  /* Responsive                     */
+  /* ============================== */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+    }
+    .hero-panel-small {
+      width: 150px;
+      bottom: -10px;
+      left: -15px;
+    }
+    .why-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 200px 0 80px;
+    }
+    .hero-title {
+      font-size: 2rem;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+    .privacy-bubble {
+      padding: 32px;
+    }
+    .why-section {
+      clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+    }
+    .why-grid {
+      grid-template-columns: 1fr;
+    }
+    .cta-title {
+      font-size: 2rem;
+    }
+  }
+</style>

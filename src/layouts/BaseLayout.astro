@@ -1,7 +1,5 @@
 ---
 import '../styles/global.css';
-import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
 
 interface Props {
   title: string;
@@ -25,6 +23,11 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+
+    <!-- Google Fonts: Bangers + Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site).href} />
@@ -67,14 +70,656 @@ const {
       "sameAs": []
     })} />
   </head>
-  <body class="bg-surface text-on-surface font-sans">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm focus:font-bold">
-      Skip to main content
-    </a>
-    <Navbar />
-    <main id="main-content" class="pt-24">
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo" aria-label="Umbrella Systems home">
+          <img src="/images/umbrella-icon.png" alt="" width="36" height="36" />
+          <span>UMBRELLA SYSTEMS</span>
+        </a>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/about" class="nav-link">About Us</a>
+          <a href="/schools" class="nav-link">Who We Serve</a>
+          <div class="nav-dropdown">
+            <button class="nav-link nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+              Services
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="nav-dropdown-menu" role="menu">
+              <a href="/services/managed-it" class="nav-dropdown-item" role="menuitem">Managed IT</a>
+              <a href="/services/network-infrastructure" class="nav-dropdown-item" role="menuitem">Network & Infrastructure</a>
+              <a href="/services/it-leadership" class="nav-dropdown-item" role="menuitem">IT Leadership</a>
+              <a href="/services/security-cameras" class="nav-dropdown-item" role="menuitem">Security Cameras</a>
+            </div>
+          </div>
+          <a href="/blog" class="nav-link">Blog</a>
+          <a href="/contact" class="nav-link">Contact</a>
+          <a href="https://umbrellasystems.screenconnect.com/" class="nav-cta" target="_blank" rel="noopener noreferrer">Support Portal</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="main-content">
       <slot />
     </main>
-    <Footer />
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div class="footer-brand">
+            <a href="/" class="nav-logo footer-logo" aria-label="Umbrella Systems home">
+              <img src="/images/umbrella-icon.png" alt="" width="36" height="36" />
+              <span>UMBRELLA SYSTEMS</span>
+            </a>
+            <p class="footer-tagline">Protecting Schools, One Network at a Time</p>
+          </div>
+
+          <!-- Links -->
+          <div class="footer-links-col">
+            <h3 class="footer-heading">Company</h3>
+            <ul class="footer-list">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/schools">Schools</a></li>
+              <li><a href="/services/managed-it">Services</a></li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="https://umbrellasystems.screenconnect.com/" target="_blank" rel="noopener noreferrer">Support Portal</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="footer-links-col">
+            <h3 class="footer-heading">Contact</h3>
+            <ul class="footer-list footer-contact">
+              <li><a href="tel:6514094321">651-409-4321</a></li>
+              <li><a href="mailto:info@umbrellasystems.net">info@umbrellasystems.net</a></li>
+              <li>15838 Harwell Ave<br />Apple Valley, MN 55124</li>
+              <li class="footer-emergency">Emergency: <a href="tel:6127562992">612-756-2992</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Umbrella Systems LLC. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ============================== -->
+    <!-- Comic Book Hero Theme CSS      -->
+    <!-- ============================== -->
+    <style is:global>
+      /* ---- CSS Variables ---- */
+      :root {
+        --navy: #1a1a2e;
+        --red: #ff1744;
+        --red-dark: #d50000;
+        --yellow: #ffd600;
+        --yellow-light: #fff176;
+        --white: #ffffff;
+        --gray-light: #f5f5f5;
+        --gray: #9e9e9e;
+        --shadow-comic: 4px 4px 0px var(--navy);
+        --shadow-comic-sm: 3px 3px 0px var(--navy);
+        --shadow-comic-red: 4px 4px 0px var(--red-dark);
+        --border-comic: 3px solid var(--navy);
+      }
+
+      /* ---- Base ---- */
+      body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--navy);
+        margin: 0;
+        background: var(--white);
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Bangers', cursive;
+        letter-spacing: 0.04em;
+      }
+
+      /* Push first section below fixed nav on inner pages */
+      main > section:first-child {
+        padding-top: 250px;
+      }
+
+      /* ---- Yellow Highlight ---- */
+      .highlight {
+        position: relative;
+        display: inline;
+        padding: 0 0.15em;
+      }
+      .highlight::after {
+        content: '';
+        position: absolute;
+        left: -2px;
+        right: -2px;
+        bottom: 0.05em;
+        height: 0.22em;
+        background: var(--yellow);
+        transform: skewX(-8deg);
+        z-index: -1;
+      }
+
+      /* ---- Halftone Dot Pattern ---- */
+      .halftone {
+        background-image: radial-gradient(circle, var(--navy) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.06;
+      }
+
+      .halftone-light {
+        background-image: radial-gradient(circle, var(--white) 1px, transparent 1px);
+        background-size: 20px 20px;
+        opacity: 0.08;
+      }
+
+      /* ---- Skip Link ---- */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 16px;
+        z-index: 200;
+        padding: 8px 16px;
+        background: var(--yellow);
+        color: var(--navy);
+        font-family: 'Bangers', cursive;
+        font-size: 1rem;
+        border: var(--border-comic);
+        text-decoration: none;
+      }
+      .skip-link:focus {
+        top: 16px;
+      }
+
+      /* ============================ */
+      /* Navigation                   */
+      /* ============================ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--navy);
+        border-bottom: 4px solid var(--yellow);
+        font-family: 'Bangers', cursive;
+      }
+      .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: var(--white);
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+      }
+      .nav-logo img {
+        border-radius: 4px;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .nav-link {
+        color: var(--white);
+        text-decoration: none;
+        padding: 8px 14px;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        transition: color 0.15s;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .nav-link:hover {
+        color: var(--yellow);
+      }
+      .nav-cta {
+        background: var(--red);
+        color: var(--white);
+        text-decoration: none;
+        padding: 8px 20px;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        border: 2px solid var(--navy);
+        box-shadow: var(--shadow-comic-sm);
+        margin-left: 8px;
+        transition: transform 0.15s, box-shadow 0.15s;
+      }
+      .nav-cta:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px var(--navy);
+      }
+
+      /* Dropdown */
+      .nav-dropdown {
+        position: relative;
+      }
+      .nav-dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--navy);
+        border: var(--border-comic);
+        border-top: none;
+        min-width: 220px;
+        box-shadow: var(--shadow-comic);
+        z-index: 50;
+      }
+      .nav-dropdown:hover .nav-dropdown-menu,
+      .nav-dropdown-trigger[aria-expanded="true"] + .nav-dropdown-menu {
+        display: block;
+      }
+      .nav-dropdown-item {
+        display: block;
+        padding: 10px 20px;
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif;
+        transition: background 0.15s;
+      }
+      .nav-dropdown-item:hover {
+        background: rgba(255, 214, 0, 0.15);
+        color: var(--yellow);
+      }
+
+      /* Mobile Toggle */
+      .mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        min-height: 44px;
+      }
+      .mobile-toggle span {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background: var(--white);
+        transition: transform 0.2s, opacity 0.2s;
+      }
+      .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      @media (max-width: 1024px) {
+        .mobile-toggle {
+          display: flex;
+        }
+        .nav-links {
+          display: none;
+          position: absolute;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: var(--navy);
+          flex-direction: column;
+          padding: 16px 24px 24px;
+          border-bottom: 4px solid var(--yellow);
+          gap: 4px;
+        }
+        .nav-links.open {
+          display: flex;
+        }
+        .nav-link, .nav-cta {
+          width: 100%;
+          text-align: left;
+          padding: 12px 14px;
+        }
+        .nav-cta {
+          margin-left: 0;
+          margin-top: 8px;
+          text-align: center;
+        }
+        .nav-dropdown-menu {
+          position: static;
+          border: none;
+          box-shadow: none;
+          padding-left: 16px;
+        }
+        .nav-dropdown:hover .nav-dropdown-menu {
+          display: none;
+        }
+        .nav-dropdown.open .nav-dropdown-menu {
+          display: block;
+        }
+      }
+
+      /* ============================ */
+      /* Footer                       */
+      /* ============================ */
+      .footer {
+        background: #0d0d1a;
+        color: var(--white);
+        border-top: 4px solid var(--red);
+      }
+      .footer-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 60px 24px 32px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 48px;
+      }
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+      .footer-logo span {
+        font-size: 1.3rem;
+      }
+      .footer-tagline {
+        margin-top: 12px;
+        color: var(--gray);
+        font-size: 0.95rem;
+        font-style: italic;
+      }
+      .footer-heading {
+        font-size: 1.1rem;
+        color: var(--yellow);
+        margin-bottom: 16px;
+        letter-spacing: 0.06em;
+      }
+      .footer-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-list li {
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        color: var(--gray);
+        line-height: 1.6;
+      }
+      .footer-list a {
+        color: var(--gray);
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .footer-list a:hover {
+        color: var(--yellow);
+      }
+      .footer-emergency {
+        margin-top: 8px;
+        color: var(--red) !important;
+        font-weight: 600;
+      }
+      .footer-emergency a {
+        color: var(--red) !important;
+        font-weight: 600;
+      }
+      .footer-bottom {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--gray);
+      }
+
+      /* ============================ */
+      /* Comic Buttons                */
+      /* ============================ */
+      .btn-comic {
+        display: inline-block;
+        font-family: 'Bangers', cursive;
+        font-size: 1.25rem;
+        letter-spacing: 0.06em;
+        padding: 14px 32px;
+        border: var(--border-comic);
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.15s, box-shadow 0.15s;
+        position: relative;
+      }
+      .btn-comic:hover {
+        transform: translate(-2px, -2px);
+      }
+      .btn-comic-red {
+        background: var(--red);
+        color: var(--white);
+        box-shadow: var(--shadow-comic);
+      }
+      .btn-comic-red:hover {
+        box-shadow: 6px 6px 0px var(--navy);
+      }
+      .btn-comic-yellow {
+        background: var(--yellow);
+        color: var(--navy);
+        box-shadow: var(--shadow-comic);
+      }
+      .btn-comic-yellow:hover {
+        box-shadow: 6px 6px 0px var(--navy);
+      }
+      .btn-comic-white {
+        background: var(--white);
+        color: var(--navy);
+        box-shadow: var(--shadow-comic-red);
+      }
+      .btn-comic-white:hover {
+        box-shadow: 6px 6px 0px var(--red-dark);
+      }
+
+      /* ============================ */
+      /* Comic Cards                  */
+      /* ============================ */
+      .comic-card {
+        background: var(--white);
+        border: var(--border-comic);
+        box-shadow: var(--shadow-comic);
+        padding: 32px;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .comic-card:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 7px 7px 0px var(--navy);
+      }
+
+      /* ---- Starburst Badge ---- */
+      .starburst {
+        display: inline-block;
+        background: var(--yellow);
+        color: var(--navy);
+        font-family: 'Bangers', cursive;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        padding: 10px 24px;
+        border: var(--border-comic);
+        box-shadow: var(--shadow-comic-sm);
+        position: relative;
+      }
+      .starburst::before,
+      .starburst::after {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        background: var(--yellow);
+        border: 2px solid var(--navy);
+        transform: rotate(45deg);
+      }
+      .starburst::before {
+        top: -7px;
+        left: 20px;
+      }
+      .starburst::after {
+        bottom: -7px;
+        right: 20px;
+      }
+
+      /* ---- Speech Bubble ---- */
+      .speech-bubble {
+        background: var(--white);
+        border: var(--border-comic);
+        box-shadow: var(--shadow-comic);
+        padding: 40px;
+        position: relative;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .speech-bubble::after {
+        content: '';
+        position: absolute;
+        bottom: -24px;
+        left: 60px;
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 24px solid var(--navy);
+      }
+      .speech-bubble::before {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 63px;
+        width: 0;
+        height: 0;
+        border-left: 17px solid transparent;
+        border-right: 17px solid transparent;
+        border-top: 20px solid var(--white);
+        z-index: 1;
+      }
+
+      /* ============================ */
+      /* Scroll Animations            */
+      /* ============================ */
+      .animate-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+      .animate-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .animate-in:nth-child(2) { transition-delay: 0.1s; }
+      .animate-in:nth-child(3) { transition-delay: 0.2s; }
+      .animate-in:nth-child(4) { transition-delay: 0.3s; }
+
+      /* ============================ */
+      /* Diagonal Sections            */
+      /* ============================ */
+      .clip-diagonal-bottom {
+        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+      }
+      .clip-diagonal-both {
+        clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+      }
+      .clip-diagonal-top {
+        clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+      }
+
+      /* ============================ */
+      /* Utility                      */
+      /* ============================ */
+      .container-comic {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .text-shadow-comic {
+        text-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+      }
+
+    </style>
+
+    <!-- Mobile Menu + Dropdown Toggle -->
+    <script>
+      const toggle = document.getElementById('mobile-toggle');
+      const links = document.getElementById('nav-links');
+
+      toggle?.addEventListener('click', () => {
+        toggle.classList.toggle('active');
+        links?.classList.toggle('open');
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+      });
+
+      // Dropdown toggle for mobile
+      document.querySelectorAll('.nav-dropdown-trigger').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            const dropdown = (btn as HTMLElement).closest('.nav-dropdown');
+            dropdown?.classList.toggle('open');
+            const expanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', String(!expanded));
+          }
+        });
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll('.nav-link:not(.nav-dropdown-trigger), .nav-dropdown-item, .nav-cta').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 1024) {
+            toggle?.classList.remove('active');
+            links?.classList.remove('open');
+            toggle?.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    </script>
+
+    <!-- IntersectionObserver for scroll animations -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>

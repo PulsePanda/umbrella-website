@@ -9,6 +9,12 @@ export default defineConfig({
   site: 'https://umbrellasystems.net',
   integrations: [sitemap()],
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    server: {
+      watch: {
+        usePolling: true,
+        interval: 300,
+      },
+    },
   }
 });

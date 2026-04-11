@@ -1,108 +1,445 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/ui/Button.astro';
-import HearthNote from '../../components/ui/HearthNote.astro';
 ---
 
 <BaseLayout
-  title="vCIO & IT Leadership for Charter Schools | Umbrella Systems"
+  title="vCIO & IT Leadership for Schools | Strategic Vision | Umbrella Systems"
   description="Strategic IT leadership for schools. vCIO services, E-Rate optimization, hardware procurement, compliance oversight, and long-term technology planning."
 >
   <!-- Hero Section -->
-  <section class="relative px-6 lg:px-8 py-20 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="inline-block px-4 py-1.5 bg-secondary-container text-secondary rounded-full text-xs font-bold tracking-widest uppercase mb-6">Strategic Planning</span>
-        <h1 class="font-extrabold text-4xl lg:text-6xl text-on-surface leading-[1.1] mb-6">Strategic IT leadership without the executive price tag.</h1>
-        <p class="text-lg text-on-surface-variant max-w-xl mb-10 leading-relaxed">Technology planning, procurement strategy, E-Rate optimization, compliance oversight, and a roadmap that actually looks forward. The vCIO services your school needs — embedded in a team that already knows your environment.</p>
-        <div class="flex flex-wrap gap-4">
-          <Button href="/contact">Schedule a Strategy Session</Button>
-          <Button variant="secondary" href="/about">Meet Our Team</Button>
+  <section class="hero-section">
+    <div class="halftone"></div>
+    <div class="container-comic hero-grid">
+      <div class="hero-content animate-in">
+        <h1 class="hero-title text-shadow-comic">
+          STRATEGIC IT <span class="highlight">LEADERSHIP</span> WITHOUT THE EXECUTIVE PRICE TAG
+        </h1>
+        <p class="hero-sub">
+          Technology planning, procurement strategy, E-Rate optimization, compliance oversight. The vCIO services your school needs — embedded in a team that already knows your environment.
+        </p>
+        <div class="hero-ctas">
+          <a href="/contact" class="btn-comic btn-comic-red">Schedule a Strategy Session</a>
+          <a href="/services/managed-it" class="btn-comic btn-comic-yellow">Managed IT Services</a>
         </div>
       </div>
-      <div class="relative">
-        <div class="absolute -top-4 -right-4 w-32 h-32 bg-tertiary-fixed rounded-2xl -z-10 rotate-12 opacity-50"></div>
-        <div class="rounded-xl shadow-2xl rotate-1 aspect-[4/3] bg-surface-container-high flex items-center justify-center overflow-hidden">
-          <span class="text-on-surface-variant text-sm text-center px-8">Photo needed — IT leadership / planning session</span>
+      <div class="hero-image-wrap animate-in" data-delay="200">
+        <div class="comic-panel hero-panel">
+          <img src="/images/school-tech.jpg" alt="Students and staff using technology in a classroom" width="1210" height="911" loading="eager" fetchpriority="high" decoding="async" />
         </div>
-        <HearthNote class="absolute -bottom-8 -left-8 max-w-[260px] shadow-lg z-10">
-          <p class="text-on-surface text-sm italic">"Real conversations about real decisions — not jargon-filled reports."</p>
-        </HearthNote>
+        <div class="comic-panel hero-panel-inset hero-panel-inset-austin">
+          <img src="/images/austin.jpg" alt="Austin VanAlstyne, Umbrella Systems" width="1200" height="1600" loading="eager" decoding="async" />
+        </div>
+        <div class="comic-panel hero-panel-inset hero-panel-inset-jesse">
+          <img src="/images/jesse.jpg" alt="Jesse Schonfeld, Umbrella Systems" width="432" height="576" loading="eager" decoding="async" />
+        </div>
+      </div>
+    </div>
+    <div class="clip-edge"></div>
+  </section>
+
+  <!-- Strategic Framework -->
+  <section class="framework-section">
+    <div class="halftone-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title animate-in">WHAT STRATEGIC IT LEADERSHIP INCLUDES</h2>
+      <div class="framework-grid">
+        <div class="comic-card framework-card animate-in">
+          <span class="card-icon">&#128202;</span>
+          <h3 class="card-title">vCIO SERVICES</h3>
+          <p class="card-text">Long-term tech planning aligned with your school's goals and budget. Real conversations about real decisions — no jargon-filled reports.</p>
+        </div>
+        <div class="comic-card framework-card animate-in" data-delay="100">
+          <span class="card-icon">&#128722;</span>
+          <h3 class="card-title">HARDWARE PROCUREMENT</h3>
+          <p class="card-text">We don't sell hardware and we don't mark up prices. We get you competitive quotes from Ubiquiti, HP, Cisco. You buy direct at the best price.</p>
+        </div>
+        <div class="comic-card framework-card animate-in" data-delay="200">
+          <span class="card-icon">&#128176;</span>
+          <h3 class="card-title">E-RATE OPTIMIZATION</h3>
+          <p class="card-text">We manage the full E-Rate lifecycle. Schools we work with have collectively saved over $400,000 — money that goes back into classrooms.</p>
+          <div class="card-stat">
+            <span class="stat-highlight">$400,000+</span>
+            <span class="stat-caption">Saved Collectively</span>
+          </div>
+        </div>
+        <div class="comic-card framework-card animate-in" data-delay="100">
+          <span class="card-icon">&#128274;</span>
+          <h3 class="card-title">APP & SOFTWARE SECURITY REVIEW</h3>
+          <p class="card-text">Before a new app touches your network or student data, we review it. FERPA, COPPA, Minnesota privacy. Clear recommendation: approve, restrict, or reject.</p>
+        </div>
+        <div class="comic-card framework-card animate-in" data-delay="200">
+          <span class="card-icon">&#129309;</span>
+          <h3 class="card-title">PHASE 0 ONBOARDING</h3>
+          <p class="card-text">Before any contract, we embed with your current IT setup at no cost. We learn your systems, your workflows, your pain points from the inside.</p>
+          <div class="card-badge">No Cost to Start</div>
+        </div>
+        <div class="comic-card framework-card animate-in" data-delay="300">
+          <span class="card-icon">&#128737;</span>
+          <h3 class="card-title">COMPLIANCE OVERSIGHT</h3>
+          <p class="card-text">FERPA, COPPA, CIPA, Minnesota H.F. 2353. We keep your data-handling practices, vendor agreements, and access controls aligned with every framework you're accountable to.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Strategic Framework Bento -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16">
-        <h2 class="text-3xl lg:text-4xl font-extrabold mb-4">What strategic IT leadership includes.</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-        <!-- vCIO -->
-        <div class="md:col-span-8 bg-surface-container-lowest p-8 lg:p-10 rounded-xl border border-outline-variant/15">
-          <h3 class="text-2xl font-bold mb-3">vCIO Services</h3>
-          <p class="text-on-surface-variant leading-relaxed mb-6">Long-term technology planning aligned with your school's educational goals and budget realities. We sit down with your leadership team regularly to review what's working, what's coming, and what needs to change. No jargon-filled reports that sit in a drawer — real conversations about real decisions.</p>
+  <!-- Break Projects -->
+  <section class="breaks-section">
+    <div class="halftone-light-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title section-title-light animate-in">BIG PROJECTS, BUILT FOR BREAKS</h2>
+      <p class="breaks-sub animate-in" data-delay="100">Some work is too disruptive for the school year.</p>
+      <div class="breaks-grid">
+        <div class="breaks-panel animate-in" data-delay="100">
+          <div class="panel-number" aria-hidden="true">01</div>
+          <h3 class="panel-title">INFRASTRUCTURE AUDITS</h3>
+          <p class="panel-text">Hardware, software, network, security evaluation. A full assessment of where you stand and what needs attention.</p>
         </div>
-        <!-- Procurement -->
-        <div class="md:col-span-4 bg-secondary-container p-8 lg:p-10 rounded-xl">
-          <h3 class="text-xl font-bold mb-3">Hardware Procurement</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed">We don't sell hardware and we don't mark up prices. Instead, we leverage relationships with vendors like Ubiquiti, HP, and Cisco to get competitive quotes on your behalf. You buy direct at the best price.</p>
+        <div class="breaks-panel animate-in" data-delay="200">
+          <div class="panel-number" aria-hidden="true">02</div>
+          <h3 class="panel-title">MASS DEVICE DEPLOYMENT</h3>
+          <p class="panel-text">Fleet-wide Chromebook rollouts, configured and enrolled. Hundreds of devices ready for day one.</p>
         </div>
-        <!-- E-Rate Optimization -->
-        <div class="md:col-span-4 bg-surface-container-lowest border-l-4 border-primary p-8 rounded-xl">
-          <h3 class="text-xl font-bold mb-3">E-Rate Optimization</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed">E-Rate can save your school tens of thousands of dollars annually on eligible network services. We manage the full E-Rate lifecycle: eligibility assessment, application preparation, vendor coordination, compliance documentation, and renewal management.</p>
+        <div class="breaks-panel animate-in" data-delay="300">
+          <div class="panel-number" aria-hidden="true">03</div>
+          <h3 class="panel-title">LONG-TERM PLANNING</h3>
+          <p class="panel-text">Multi-year roadmaps for enrollment growth, infrastructure aging, and technology refresh cycles.</p>
         </div>
-        <!-- App Security Review -->
-        <div class="md:col-span-4 bg-tertiary-fixed p-8 rounded-xl" style="border-radius: 24px 8px 24px 8px;">
-          <h3 class="text-xl font-bold mb-3 text-on-surface">App & Software Security Review</h3>
-          <p class="text-on-surface text-sm leading-relaxed">Before a new application touches your network or student data, we review it. We assess security posture, data handling practices, and compliance. Then we give you a clear recommendation: approve, restrict, or reject.</p>
-        </div>
-        <!-- Phase 0 -->
-        <div class="md:col-span-4 hearth-gradient p-8 rounded-xl text-on-primary">
-          <h3 class="text-xl font-bold mb-3">Phase 0 Onboarding</h3>
-          <p class="text-sm leading-relaxed opacity-90">Before any contract begins, we embed with your current IT setup for a shadow period at no cost. We learn your systems, your workflows, and your pain points from the inside. By the time the partnership officially starts, we're already up to speed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Break Projects Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 class="text-3xl lg:text-4xl font-extrabold mb-6">Big projects, built for breaks.</h2>
-        <p class="text-on-surface-variant text-lg mb-10">Some work is too disruptive for the school year. We plan and execute major projects during summer and winter breaks so your staff and students aren't affected.</p>
-        <div class="space-y-8">
-          <div>
-            <h3 class="text-xl font-bold mb-2">Infrastructure Audits</h3>
-            <p class="text-on-surface-variant leading-relaxed">Comprehensive evaluation of your hardware, software, network performance, and security posture. We document everything, identify gaps, and build a prioritized improvement plan with clear cost estimates.</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2">Mass Device Deployment</h3>
-            <p class="text-on-surface-variant leading-relaxed">Fleet-wide Chromebook rollouts, laptop imaging, and device distribution — configured, enrolled, and ready for day one. We handle the logistics so your staff doesn't spend their break doing IT work.</p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-2">Long-Term Planning</h3>
-            <p class="text-on-surface-variant leading-relaxed">Multi-year technology roadmaps that account for enrollment growth, infrastructure aging, budget cycles, and E-Rate funding windows. We plan ahead so you're never caught off guard by a critical upgrade or an expired warranty.</p>
-          </div>
-        </div>
-      </div>
-      <div class="rounded-2xl shadow-xl rotate-1 aspect-[4/3] bg-surface-container-high overflow-hidden">
-        <img src="/images/summer-project.jpg" alt="Jesse doing ceiling cable work during a summer break project" class="w-full h-full object-cover" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto bg-inverse-surface text-inverse-on-surface p-12 lg:p-16 rounded-[2.5rem] text-center shadow-2xl">
-      <h2 class="text-3xl lg:text-5xl font-extrabold mb-6">Get a strategic partner, not just a vendor.</h2>
-      <p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto">We'll review your current technology landscape and show you where strategic planning can save money, reduce risk, and set your school up for the long term.</p>
-      <a href="/contact" class="inline-flex items-center bg-surface text-on-surface px-10 py-5 rounded-xl font-extrabold text-lg hover:scale-[1.02] transition-transform shadow-lg">
-        Schedule a Strategy Session
-      </a>
+  <section class="cta-section">
+    <div class="container-comic cta-inner">
+      <h2 class="cta-title animate-in">GET A STRATEGIC PARTNER, NOT JUST A VENDOR</h2>
+      <p class="cta-sub animate-in" data-delay="100">We'll sit down with your leadership team, learn what's working and what isn't, and build a technology roadmap that actually makes sense for your school.</p>
+      <a href="/contact" class="btn-comic btn-comic-white animate-in" data-delay="200">Schedule a Strategy Session</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ============================== */
+  /* Hero                           */
+  /* ============================== */
+  .hero-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 250px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section .halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 560px;
+    margin-bottom: 32px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 rgba(255,255,255,0.15);
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-image-wrap {
+    position: relative;
+  }
+  .hero-panel {
+    transform: rotate(-2deg);
+    aspect-ratio: 4/3;
+  }
+  .hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-panel-inset {
+    position: absolute;
+    width: 140px;
+    aspect-ratio: 1/1;
+    z-index: 3;
+    box-shadow: 5px 5px 0 rgba(255,255,255,0.2);
+  }
+  .hero-panel-inset img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-panel-inset-austin {
+    top: -28px;
+    right: -24px;
+    transform: rotate(4deg);
+  }
+  .hero-panel-inset-jesse {
+    bottom: -32px;
+    left: -28px;
+    transform: rotate(-4deg);
+  }
+  .clip-edge {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ============================== */
+  /* Strategic Framework            */
+  /* ============================== */
+  .framework-section {
+    padding: 100px 0;
+    position: relative;
+    background: var(--white);
+  }
+  .halftone-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--navy) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  .section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--yellow);
+    margin: 16px auto 0;
+    border: 2px solid var(--navy);
+  }
+  .framework-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .framework-card {
+    padding: 36px;
+    position: relative;
+  }
+  .framework-card:nth-child(odd) { transform: rotate(-0.5deg); }
+  .framework-card:nth-child(even) { transform: rotate(0.5deg); }
+  .card-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+  }
+  .card-badge {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 16px;
+    background: var(--yellow);
+    border: 2px solid var(--navy);
+    font-family: 'Bangers', cursive;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+  .card-stat {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px dashed var(--navy);
+  }
+  .stat-highlight {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    color: var(--red);
+    letter-spacing: 0.04em;
+  }
+  .stat-caption {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #666;
+  }
+
+  /* ============================== */
+  /* Break Projects                 */
+  /* ============================== */
+  .breaks-section {
+    background: var(--red);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+    overflow: hidden;
+  }
+  .halftone-light-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .section-title-light {
+    color: var(--white);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+  .section-title-light::after {
+    background: var(--yellow);
+    border-color: var(--navy);
+  }
+  .breaks-sub {
+    text-align: center;
+    font-size: 1.15rem;
+    opacity: 0.95;
+    margin-top: -40px;
+    margin-bottom: 48px;
+  }
+  .breaks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .breaks-panel {
+    background: rgba(255,255,255,0.1);
+    border: 3px solid rgba(255,255,255,0.25);
+    padding: 36px 28px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .breaks-panel:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  }
+  .panel-number {
+    font-family: 'Bangers', cursive;
+    font-size: 2.4rem;
+    color: var(--yellow);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+    margin-bottom: 8px;
+    letter-spacing: 0.06em;
+  }
+  .panel-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+  }
+  .panel-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  /* ============================== */
+  /* CTA                            */
+  /* ============================== */
+  .cta-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+  }
+  .cta-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  }
+  .cta-sub {
+    font-size: 1.15rem;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    opacity: 0.9;
+    line-height: 1.7;
+  }
+
+  /* ============================== */
+  /* Responsive                     */
+  /* ============================== */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+    }
+    .hero-panel-inset {
+      width: 110px;
+    }
+    .hero-panel-inset-austin {
+      right: -8px;
+    }
+    .hero-panel-inset-jesse {
+      left: -8px;
+    }
+    .framework-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .breaks-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 200px 0 80px;
+    }
+    .hero-title {
+      font-size: 2rem;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+    .framework-grid {
+      grid-template-columns: 1fr;
+    }
+    .breaks-section {
+      clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+    }
+    .cta-title {
+      font-size: 2rem;
+    }
+  }
+</style>

@@ -1,167 +1,476 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/ui/Button.astro';
-import HearthNote from '../../components/ui/HearthNote.astro';
-import CheckIcon from '../../components/ui/CheckIcon.astro';
 ---
 
 <BaseLayout
-  title="School Network Management & E-Rate Services | Umbrella Systems"
+  title="School Network & E-Rate Services | Fortress Network | Umbrella Systems"
   description="E-Rate eligible network services for schools. 24/7 monitoring, wireless optimization, firewall management, disaster recovery, and 99.9% uptime commitment."
 >
   <!-- Hero Section -->
-  <section class="relative px-6 lg:px-8 py-20 overflow-hidden">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-7 z-10">
-        <span class="inline-block px-4 py-1.5 mb-6 bg-tertiary-fixed text-on-surface rounded-full text-xs font-bold uppercase tracking-widest">99.9% Uptime Commitment</span>
-        <h1 class="font-extrabold text-4xl lg:text-[3.5rem] text-on-surface leading-[1.1] mb-6 tracking-tight">
-          A network your school can actually rely on.
+  <section class="hero-section">
+    <div class="halftone"></div>
+    <div class="container-comic hero-grid">
+      <div class="hero-content animate-in">
+        <h1 class="hero-title text-shadow-comic">
+          A NETWORK YOUR SCHOOL CAN ACTUALLY <span class="highlight">RELY ON</span>
         </h1>
-        <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-10">
+        <div class="starburst hero-starburst">99.9% Uptime Commitment</div>
+        <p class="hero-sub">
           24/7 monitoring, proactive maintenance, and the infrastructure expertise to keep hundreds of devices connected — all day, every day.
         </p>
-        <div class="flex flex-wrap gap-4">
-          <Button href="/contact">Request a Network Assessment</Button>
-          <Button variant="secondary" href="/schools">E-Rate Info</Button>
+        <div class="hero-ctas">
+          <a href="/contact" class="btn-comic btn-comic-red">Request a Network Assessment</a>
+          <a href="#erate" class="btn-comic btn-comic-yellow">E-Rate Info</a>
         </div>
       </div>
-      <div class="lg:col-span-5 relative">
-        <div class="bg-surface-container-highest rounded-xl p-4 rotate-2 shadow-2xl relative z-10">
-          <div class="rounded-lg h-80 lg:h-96 w-full bg-surface-container-high overflow-hidden">
-            <img src="/images/server-room.jpg" alt="School server closet managed by Umbrella Systems" class="w-full h-full object-cover" loading="eager" />
-          </div>
+      <div class="hero-image-wrap animate-in" data-delay="200">
+        <div class="comic-panel hero-panel">
+          <img src="/images/network-rack-clean.jpg" alt="Clean, professionally organized network rack at a school" width="683" height="911" loading="eager" fetchpriority="high" decoding="async" />
         </div>
-        <div class="absolute -bottom-6 -left-6 bg-surface-container-lowest p-5 rounded-xl shadow-xl z-20 border border-outline-variant/15 max-w-[240px]">
-          <div class="flex items-center gap-3 mb-2">
-            <CheckIcon class="w-5 h-5 text-tertiary" />
-            <span class="font-bold text-sm">99.9% Uptime</span>
-          </div>
-          <p class="text-xs text-on-surface-variant italic">Enterprise-grade reliability for education.</p>
+        <div class="comic-panel hero-panel-small">
+          <img src="/images/server-room-1.jpg" alt="Server room infrastructure managed by Umbrella Systems" width="1200" height="1600" loading="eager" decoding="async" />
         </div>
       </div>
     </div>
+    <div class="clip-edge"></div>
   </section>
 
   <!-- E-Rate Banner -->
-  <section class="hearth-gradient text-on-primary py-12 relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-      <div class="flex items-center gap-6">
-        <div class="w-16 h-16 lg:w-20 lg:h-20 bg-on-primary/10 rounded-full flex items-center justify-center border-4 border-on-primary/20 flex-shrink-0">
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+  <section class="erate-banner" id="erate">
+    <div class="container-comic erate-inner">
+      <div class="erate-badge-col">
+        <div class="erate-shield" aria-hidden="true">
+          <span>E</span>
         </div>
-        <div>
-          <h2 class="text-2xl lg:text-3xl font-extrabold mb-1">E-Rate Certified Provider</h2>
-          <p class="text-on-primary/80 font-medium">Our network services are structured for maximum E-Rate reimbursement. We handle the applications, the compliance documentation, and the vendor coordination. Your school gets enterprise-grade infrastructure at a fraction of the cost.</p>
-        </div>
+      </div>
+      <div class="erate-text">
+        <h2 class="erate-headline">E-RATE CERTIFIED PROVIDER</h2>
+        <p class="erate-sub">Our network services are structured for maximum E-Rate reimbursement. We handle the applications, the compliance documentation, and the vendor coordination. Your school gets enterprise-grade infrastructure at a fraction of the cost.</p>
       </div>
     </div>
   </section>
 
-  <!-- Core Services Bento Grid -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface">
-    <div class="max-w-7xl mx-auto">
-      <div class="mb-16">
-        <span class="font-medium text-secondary tracking-[0.2em] uppercase mb-4 text-sm block">Core Infrastructure</span>
-        <h2 class="text-3xl lg:text-4xl font-extrabold text-on-surface">What we monitor, manage, and protect.</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Wireless -->
-        <div class="md:col-span-2 bg-surface-container-low rounded-xl p-8 lg:p-10 hover:bg-surface-container transition-colors">
-          <h3 class="text-2xl font-bold mb-4">Wireless Optimization</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed">Reliable Wi-Fi across every classroom, gym, and common area. We design, deploy, and continuously tune your wireless network so that when 400 students open their Chromebooks at the same time, everything just works. Access point placement, channel optimization, and bandwidth management — all proactively managed.</p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-surface-container-highest rounded-full text-xs font-bold uppercase">Signal Heatmapping</span>
-            <span class="px-4 py-2 bg-surface-container-highest rounded-full text-xs font-bold uppercase">Wi-Fi 6E Ready</span>
+  <!-- Core Services -->
+  <section class="services-section">
+    <div class="halftone-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title animate-in">WHAT WE MONITOR, MANAGE, AND PROTECT</h2>
+      <div class="services-grid">
+        <div class="comic-card service-card animate-in">
+          <div class="service-card-image">
+            <img src="/images/security-camera-2.jpg" alt="Ceiling-mounted networking hardware in a school" width="1200" height="1600" loading="lazy" decoding="async" />
+          </div>
+          <div class="service-card-body">
+            <span class="card-icon">&#128225;</span>
+            <h3 class="card-title">WIRELESS OPTIMIZATION</h3>
+            <p class="card-text">Reliable Wi-Fi across every classroom, gym, and common area. When 400 students open their Chromebooks at the same time, everything just works.</p>
           </div>
         </div>
-        <!-- Monitoring -->
-        <div class="bg-secondary text-on-secondary rounded-xl p-8 lg:p-10 flex flex-col">
-          <h3 class="text-2xl font-bold mb-4">24/7 Monitoring</h3>
-          <p class="text-on-secondary/80 leading-relaxed mb-8">We don't wait for someone to report a problem. Our monitoring systems track network health around the clock, automatically alerting us to performance issues, outages, or anomalies before they affect your classrooms.</p>
-          <div class="mt-auto pt-6 border-t border-on-secondary/10">
-            <div class="flex items-center gap-2 text-sm font-bold">
-              <span class="w-2 h-2 bg-tertiary-fixed rounded-full"></span>
-              Always Active
-            </div>
+        <div class="comic-card service-card animate-in" data-delay="100">
+          <div class="service-card-image">
+            <img src="/images/security-dashboard.jpg" alt="Network monitoring dashboard tracking health and alerts" width="1600" height="896" loading="lazy" decoding="async" />
+          </div>
+          <div class="service-card-body">
+            <span class="card-icon">&#128269;</span>
+            <h3 class="card-title">24/7 MONITORING</h3>
+            <p class="card-text">We don't wait for someone to report a problem. Our monitoring tracks network health around the clock, alerting us to issues before they affect your classrooms.</p>
           </div>
         </div>
-        <!-- Firewall -->
-        <div class="bg-surface-container-highest rounded-xl p-8 lg:p-10">
-          <h3 class="text-2xl font-bold mb-4">Firewall & Cybersecurity</h3>
-          <p class="text-on-surface-variant leading-relaxed">Firewall configuration and management, intrusion detection, content filtering, and security policy enforcement. We keep threats out and student data protected. Every change follows a structured process — no cowboy configurations, no untracked modifications.</p>
+        <div class="comic-card service-card animate-in" data-delay="200">
+          <div class="service-card-image">
+            <img src="/images/network-closet-cabling.jpg" alt="Organized network closet cabling installation" width="683" height="911" loading="lazy" decoding="async" />
+          </div>
+          <div class="service-card-body">
+            <span class="card-icon">&#128737;</span>
+            <h3 class="card-title">FIREWALL & CYBERSECURITY</h3>
+            <p class="card-text">Firewall config, intrusion detection, content filtering, security policy enforcement. Every change follows a structured process.</p>
+          </div>
         </div>
-        <!-- Disaster Recovery -->
-        <div class="md:col-span-2 bg-surface-container rounded-xl p-8 lg:p-10">
-          <h3 class="text-2xl font-bold mb-4">Disaster Recovery & Backup</h3>
-          <p class="text-on-surface-variant leading-relaxed">Scheduled data backups, recovery planning, and redundancy strategies for Google Workspace, Microsoft 365, and on-premise systems. If something goes wrong, we have a plan to get you back up fast — and we test it regularly so it actually works when you need it.</p>
+        <div class="comic-card service-card animate-in" data-delay="300">
+          <div class="service-card-body">
+            <span class="card-icon">&#128190;</span>
+            <h3 class="card-title">DISASTER RECOVERY</h3>
+            <p class="card-text">Scheduled backups, recovery planning, redundancy for Google Workspace, Microsoft 365, and on-premise. We test it regularly so it works when you need it.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Compliance Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 bg-surface-container-low">
-    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-      <div class="lg:w-1/2">
-        <HearthNote>
-          <h2 class="text-2xl lg:text-3xl font-extrabold text-on-surface mb-6">Compliance built into every layer.</h2>
-          <p class="text-on-surface leading-relaxed mb-6">Schools face a growing list of data privacy and security requirements. We build compliance into our network management from the ground up — not as an afterthought.</p>
-          <div class="space-y-6">
-            <div class="flex gap-4">
-              <div class="font-black text-2xl opacity-30">01</div>
-              <div>
-                <span class="font-bold text-lg text-on-surface block">MN H.F. 2353</span>
-                <p class="text-on-surface-variant text-sm">Minnesota student data privacy requirements</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="font-black text-2xl opacity-30">02</div>
-              <div>
-                <span class="font-bold text-lg text-on-surface block">FERPA</span>
-                <p class="text-on-surface-variant text-sm">Federal student education records protection</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="font-black text-2xl opacity-30">03</div>
-              <div>
-                <span class="font-bold text-lg text-on-surface block">COPPA</span>
-                <p class="text-on-surface-variant text-sm">Children's online privacy protection</p>
-              </div>
-            </div>
-            <div class="flex gap-4">
-              <div class="font-black text-2xl opacity-30">04</div>
-              <div>
-                <span class="font-bold text-lg text-on-surface block">CIPA</span>
-                <p class="text-on-surface-variant text-sm">Children's Internet Protection Act (required for E-Rate)</p>
-              </div>
-            </div>
-          </div>
-        </HearthNote>
-      </div>
-      <div class="lg:w-1/2">
-        <p class="text-xl text-on-surface-variant leading-relaxed mb-8">We handle security policy enforcement, content filtering, access controls, and audit documentation so your school stays compliant without adding work to your administrative staff.</p>
-        <div class="grid grid-cols-2 gap-6">
-          <div class="p-6 bg-surface-container-lowest rounded-xl">
-            <div class="text-primary font-extrabold text-3xl mb-1">100%</div>
-            <div class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Audit Success Rate</div>
-          </div>
-          <div class="p-6 bg-surface-container-lowest rounded-xl">
-            <div class="text-primary font-extrabold text-3xl mb-1">CIPA</div>
-            <div class="text-xs uppercase tracking-widest font-bold text-on-surface-variant">Certified Filtering</div>
-          </div>
+  <section class="compliance-section">
+    <div class="halftone-light-bg"></div>
+    <div class="container-comic">
+      <h2 class="section-title section-title-light animate-in">COMPLIANCE BUILT INTO EVERY LAYER</h2>
+      <div class="compliance-grid">
+        <div class="compliance-card animate-in">
+          <h3 class="compliance-label">MN H.F. 2353</h3>
+          <p class="compliance-text">Minnesota's student data privacy law. We ensure all systems handling student data meet state requirements for access controls, breach notification, and vendor agreements.</p>
+        </div>
+        <div class="compliance-card animate-in" data-delay="100">
+          <h3 class="compliance-label">FERPA</h3>
+          <p class="compliance-text">Federal education records protection. Network segmentation, access controls, and audit trails designed to keep student records secure and compliant.</p>
+        </div>
+        <div class="compliance-card animate-in" data-delay="200">
+          <h3 class="compliance-label">COPPA</h3>
+          <p class="compliance-text">Children's online privacy protection. Content filtering, app vetting, and data handling practices that meet federal requirements for students under 13.</p>
+        </div>
+        <div class="compliance-card animate-in" data-delay="300">
+          <h3 class="compliance-label">CIPA</h3>
+          <p class="compliance-text">Children's Internet Protection Act — required for E-Rate funding. We implement and maintain certified content filtering and internet safety policies.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 lg:py-24 px-6 lg:px-8 text-center bg-surface">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl lg:text-4xl font-extrabold mb-8">Let's talk about your network.</h2>
-      <p class="text-lg text-on-surface-variant mb-12">We'll assess your current infrastructure, identify vulnerabilities, and show you how E-Rate can offset the cost of bringing it up to standard.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-6">
-        <Button href="/contact">Request a Network Assessment</Button>
-      </div>
+  <section class="cta-section">
+    <div class="container-comic cta-inner">
+      <h2 class="cta-title animate-in">LET'S TALK ABOUT YOUR NETWORK</h2>
+      <p class="cta-sub animate-in" data-delay="100">Whether you're dealing with dead zones, aging infrastructure, or E-Rate applications, we'll assess your current setup and show you what's possible.</p>
+      <a href="/contact" class="btn-comic btn-comic-white animate-in" data-delay="200">Request a Network Assessment</a>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  /* ============================== */
+  /* Hero                           */
+  /* ============================== */
+  .hero-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 250px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section .halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .hero-title {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  .hero-starburst {
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    max-width: 540px;
+    margin-bottom: 32px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 rgba(255,255,255,0.15);
+    overflow: hidden;
+    background: var(--navy);
+  }
+  .hero-panel {
+    transform: rotate(2deg);
+    aspect-ratio: 4/3;
+  }
+  .hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-panel-small {
+    position: absolute;
+    bottom: -20px;
+    left: -30px;
+    width: 200px;
+    aspect-ratio: 4/3;
+    transform: rotate(-3deg);
+    z-index: 2;
+  }
+  .hero-panel-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-image-wrap {
+    position: relative;
+  }
+  .clip-edge {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #366430;
+    clip-path: polygon(0 60%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* ============================== */
+  /* E-Rate Banner                  */
+  /* ============================== */
+  .erate-banner {
+    background: #366430;
+    color: var(--white);
+    padding: 80px 0 100px;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  }
+  .erate-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .erate-text {
+    max-width: 720px;
+  }
+  .erate-shield {
+    width: 80px;
+    height: 80px;
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    color: var(--navy);
+    transform: rotate(-5deg);
+    flex-shrink: 0;
+  }
+  .erate-headline {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+  .erate-sub {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.95;
+  }
+
+  /* ============================== */
+  /* Core Services                  */
+  /* ============================== */
+  .services-section {
+    padding: 100px 0;
+    position: relative;
+    background: var(--white);
+  }
+  .halftone-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--navy) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+  .section-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 5px;
+    background: var(--yellow);
+    margin: 16px auto 0;
+    border: 2px solid var(--navy);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .service-card {
+    padding: 0;
+    overflow: hidden;
+  }
+  .service-card:nth-child(odd) {
+    transform: rotate(-0.5deg);
+  }
+  .service-card:nth-child(even) {
+    transform: rotate(0.5deg);
+  }
+  .service-card-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  .service-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .service-card-body {
+    padding: 32px;
+  }
+  .card-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    color: var(--navy);
+  }
+  .card-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #444;
+  }
+
+  /* ============================== */
+  /* Compliance                     */
+  /* ============================== */
+  .compliance-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 100px 0;
+    position: relative;
+    clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+    overflow: hidden;
+  }
+  .halftone-light-bg {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .section-title-light {
+    color: var(--white);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+  }
+  .section-title-light::after {
+    background: var(--red);
+    border-color: var(--white);
+  }
+  .compliance-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .compliance-card {
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.15);
+    padding: 28px 24px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .compliance-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 rgba(255,255,255,0.1);
+  }
+  .compliance-label {
+    font-size: 1.4rem;
+    color: var(--yellow);
+    margin-bottom: 12px;
+  }
+  .compliance-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+  /* ============================== */
+  /* CTA                            */
+  /* ============================== */
+  .cta-section {
+    background: var(--red);
+    color: var(--white);
+    padding: 100px 0;
+    text-align: center;
+  }
+  .cta-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+  .cta-sub {
+    font-size: 1.15rem;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    opacity: 0.95;
+    line-height: 1.7;
+  }
+
+  /* ============================== */
+  /* Responsive                     */
+  /* ============================== */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+    }
+    .hero-panel-small {
+      width: 150px;
+      bottom: -10px;
+      left: -15px;
+    }
+    .compliance-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 200px 0 80px;
+    }
+    .hero-title {
+      font-size: 2rem;
+    }
+    .erate-headline {
+      font-size: 1.6rem;
+    }
+    .erate-banner {
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .section-title {
+      font-size: 2rem;
+    }
+    .compliance-section {
+      clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+    }
+    .compliance-grid {
+      grid-template-columns: 1fr;
+    }
+    .cta-title {
+      font-size: 2rem;
+    }
+  }
+</style>

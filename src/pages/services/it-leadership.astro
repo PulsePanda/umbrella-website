@@ -24,13 +24,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
       <div class="hero-image-wrap animate-in" data-delay="200">
         <div class="comic-panel hero-panel">
-          <img src="/images/school-tech.jpg" alt="Students and staff using technology in a classroom" loading="eager" />
+          <img src="/images/school-tech.jpg" alt="Students and staff using technology in a classroom" width="1210" height="911" loading="eager" fetchpriority="high" decoding="async" />
         </div>
         <div class="comic-panel hero-panel-inset hero-panel-inset-austin">
-          <img src="/images/austin.jpg" alt="Austin VanAlstyne, Umbrella Systems" loading="eager" />
+          <img src="/images/austin.jpg" alt="Austin VanAlstyne, Umbrella Systems" width="1200" height="1600" loading="eager" decoding="async" />
         </div>
         <div class="comic-panel hero-panel-inset hero-panel-inset-jesse">
-          <img src="/images/jesse.jpg" alt="Jesse Schonfeld, Umbrella Systems" loading="eager" />
+          <img src="/images/jesse.jpg" alt="Jesse Schonfeld, Umbrella Systems" width="432" height="576" loading="eager" decoding="async" />
         </div>
       </div>
     </div>
@@ -406,6 +406,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     }
     .hero-panel-inset {
       width: 110px;
+    }
+    .hero-panel-inset-austin {
+      right: -8px;
+    }
+    .hero-panel-inset-jesse {
+      left: -8px;
     }
     .framework-grid {
       grid-template-columns: repeat(2, 1fr);

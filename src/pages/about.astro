@@ -21,10 +21,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="comic-hero-image animate-in" data-delay="1">
         <div style="display:flex; gap:20px; align-items:start;">
           <div class="comic-panel" style="transform:rotate(-2deg); flex:1;">
-            <img src="/images/jesse-2.JPG" alt="Jesse Schonfeld" loading="eager" style="height:auto;" />
+            <img src="/images/jesse-2.JPG" alt="Jesse Schonfeld" width="1050" height="1400" loading="eager" fetchpriority="high" decoding="async" style="height:auto;" />
           </div>
           <div class="comic-panel" style="transform:rotate(1.5deg); flex:1; margin-top:40px;">
-            <img src="/images/austin-headshot-1.jpg" alt="Austin VanAlstyne" loading="eager" style="height:auto;" />
+            <img src="/images/austin-headshot-1.jpg" alt="Austin VanAlstyne" width="1194" height="1400" loading="eager" fetchpriority="high" decoding="async" style="height:auto;" />
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!-- Austin -->
         <div class="team-card animate-in" data-delay="0">
           <div class="team-card-photo">
-            <img src="/images/austin.jpg" alt="Austin VanAlstyne" loading="lazy" style="object-position: center 25%;" />
+            <img src="/images/austin.jpg" alt="Austin VanAlstyne" width="1200" height="1600" loading="lazy" decoding="async" style="object-position: center 25%;" />
           </div>
           <div class="team-card-body">
             <h3 class="team-name">Austin VanAlstyne</h3>
@@ -78,7 +78,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!-- Jesse -->
         <div class="team-card animate-in" data-delay="1">
           <div class="team-card-photo">
-            <img src="/images/jesse-1.jpg" alt="Jesse Schonfeld" loading="lazy" style="object-position: center top;" />
+            <img src="/images/jesse-1.jpg" alt="Jesse Schonfeld" width="1050" height="1400" loading="lazy" decoding="async" style="object-position: center top;" />
           </div>
           <div class="team-card-body">
             <h3 class="team-name">Jesse Schonfeld</h3>
@@ -92,7 +92,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!-- Vinny -->
         <div class="team-card animate-in" data-delay="2">
           <div class="team-card-photo">
-            <img src="/images/vinny.jpg" alt="Vinny Simon" loading="lazy" style="object-position: center 20%;" />
+            <img src="/images/vinny.jpg" alt="Vinny Simon" width="1200" height="1600" loading="lazy" decoding="async" style="object-position: center 20%;" />
           </div>
           <div class="team-card-body">
             <h3 class="team-name">Vinny Simon</h3>
@@ -106,7 +106,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <!-- Brendan -->
         <div class="team-card animate-in" data-delay="3">
           <div class="team-card-photo">
-            <img src="/images/brendan-2.png" alt="Brendan VanAlstyne" loading="lazy" style="object-position: 30% 20%;" />
+            <img src="/images/brendan-2.jpg" alt="Brendan VanAlstyne" width="1600" height="1204" loading="lazy" decoding="async" style="object-position: 30% 20%;" />
           </div>
           <div class="team-card-body">
             <h3 class="team-name">Brendan VanAlstyne</h3>

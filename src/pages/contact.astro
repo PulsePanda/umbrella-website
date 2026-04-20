@@ -408,11 +408,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const data = Object.fromEntries(formData.entries());
 
     try {
-      await fetch('https://hooks.zapier.com/hooks/catch/13655244/upwa4tc/', {
+      await fetch('/api/contact', {
         method: 'POST',
         body: JSON.stringify(data),
         headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
       });
 
       form.innerHTML = `

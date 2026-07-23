@@ -5,12 +5,14 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
   description = 'Umbrella Systems is outsourced IT for Minnesota charter schools. On-site support, network management, E-Rate optimization, and flat-rate pricing. No surprises.',
   ogImage = '/og-image.png',
+  noindex = false,
 } = Astro.props;
 ---
 
@@ -23,6 +25,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Google Fonts: Bangers + Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

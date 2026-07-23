@@ -7,7 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://umbrellasystems.net',
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    filter: (page) => !['/gis/', '/sja/', '/ohm/'].some(slug => page.includes(slug)),
+  })],
   vite: {
     plugins: [tailwindcss()],
     server: {

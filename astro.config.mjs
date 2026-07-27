@@ -8,7 +8,10 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://umbrellasystems.net',
   integrations: [sitemap({
-    filter: (page) => !['/gis/', '/sja/', '/ohm/'].some(slug => page.includes(slug)),
+    filter: (page) => {
+      const path = new URL(page).pathname;
+      return !['/gis/', '/sja/', '/ohm/'].includes(path);
+    },
   })],
   vite: {
     plugins: [tailwindcss()],

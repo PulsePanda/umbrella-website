@@ -1,0 +1,653 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const caseStudies = await getCollection('caseStudies');
+  return caseStudies.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { data } = entry;
+---
+
+<BaseLayout
+  title={`${data.schoolName} Case Study | Umbrella Systems`}
+  description={data.summary}
+>
+  <!-- Hero -->
+  <section class="comic-hero">
+    <div class="comic-hero-halftone"></div>
+    <div class="comic-hero-inner">
+      <div class="comic-hero-text animate-in">
+        <span class="hero-label">CASE STUDY</span>
+        <h1 class="comic-h1">{data.schoolName}</h1>
+        <div class="hero-meta">
+          {data.location} &middot; {data.studentCount} students &middot; {data.schoolType}
+        </div>
+        <p class="comic-sub">{data.summary}</p>
+        <a href={data.pdfUrl} download class="comic-btn hero-btn">Download PDF</a>
+      </div>
+      <div class="comic-hero-image animate-in" data-delay="1">
+        <div class="comic-panel">
+          <img
+            src={data.heroImage}
+            alt={data.heroImageAlt}
+            width="800"
+            height="533"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="comic-hero-clip"></div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="section-inner">
+      <div class="stats-grid">
+        {data.stats.map((stat, i) => (
+          <div class="stat-card animate-in" data-delay={String(i)}>
+            <div class="stat-value">{stat.value}</div>
+            <div class="stat-label">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Quote -->
+  {data.quotes.length > 0 && (
+    <section class="quote-section">
+      <div class="section-inner">
+        <div class="speech-bubble animate-in">
+          <div class="speech-bubble-tail" aria-hidden="true"></div>
+          <p class="speech-bubble-text">&ldquo;{data.quotes[0].text}&rdquo;</p>
+          <p class="speech-bubble-attribution">&mdash; {data.quotes[0].attribution}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Narrative Content -->
+  <section class="narrative-section halftone-bg-light">
+    <div class="section-inner">
+      <div class="narrative-body animate-in">
+        <Content />
+      </div>
+    </div>
+  </section>
+
+  <!-- Before/After Comparison -->
+  {data.beforeAfter && data.beforeAfter.length > 0 && (
+    <section class="comparison-section">
+      <div class="comparison-halftone"></div>
+      <div class="comparison-clip-top"></div>
+      <div class="section-inner comparison-inner">
+        <h2 class="comic-h2 white animate-in">BY THE NUMBERS</h2>
+        <div class="comparison-table animate-in" data-delay="1">
+          <div class="comparison-header">
+            <span class="comparison-header-cell"></span>
+            <span class="comparison-header-cell">Before Umbrella</span>
+            <span class="comparison-header-cell">After Umbrella</span>
+          </div>
+          {data.beforeAfter.map((row) => (
+            <div class="comparison-row">
+              <span class="comparison-category">{row.category}</span>
+              <span class="comparison-before">{row.before}</span>
+              <span class="comparison-after">{row.after}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="comparison-clip-bottom"></div>
+    </section>
+  )}
+
+  <!-- More Quotes -->
+  {data.quotes.length > 1 && (
+    <section class="quotes-grid-section">
+      <div class="section-inner">
+        <div class="quotes-grid">
+          {data.quotes.slice(1).map((quote, i) => (
+            <div class="quote-card animate-in" data-delay={String(Math.min(i, 3))}>
+              <p class="quote-card-text">&ldquo;{quote.text}&rdquo;</p>
+              <p class="quote-card-attribution">&mdash; {quote.attribution}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA -->
+  <section class="comic-cta">
+    <div class="comic-cta-halftone"></div>
+    <div class="section-inner comic-cta-inner">
+      <h2 class="comic-h2 white animate-in">{data.ctaText}</h2>
+      <div class="cta-buttons animate-in" data-delay="1">
+        <a href="/contact" class="comic-btn">Talk to Us</a>
+        <a href={data.pdfUrl} download class="comic-btn comic-btn-outline">Download PDF</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --navy: #1a1a2e;
+    --red: #ff1744;
+    --red-dark: #d50000;
+    --yellow: #ffd600;
+    --white: #ffffff;
+    --gray: #9e9e9e;
+    --shadow-comic: 4px 4px 0px var(--navy);
+    --border-comic: 3px solid var(--navy);
+  }
+
+  .animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-in[data-delay="1"] { transition-delay: 0.15s; }
+  .animate-in[data-delay="2"] { transition-delay: 0.3s; }
+  .animate-in[data-delay="3"] { transition-delay: 0.45s; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---- HERO ---- */
+  .comic-hero {
+    position: relative;
+    background: var(--navy);
+    padding: 250px 0 9rem;
+    overflow: hidden;
+  }
+  .comic-hero-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+  }
+  .comic-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  @media (min-width: 768px) {
+    .comic-hero-inner {
+      flex-direction: row;
+      gap: 4rem;
+    }
+    .comic-hero-text { flex: 0 0 50%; }
+    .comic-hero-image { flex: 1; min-width: 0; }
+  }
+  .comic-hero-clip {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+
+  .hero-label {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Bangers', cursive;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border: 2px solid var(--white);
+    margin-bottom: 1rem;
+  }
+  .comic-h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+  }
+  .hero-meta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: var(--yellow);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+  .comic-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-btn {
+    margin-top: 0;
+  }
+
+  .comic-panel {
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    overflow: hidden;
+    background: var(--white);
+    transform: rotate(1.5deg);
+  }
+  .comic-panel img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ---- STATS ---- */
+  .stats-section {
+    padding: 4rem 0;
+    background: #f7f7fb;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+  }
+  .stat-card {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+  }
+  .stat-value {
+    font-family: 'Bangers', cursive;
+    font-size: 2.25rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* ---- LEAD QUOTE ---- */
+  .quote-section {
+    padding: 4rem 0 0;
+    background: var(--white);
+  }
+  .speech-bubble {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 var(--navy);
+    border-radius: 24px;
+    padding: 2.5rem 3rem;
+    position: relative;
+  }
+  .speech-bubble-tail {
+    position: absolute;
+    bottom: -20px;
+    left: 60px;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 22px solid var(--navy);
+  }
+  .speech-bubble-tail::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: -17px;
+    width: 0;
+    height: 0;
+    border-left: 18px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 19px solid var(--yellow);
+  }
+  .speech-bubble-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--navy);
+    margin: 0 0 0.75rem;
+  }
+  .speech-bubble-attribution {
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    color: var(--red);
+    letter-spacing: 1px;
+    margin: 0;
+  }
+
+  /* ---- NARRATIVE ---- */
+  .narrative-section {
+    padding: 5rem 0;
+    background: var(--white);
+    position: relative;
+  }
+  .halftone-bg-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(26,26,46,0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+  .narrative-body {
+    max-width: 780px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    position: relative;
+    z-index: 1;
+  }
+  .narrative-body :global(h2) {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 3rem 0 1.25rem;
+    position: relative;
+    padding-left: 1rem;
+  }
+  .narrative-body :global(h2)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    bottom: 0.15em;
+    width: 5px;
+    background: var(--red);
+  }
+  .narrative-body :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .narrative-body :global(p) {
+    margin-bottom: 1.25rem;
+  }
+  .narrative-body :global(strong) {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  /* ---- COMPARISON TABLE ---- */
+  .comparison-section {
+    position: relative;
+    background: var(--red);
+    padding: 6rem 0;
+    overflow: hidden;
+  }
+  .comparison-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 10px 10px;
+    pointer-events: none;
+  }
+  .comparison-clip-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .comparison-clip-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+  .comparison-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  .comparison-table {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 rgba(26,26,46,0.4);
+    max-width: 800px;
+    margin: 2rem auto 0;
+    overflow: hidden;
+  }
+  .comparison-header {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    background: var(--navy);
+    padding: 1rem 1.5rem;
+  }
+  .comparison-header-cell {
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .comparison-header-cell:first-child {
+    color: transparent;
+  }
+  .comparison-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px dashed rgba(26,26,46,0.15);
+    align-items: center;
+  }
+  .comparison-row:last-child {
+    border-bottom: none;
+  }
+  .comparison-category {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .comparison-before {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: var(--gray);
+  }
+  .comparison-after {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--red);
+  }
+
+  /* Mobile: stack comparison rows */
+  @media (max-width: 640px) {
+    .comparison-header {
+      display: none;
+    }
+    .comparison-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding: 1.25rem 1.5rem;
+    }
+    .comparison-category {
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+    .comparison-before::before {
+      content: 'Before: ';
+      font-weight: 400;
+      color: #888;
+    }
+    .comparison-after::before {
+      content: 'After: ';
+      font-weight: 400;
+    }
+  }
+
+  /* ---- QUOTES GRID ---- */
+  .quotes-grid-section {
+    padding: 5rem 0;
+    background: #f7f7fb;
+  }
+  .quotes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .quotes-grid {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+  }
+  .quote-card {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1.5rem 1.75rem;
+    border-radius: 16px 16px 16px 0;
+  }
+  .quote-card:nth-child(even) {
+    transform: rotate(0.5deg);
+  }
+  .quote-card:nth-child(odd) {
+    transform: rotate(-0.5deg);
+  }
+  .quote-card-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 0.75rem;
+  }
+  .quote-card-attribution {
+    font-family: 'Bangers', cursive;
+    font-size: 0.85rem;
+    color: var(--red);
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  /* ---- CTA ---- */
+  .comic-cta {
+    position: relative;
+    background: var(--navy);
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .comic-cta-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+  .comic-cta-inner { position: relative; z-index: 2; }
+  .comic-h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .comic-h2.white { color: var(--white); }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .comic-btn {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.35rem;
+    letter-spacing: 1.5px;
+    color: var(--navy);
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .comic-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .comic-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--navy);
+  }
+  .comic-btn-outline {
+    background: transparent;
+    color: var(--yellow);
+    border-color: var(--yellow);
+    box-shadow: 4px 4px 0 rgba(255,214,0,0.3);
+  }
+  .comic-btn-outline:hover {
+    background: rgba(255,214,0,0.1);
+    box-shadow: 6px 6px 0 rgba(255,214,0,0.3);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.animate-in').forEach((el) => observer.observe(el));
+</script>

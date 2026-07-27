@@ -1,0 +1,377 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const caseStudies = (await getCollection('caseStudies'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+---
+
+<BaseLayout
+  title="Case Studies | Umbrella Systems"
+  description="Real schools, real results. See how Umbrella Systems transforms IT for Minnesota charter schools — with E-Rate savings, faster response times, and proactive support."
+>
+  <!-- Hero -->
+  <section class="comic-hero">
+    <div class="comic-hero-halftone"></div>
+    <div class="comic-hero-inner">
+      <div class="comic-hero-text animate-in">
+        <h1 class="comic-h1">
+          REAL SCHOOLS.<br /><span class="highlight">REAL RESULTS.</span>
+        </h1>
+        <p class="comic-sub">
+          We don't do hypotheticals. Here's what happens when schools switch to Umbrella Systems.
+        </p>
+      </div>
+    </div>
+    <div class="comic-hero-clip"></div>
+  </section>
+
+  <!-- Case Studies Grid -->
+  <section class="case-studies-section halftone-bg-light">
+    <div class="section-inner">
+      {caseStudies.length === 0 ? (
+        <div class="empty-state animate-in">
+          <h2 class="comic-h2">COMING SOON</h2>
+          <p>Case studies are on the way. Check back soon.</p>
+        </div>
+      ) : (
+        <div class="case-studies-grid">
+          {caseStudies.map((study, i) => (
+            <a href={`/case-studies/${study.id}/`} class="case-card animate-in" data-delay={String(Math.min(i, 3))}>
+              <div class="case-card-body">
+                <span class="case-card-badge">CASE STUDY</span>
+                <div class="case-card-meta">
+                  {study.data.location} &middot; {study.data.studentCount} students &middot; {study.data.schoolType}
+                </div>
+                <h2 class="case-card-title">{study.data.schoolName}</h2>
+                <p class="case-card-summary">{study.data.summary}</p>
+                <div class="case-card-stats">
+                  {study.data.stats.map((stat) => (
+                    <div class="case-card-stat">
+                      <span class="case-card-stat-value">{stat.value}</span>
+                      <span class="case-card-stat-label">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <span class="case-card-link">
+                  Read the Full Case Study &rarr;
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="comic-cta">
+    <div class="comic-cta-halftone"></div>
+    <div class="section-inner comic-cta-inner">
+      <h2 class="comic-h2 white animate-in">
+        READY TO BE THE <span class="highlight">NEXT</span> SUCCESS STORY?
+      </h2>
+      <a href="/contact" class="comic-btn animate-in" data-delay="1">Get in Touch</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --navy: #1a1a2e;
+    --red: #ff1744;
+    --red-dark: #d50000;
+    --yellow: #ffd600;
+    --white: #ffffff;
+    --gray: #9e9e9e;
+    --shadow-comic: 4px 4px 0px var(--navy);
+    --border-comic: 3px solid var(--navy);
+  }
+
+  .animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-in[data-delay="1"] { transition-delay: 0.15s; }
+  .animate-in[data-delay="2"] { transition-delay: 0.3s; }
+  .animate-in[data-delay="3"] { transition-delay: 0.45s; }
+
+  .comic-h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .comic-h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .comic-h2.white { color: var(--white); }
+  .highlight {
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 0 0.3em;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .comic-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    max-width: 540px;
+  }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---- HERO ---- */
+  .comic-hero {
+    position: relative;
+    background: var(--navy);
+    padding: 250px 0 9rem;
+    overflow: hidden;
+  }
+  .comic-hero-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+  }
+  .comic-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .comic-hero-text {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .comic-hero-clip {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+
+  /* ---- CASE STUDIES GRID ---- */
+  .case-studies-section {
+    padding: 5rem 0;
+    background: var(--white);
+    position: relative;
+  }
+  .halftone-bg-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(26,26,46,0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+  .case-studies-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .case-studies-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .case-card {
+    display: block;
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    overflow: hidden;
+  }
+  .case-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .case-card:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--navy);
+  }
+  .case-card:nth-child(odd) { transform: rotate(-0.5deg); }
+  .case-card:nth-child(even) { transform: rotate(0.5deg); }
+  .case-card:hover { transform: rotate(0deg) translate(-2px, -2px); }
+
+  .case-card-body {
+    padding: 1.5rem;
+  }
+  .case-card-badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Bangers', cursive;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    padding: 3px 10px;
+    border: 2px solid var(--navy);
+    box-shadow: 2px 2px 0 var(--navy);
+    margin-bottom: 0.75rem;
+  }
+  .case-card-meta {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-bottom: 0.4rem;
+  }
+  .case-card-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
+  }
+  .case-card-summary {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #444;
+    margin: 0 0 1rem;
+  }
+
+  .case-card-stats {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .case-card-stat {
+    background: #f7f7fb;
+    border: 2px solid var(--navy);
+    padding: 0.35rem 0.5rem;
+    text-align: center;
+    flex: 1;
+    min-width: 70px;
+  }
+  .case-card-stat-value {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+  .case-card-stat-label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.6rem;
+    color: #666;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .case-card-link {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--red);
+    text-decoration: none;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  .empty-state p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #666;
+  }
+
+  /* ---- CTA ---- */
+  .comic-cta {
+    position: relative;
+    background: var(--navy);
+    padding: 5rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .comic-cta-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+  .comic-cta-inner { position: relative; z-index: 2; }
+  .comic-btn {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.35rem;
+    letter-spacing: 1.5px;
+    color: var(--navy);
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .comic-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .comic-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--navy);
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.animate-in').forEach((el) => observer.observe(el));
+</script>

@@ -151,9 +151,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="bottom-exposure-value" id="r-exposure"></span>
             <p class="bottom-exposure-text" id="r-bottom-line"></p>
           </div>
-          <div class="bottom-actions">
-            <button class="comic-btn email-btn" id="email-results-btn" type="button">Email Me This Report</button>
-            <a href="/contact" class="comic-btn contact-btn">Talk to Our E-Rate Team</a>
+          <div class="bottom-cta-panel">
+            <h3 class="bottom-cta-heading">WANT TO CAPTURE THIS FUNDING?</h3>
+            <p class="bottom-cta-text">A copy of this report has been sent to your email. A 30-minute walkthrough with our team will confirm exact numbers against your school's live EPC record.</p>
+            <a href="/contact" class="comic-btn">Talk to Our E-Rate Team</a>
           </div>
         </div>
       </div>
@@ -169,14 +170,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
     </div>
   </section>
-
-  <!-- Email Confirmation Toast -->
-  <div id="email-toast" class="email-toast" style="display:none;">
-    <div class="email-toast-inner">
-      <span class="email-toast-icon">✓</span>
-      <span class="email-toast-text">Report will be sent to <strong id="email-toast-addr"></strong></span>
-    </div>
-  </div>
 
   <!-- CTA -->
   <section class="comic-cta">
@@ -686,67 +679,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: rgba(255,255,255,0.85);
     margin: 0;
   }
-  .bottom-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    justify-content: center;
-  }
-  .email-btn {
+  .bottom-cta-panel {
     background: var(--white);
-    color: var(--navy);
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    margin-top: 0;
-    text-align: center;
-    border: var(--border-comic);
-  }
-  .email-btn:hover {
-    background: #f7f7fb;
-  }
-  .contact-btn {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    margin-top: 0;
-    text-align: center;
-  }
-
-  /* ---- EMAIL TOAST ---- */
-  .email-toast {
-    position: fixed;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(100px);
-    z-index: 1000;
-    transition: transform 0.3s ease;
-  }
-  .email-toast.show {
-    transform: translateX(-50%) translateY(0);
-  }
-  .email-toast-inner {
-    background: var(--navy);
-    color: var(--white);
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem;
-    padding: 0.75rem 1.5rem;
     border: var(--border-comic);
     box-shadow: var(--shadow-comic);
+    padding: 1.5rem;
+    text-align: center;
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    white-space: nowrap;
-  }
-  .email-toast-icon {
-    background: var(--green);
-    color: var(--white);
-    width: 24px;
-    height: 24px;
-    display: inline-flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    font-weight: 700;
+    align-items: center;
+  }
+  .bottom-cta-heading {
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem;
+  }
+  .bottom-cta-text {
+    font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
-    flex-shrink: 0;
+    color: #555;
+    line-height: 1.6;
+    margin: 0 0 1rem;
   }
 
   /* ---- DISCLAIMER ---- */
@@ -952,6 +908,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         });
 
         resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        fetch('/api/erate-lead', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: capturedName,
+            email: capturedEmail,
+            schoolName: lastAuditData?.schoolName || '',
+            auditData: lastAuditData,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        }).catch(() => {});
       } else {
         const err = await res.json().catch(() => ({} as any));
         showError(
@@ -971,50 +938,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
   });
 
-  document.getElementById('email-results-btn')?.addEventListener('click', async () => {
-    const btn = document.getElementById('email-results-btn') as HTMLButtonElement;
-    const toast = document.getElementById('email-toast') as HTMLElement;
-    const addrEl = document.getElementById('email-toast-addr') as HTMLElement;
-
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    btn.style.opacity = '0.7';
-
-    try {
-      const res = await fetch('/api/erate-lead', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: capturedName,
-          email: capturedEmail,
-          schoolName: lastAuditData?.schoolName || '',
-          auditData: lastAuditData,
-        }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      if (res.ok) {
-        addrEl.textContent = capturedEmail;
-        toast.style.display = 'block';
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => toast.classList.add('show'));
-        });
-        setTimeout(() => {
-          toast.classList.remove('show');
-          setTimeout(() => { toast.style.display = 'none'; }, 4000);
-        }, 4000);
-        btn.textContent = 'Report Sent!';
-        btn.style.opacity = '1';
-      } else {
-        btn.textContent = 'Email Me This Report';
-        btn.style.opacity = '1';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'Email Me This Report';
-      btn.style.opacity = '1';
-      btn.disabled = false;
-    }
-  });
 
   const observer = new IntersectionObserver(
     (entries) => {

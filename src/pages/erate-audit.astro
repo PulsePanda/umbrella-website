@@ -1,0 +1,1031 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="E-Rate Eligibility Audit | Umbrella Systems"
+  description="Search for your school and see your E-Rate discount rate, 5-year Category 2 budget, and estimated annual funding left on the table. Free, instant results."
+>
+  <!-- Hero -->
+  <section class="comic-hero">
+    <div class="comic-hero-halftone"></div>
+    <div class="comic-hero-inner">
+      <div class="comic-hero-text animate-in">
+        <h1 class="comic-h1">
+          IS YOUR SCHOOL LEAVING E-RATE <span class="highlight">MONEY</span> ON THE TABLE?
+        </h1>
+        <p class="comic-sub">
+          Enter your school name and get an instant E-Rate eligibility snapshot — your discount rate, 5-year Category 2 budget, and the estimated federal funding you may be missing.
+        </p>
+      </div>
+    </div>
+    <div class="comic-hero-clip"></div>
+  </section>
+
+  <!-- Search -->
+  <section class="search-section halftone-bg-light">
+    <div class="section-inner">
+      <div class="search-panel animate-in">
+        <div class="search-panel-header">RUN YOUR FREE E-RATE AUDIT</div>
+        <form id="audit-form" class="search-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="user-name" class="form-label">Your Name</label>
+              <input type="text" name="name" id="user-name" placeholder="First and last name" required minlength="2" maxlength="100" />
+            </div>
+            <div class="form-field">
+              <label for="user-email" class="form-label">Email Address</label>
+              <input type="email" name="email" id="user-email" placeholder="you@school.org" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="school-input" class="form-label">School Name</label>
+            <input type="text" name="school" id="school-input" placeholder="e.g. Twin Cities German Immersion School" required minlength="2" maxlength="200" autocomplete="off" />
+          </div>
+          <button type="submit" class="comic-btn search-btn">Run My Audit</button>
+        </form>
+        <p class="search-disclaimer">We search public USAC and MDE data. No login or payment required.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loading -->
+  <section id="audit-loading" class="loading-section" style="display:none;">
+    <div class="section-inner">
+      <div class="loading-panel">
+        <div class="loading-spinner"></div>
+        <p class="loading-status" id="loading-status">Looking up your school...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Error -->
+  <section id="audit-error" class="error-section" style="display:none;">
+    <div class="section-inner">
+      <div class="error-panel">
+        <p id="error-message"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results -->
+  <section id="audit-results" style="display:none;">
+
+    <!-- School Snapshot + C2 Budget combined row -->
+    <div class="results-top">
+      <div class="section-inner">
+        <div class="results-top-grid animate-in">
+          <!-- Snapshot -->
+          <div class="snapshot-info">
+            <h2 class="snapshot-school-name" id="r-school-name"></h2>
+            <p class="snapshot-location" id="r-location"></p>
+            <div class="snapshot-details">
+              <div class="snapshot-detail">
+                <span class="snapshot-detail-label">Enrollment</span>
+                <span class="snapshot-detail-value" id="r-enrollment"></span>
+              </div>
+              <div class="snapshot-detail">
+                <span class="snapshot-detail-label">Free/Reduced Lunch</span>
+                <span class="snapshot-detail-value" id="r-nslp"></span>
+              </div>
+              <div class="snapshot-detail">
+                <span class="snapshot-detail-label">Current ISP</span>
+                <span class="snapshot-detail-value" id="r-isp"></span>
+              </div>
+              <div class="snapshot-detail">
+                <span class="snapshot-detail-label">Form 470 Active</span>
+                <span class="snapshot-detail-value" id="r-form470"></span>
+              </div>
+            </div>
+          </div>
+          <!-- Discount -->
+          <div class="discount-card">
+            <span class="discount-value" id="r-discount"></span>
+            <span class="discount-label">E-Rate Discount Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C2 Budget -->
+    <div class="c2-section">
+      <div class="section-inner">
+        <div class="c2-card animate-in">
+          <h2 class="c2-title">YOUR 5-YEAR CATEGORY 2 BUDGET</h2>
+          <span class="c2-badge">FY2026 – FY2030</span>
+          <p class="c2-formula" id="r-c2-formula"></p>
+          <div class="c2-stats">
+            <div class="c2-stat">
+              <span class="c2-stat-value" id="r-c2-total"></span>
+              <span class="c2-stat-label">Total Budget</span>
+            </div>
+            <div class="c2-stat c2-stat-highlight">
+              <span class="c2-stat-value" id="r-c2-federal"></span>
+              <span class="c2-stat-label">E-Rate Pays <span class="c2-stat-note" id="r-c2-discount-note"></span></span>
+            </div>
+            <div class="c2-stat">
+              <span class="c2-stat-value" id="r-c2-school"></span>
+              <span class="c2-stat-label">Your Share</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diagnostic Flags -->
+    <div class="flags-section halftone-bg-light">
+      <div class="section-inner">
+        <h2 class="comic-h2 animate-in">DIAGNOSTIC REVIEW</h2>
+        <div class="flags-panel animate-in" data-delay="1" id="r-flags"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Line -->
+    <div class="bottom-section">
+      <div class="bottom-halftone"></div>
+      <div class="bottom-clip-top"></div>
+      <div class="section-inner bottom-inner">
+        <div class="bottom-grid animate-in">
+          <div class="bottom-exposure">
+            <span class="bottom-exposure-label">ESTIMATED ANNUAL EXPOSURE</span>
+            <span class="bottom-exposure-value" id="r-exposure"></span>
+            <p class="bottom-exposure-text" id="r-bottom-line"></p>
+          </div>
+          <div class="bottom-actions">
+            <button class="comic-btn email-btn" id="email-results-btn" type="button">Email Me This Report</button>
+            <a href="/contact" class="comic-btn contact-btn">Talk to Our E-Rate Team</a>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-clip-bottom"></div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer-section">
+      <div class="section-inner">
+        <p class="disclaimer-text">
+          This audit is built from publicly available USAC and MDE data. Enrollment, discount rates, and budget figures are estimates. A walkthrough with our team will confirm exact numbers against your school's live EPC record.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Confirmation Toast -->
+  <div id="email-toast" class="email-toast" style="display:none;">
+    <div class="email-toast-inner">
+      <span class="email-toast-icon">✓</span>
+      <span class="email-toast-text">Report will be sent to <strong id="email-toast-addr"></strong></span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="comic-cta">
+    <div class="comic-cta-halftone"></div>
+    <div class="section-inner comic-cta-inner">
+      <h2 class="comic-h2 white animate-in">
+        READY TO MAXIMIZE YOUR <span class="highlight">E-RATE</span> FUNDING?
+      </h2>
+      <a href="/contact" class="comic-btn animate-in" data-delay="1">Schedule a Conversation</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700&display=swap');
+
+  :root {
+    --navy: #1a1a2e;
+    --red: #ff1744;
+    --red-dark: #d50000;
+    --yellow: #ffd600;
+    --white: #ffffff;
+    --gray: #9e9e9e;
+    --green: #2e7d32;
+    --shadow-comic: 4px 4px 0px var(--navy);
+    --border-comic: 3px solid var(--navy);
+  }
+
+  .animate-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-in[data-delay="1"] { transition-delay: 0.15s; }
+  .animate-in[data-delay="2"] { transition-delay: 0.3s; }
+
+  .section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ---- HERO ---- */
+  .comic-hero {
+    position: relative;
+    background: var(--navy);
+    padding: 250px 0 7rem;
+    overflow: hidden;
+  }
+  .comic-hero-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 12px 12px;
+    pointer-events: none;
+  }
+  .comic-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .comic-hero-text {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  .comic-hero-clip {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--white);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+  .comic-h1 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1.25rem;
+  }
+  .highlight {
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 0 0.3em;
+    display: inline-block;
+    transform: rotate(-1deg);
+  }
+  .comic-sub {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .comic-h2 {
+    font-family: 'Bangers', cursive;
+    font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+    color: var(--navy);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .comic-h2.white { color: var(--white); }
+
+  /* ---- SEARCH FORM ---- */
+  .search-section {
+    padding: 3rem 0;
+    background: var(--white);
+    position: relative;
+  }
+  .halftone-bg-light::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(26,26,46,0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+    pointer-events: none;
+  }
+  .search-panel {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+  .search-panel-header {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Bangers', cursive;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    padding: 0.6rem 1.5rem;
+    text-align: center;
+  }
+  .search-form {
+    padding: 1.25rem 1.5rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  @media (max-width: 480px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .form-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--navy);
+  }
+  .search-form input {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.75rem;
+    border: 2px solid var(--navy);
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .search-form input:focus {
+    border-color: var(--red);
+  }
+  .search-btn {
+    margin-top: 0.25rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    width: 100%;
+  }
+  .search-disclaimer {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    color: var(--gray);
+    text-align: center;
+    padding: 0 1.5rem 0.75rem;
+    margin: 0;
+  }
+
+  /* ---- LOADING ---- */
+  .loading-section {
+    padding: 3rem 0;
+  }
+  .loading-panel {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+  }
+  .loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(26,26,46,0.15);
+    border-top-color: var(--red);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .loading-status {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  /* ---- ERROR ---- */
+  .error-section {
+    padding: 1.5rem 0;
+  }
+  .error-panel {
+    max-width: 560px;
+    margin: 0 auto;
+    background: #fff5f5;
+    border: var(--border-comic);
+    border-left: 6px solid var(--red);
+    box-shadow: var(--shadow-comic);
+    padding: 1rem 1.25rem;
+  }
+  .error-panel p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    margin: 0;
+  }
+
+  /* ---- RESULTS TOP (Snapshot + Discount) ---- */
+  .results-top {
+    padding: 2rem 0 0;
+    background: #f7f7fb;
+  }
+  .results-top-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .results-top-grid {
+      grid-template-columns: 1fr auto;
+      align-items: start;
+    }
+  }
+  .snapshot-info {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1.25rem;
+  }
+  .snapshot-school-name {
+    font-family: 'Bangers', cursive;
+    font-size: 1.5rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    margin: 0 0 0.15rem;
+    line-height: 1.2;
+  }
+  .snapshot-location {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin: 0 0 0.75rem;
+  }
+  .snapshot-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  .snapshot-detail-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--gray);
+  }
+  .snapshot-detail-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--navy);
+    display: block;
+  }
+  .discount-card {
+    background: var(--red);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 160px;
+  }
+  .discount-value {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: 2px;
+  }
+  .discount-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.15rem;
+  }
+
+  /* ---- C2 BUDGET ---- */
+  .c2-section {
+    padding: 2rem 0;
+    background: #f7f7fb;
+  }
+  .c2-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: 6px 6px 0 var(--navy);
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .c2-title {
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    color: var(--navy);
+    letter-spacing: 2px;
+    margin: 0 0 0.35rem;
+  }
+  .c2-badge {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--yellow);
+    font-family: 'Bangers', cursive;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    padding: 2px 8px;
+    margin-bottom: 0.5rem;
+  }
+  .c2-formula {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: rgba(26,26,46,0.7);
+    margin: 0 0 1rem;
+  }
+  .c2-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.75rem;
+  }
+  @media (max-width: 480px) {
+    .c2-stats { grid-template-columns: 1fr; }
+  }
+  .c2-stat {
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1rem 0.5rem;
+  }
+  .c2-stat-highlight {
+    background: var(--navy);
+  }
+  .c2-stat-highlight .c2-stat-value { color: var(--yellow); }
+  .c2-stat-highlight .c2-stat-label { color: rgba(255,255,255,0.8); }
+  .c2-stat-value {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.6rem;
+    color: var(--navy);
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .c2-stat-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    color: #555;
+  }
+  .c2-stat-note {
+    display: block;
+    font-size: 0.6rem;
+    opacity: 0.7;
+    margin-top: 1px;
+  }
+
+  /* ---- FLAGS ---- */
+  .flags-section {
+    padding: 2rem 0;
+    background: var(--white);
+    position: relative;
+  }
+  .flags-panel {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--white);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- BOTTOM LINE ---- */
+  .bottom-section {
+    position: relative;
+    background: var(--red);
+    padding: 4rem 0;
+    overflow: hidden;
+  }
+  .bottom-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 10px 10px;
+    pointer-events: none;
+  }
+  .bottom-clip-top {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+  .bottom-clip-bottom {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: var(--white);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+  }
+  .bottom-inner { position: relative; z-index: 2; }
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  @media (min-width: 640px) {
+    .bottom-grid { grid-template-columns: 1.3fr 1fr; }
+  }
+  .bottom-exposure {
+    background: var(--navy);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1.5rem;
+  }
+  .bottom-exposure-label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--yellow);
+    margin-bottom: 0.35rem;
+  }
+  .bottom-exposure-value {
+    display: block;
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .bottom-exposure-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+  }
+  .bottom-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    justify-content: center;
+  }
+  .email-btn {
+    background: var(--white);
+    color: var(--navy);
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    margin-top: 0;
+    text-align: center;
+    border: var(--border-comic);
+  }
+  .email-btn:hover {
+    background: #f7f7fb;
+  }
+  .contact-btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  /* ---- EMAIL TOAST ---- */
+  .email-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  .email-toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+  .email-toast-inner {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.75rem 1.5rem;
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    white-space: nowrap;
+  }
+  .email-toast-icon {
+    background: var(--green);
+    color: var(--white);
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* ---- DISCLAIMER ---- */
+  .disclaimer-section {
+    padding: 1.5rem 0;
+    background: var(--white);
+  }
+  .disclaimer-text {
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-style: italic;
+    color: var(--gray);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  /* ---- CTA ---- */
+  .comic-cta {
+    position: relative;
+    background: var(--navy);
+    padding: 4rem 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  .comic-cta-halftone {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 14px 14px;
+    pointer-events: none;
+  }
+  .comic-cta-inner { position: relative; z-index: 2; }
+  .comic-btn {
+    display: inline-block;
+    font-family: 'Bangers', cursive;
+    font-size: 1.35rem;
+    letter-spacing: 1.5px;
+    color: var(--navy);
+    background: var(--yellow);
+    border: var(--border-comic);
+    box-shadow: var(--shadow-comic);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .comic-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--navy);
+  }
+  .comic-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--navy);
+  }
+</style>
+
+<script>
+  const form = document.getElementById('audit-form') as HTMLFormElement;
+  const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+  const resultsSection = document.getElementById('audit-results') as HTMLElement;
+  const errorSection = document.getElementById('audit-error') as HTMLElement;
+  const errorMessage = document.getElementById('error-message') as HTMLElement;
+  const loadingSection = document.getElementById('audit-loading') as HTMLElement;
+  const loadingStatus = document.getElementById('loading-status') as HTMLElement;
+
+  let capturedName = '';
+  let capturedEmail = '';
+  let lastAuditData: any = null;
+
+  const loadingMessages = [
+    'Looking up your school...',
+    'Pulling E-Rate filing history...',
+    'Calculating discount rate...',
+    'Analyzing Category 2 budget...',
+    'Building your report...',
+  ];
+
+  function showError(msg: string) {
+    loadingSection.style.display = 'none';
+    errorMessage.textContent = msg;
+    errorSection.style.display = 'block';
+    errorSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function populateResults(data: any) {
+    (document.getElementById('r-school-name') as HTMLElement).textContent = data.schoolName;
+    (document.getElementById('r-location') as HTMLElement).textContent =
+      `${data.city}, ${data.state} · ${data.urbanRural}`;
+    (document.getElementById('r-enrollment') as HTMLElement).textContent = data.enrollmentFmt;
+    (document.getElementById('r-nslp') as HTMLElement).textContent = data.nslpPct;
+    (document.getElementById('r-isp') as HTMLElement).textContent = data.currentIsp || 'Unknown';
+
+    const f470 = document.getElementById('r-form470') as HTMLElement;
+    f470.textContent = data.form470Active ? 'Yes' : 'No';
+    f470.style.color = data.form470Active ? '#2e7d32' : '#ff1744';
+
+    (document.getElementById('r-discount') as HTMLElement).textContent = data.discountPct;
+    (document.getElementById('r-c2-formula') as HTMLElement).textContent = `Formula: ${data.c2Formula}`;
+    (document.getElementById('r-c2-total') as HTMLElement).textContent = data.c2Budget;
+    (document.getElementById('r-c2-federal') as HTMLElement).textContent = data.c2Federal;
+    (document.getElementById('r-c2-discount-note') as HTMLElement).textContent = `${data.discountC2Pct} discount`;
+    (document.getElementById('r-c2-school') as HTMLElement).textContent = data.c2School;
+
+    const flagsContainer = document.getElementById('r-flags') as HTMLElement;
+    flagsContainer.innerHTML = '';
+    data.flags.forEach((flag: any, i: number) => {
+      const row = document.createElement('div');
+      row.style.cssText =
+        'padding:1rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;' +
+        (i < data.flags.length - 1 ? 'border-bottom:1px dashed rgba(26,26,46,0.15);' : '');
+
+      const icon = document.createElement('span');
+      const colors: Record<string, string> = {
+        ok: 'background:#e8f5e9;color:#2e7d32;border-color:#2e7d32',
+        warn: 'background:#fff3e0;color:#e65100;border-color:#e65100',
+        unknown: 'background:#f5f5f5;color:#757575;border-color:#757575',
+      };
+      const symbols: Record<string, string> = { ok: '✓', warn: '!', unknown: '?' };
+      icon.style.cssText =
+        `display:inline-flex;align-items:center;justify-content:center;` +
+        `width:24px;height:24px;min-width:24px;border:2px solid;font-weight:700;` +
+        `font-size:0.8rem;flex-shrink:0;margin-top:1px;${colors[flag.status] || colors.unknown}`;
+      icon.textContent = symbols[flag.status] || '?';
+
+      const text = document.createElement('div');
+      const label = document.createElement('div');
+      label.style.cssText = "font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:600;color:#1a1a2e;margin-bottom:2px;";
+      label.textContent = flag.label;
+      const detail = document.createElement('div');
+      detail.style.cssText = "font-family:'Poppins',sans-serif;font-size:0.75rem;color:#666;line-height:1.5;";
+      detail.textContent = flag.detail;
+      text.appendChild(label);
+      text.appendChild(detail);
+
+      row.appendChild(icon);
+      row.appendChild(text);
+      flagsContainer.appendChild(row);
+    });
+
+    (document.getElementById('r-exposure') as HTMLElement).textContent = data.annualExposure;
+    (document.getElementById('r-bottom-line') as HTMLElement).textContent = data.bottomLineText;
+  }
+
+  async function runLoadingSequence(actualFetch: Promise<Response>): Promise<Response> {
+    loadingSection.style.display = 'block';
+    loadingSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    let msgIndex = 0;
+    const interval = setInterval(() => {
+      msgIndex++;
+      if (msgIndex < loadingMessages.length) {
+        loadingStatus.textContent = loadingMessages[msgIndex];
+      }
+    }, 600);
+
+    const [response] = await Promise.all([
+      actualFetch,
+      new Promise(resolve => setTimeout(resolve, 3000)),
+    ]);
+
+    clearInterval(interval);
+    loadingSection.style.display = 'none';
+    return response as Response;
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    resultsSection.style.display = 'none';
+    errorSection.style.display = 'none';
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Analyzing...';
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.cursor = 'not-allowed';
+
+    const formData = new FormData(form);
+    const schoolName = formData.get('school') as string;
+    capturedName = (formData.get('name') as string) || '';
+    capturedEmail = (formData.get('email') as string) || '';
+
+    try {
+      const fetchPromise = fetch('/api/erate-audit', {
+        method: 'POST',
+        body: JSON.stringify({ school: schoolName }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const res = await runLoadingSequence(fetchPromise);
+
+      if (res.ok) {
+        lastAuditData = await res.json();
+        populateResults(lastAuditData);
+        resultsSection.style.display = 'block';
+
+        resultsSection.querySelectorAll('.animate-in').forEach((el) => {
+          el.classList.remove('visible');
+          setTimeout(() => el.classList.add('visible'), 50);
+        });
+
+        resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        const err = await res.json().catch(() => ({} as any));
+        showError(
+          err.error === 'school_not_found'
+            ? "No school matching that name was found. Try the full official name (e.g., 'Twin Cities German Immersion School')."
+            : 'Something went wrong. Please try again or call us at (651) 409-4321.'
+        );
+      }
+    } catch {
+      loadingSection.style.display = 'none';
+      showError('Something went wrong. Please try again or call us at (651) 409-4321.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Run My Audit';
+      submitBtn.style.opacity = '1';
+      submitBtn.style.cursor = 'pointer';
+    }
+  });
+
+  document.getElementById('email-results-btn')?.addEventListener('click', async () => {
+    const btn = document.getElementById('email-results-btn') as HTMLButtonElement;
+    const toast = document.getElementById('email-toast') as HTMLElement;
+    const addrEl = document.getElementById('email-toast-addr') as HTMLElement;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+
+    try {
+      const res = await fetch('/api/erate-lead', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: capturedName,
+          email: capturedEmail,
+          schoolName: lastAuditData?.schoolName || '',
+          auditData: lastAuditData,
+        }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      if (res.ok) {
+        addrEl.textContent = capturedEmail;
+        toast.style.display = 'block';
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => toast.classList.add('show'));
+        });
+        setTimeout(() => {
+          toast.classList.remove('show');
+          setTimeout(() => { toast.style.display = 'none'; }, 4000);
+        }, 4000);
+        btn.textContent = 'Report Sent!';
+        btn.style.opacity = '1';
+      } else {
+        btn.textContent = 'Email Me This Report';
+        btn.style.opacity = '1';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Email Me This Report';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  document.querySelectorAll('.animate-in').forEach((el) => observer.observe(el));
+</script>
